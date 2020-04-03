@@ -33,7 +33,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    FieldService Application
+                    School Store Comming Soon
                 </div>
 
                

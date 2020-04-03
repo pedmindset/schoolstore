@@ -1,22 +1,43 @@
-@extends('layouts.admin')
-@section('title', 'Dasboard')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@push('page-header')
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-    <h1 class="text-2xl font-semibold text-gray-900">
-        Dashboard
-    </h1>
-  </div>
-  
-@endpush
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+        <!-- Scripts -->
+    
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
-@push('content')
+        <title>@yield('title') {{ config('app.name', 'School Store') }}</title>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
 
-<div class="max-w-7xl max-w mx-auto px-4 sm:px-6 md:px-8">
-    <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
-    </div>
-</div>
-      
-          
-   
-@endpush
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
+            <div class="content">
+                <div class="title m-b-md">
+                    School Store Comming Soon
+                </div>
+
+               
+            </div>
+        </div>
+    </body>
+</html>
