@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "brick/math": "^0.8.14",
         "cloudstudio/resource-generator": "^1.5",
         "digitalcloud/nova-resource-notes": "^1.4",
         "fideloper/proxy": "^4.2",
@@ -16,16 +17,17 @@
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.1",
         "guzzlehttp/guzzle": "^6.3",
         "laracasts/generators": "^1.1",
-        "laravel/airlock": "^1.0",
         "laravel/framework": "^7.0",
         "laravel/horizon": "^4.0",
         "laravel/nova": "~3.0.1",
+        "laravel/sanctum": "^2.1",
         "laravel/socialite": "^4.3",
         "laravel/telescope": "^3.1",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "maatwebsite/excel": "^3.1",
         "maatwebsite/laravel-nova-excel": "^1.2",
+        "prettus/l5-repository": "^2.6",
         "spatie/laravel-medialibrary": "^7.19",
         "spatie/laravel-permission": "^3.11",
         "spatie/laravel-schemaless-attributes": "^1.7",
@@ -34,14 +36,41 @@
     "require-dev": {
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.9.1",
+        "krlove/code-generator": "^1.0",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^4.1",
+        "pedmindset/eloquent-model-generator": "1.3.4",
         "phpunit/phpunit": "^8.5"
     },
     "repositories": [
         {
             "type": "composer",
             "url": "https://nova.laravel.com"
+        },
+        {
+              "type": "package",
+              "package": {
+                "name": "pedmindset/eloquent-model-generator", 
+                "version": "1.3.4",
+                "source": {
+                  "url": "https://github.com/pedmindset/eloquent-model-generator",
+                  "type": "git",
+                  "reference": "origin/master"
+                },
+                "extra": {
+                    "laravel": {
+                        "providers": [
+                            "Krlove\\EloquentModelGenerator\\Provider\\GeneratorServiceProvider"
+                        ]
+                    }
+                },
+                "autoload": {
+                    "psr-4": {
+                        "Krlove\\EloquentModelGenerator\\": "src/"
+                    }
+                }
+              }
+            
         }
     ],
     "config": {

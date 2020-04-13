@@ -1,14 +1,20 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
-class User extends Authenticatable
+/**
+ * Class User.
+ *
+ * @package namespace App\Models;
+ */
+class User extends Authenticatable  implements Transformable
 {
-    use Notifiable;
+    use Notifiable, TransformableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +42,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function customer()
+    {
+        return $this->hasOne('App\Models\Customer');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile()
+    {
+        return $this->hasOne('App\Models\Profile');
+    }
 }
