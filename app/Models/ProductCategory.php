@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
+use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * @property integer $id
@@ -14,8 +17,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property Product[] $products
  */
-class ProductCategory extends Model
+class ProductCategory extends Model implements HasMedia
 {
+    use InteractsWithMedia;
+
     /**
      * The "type" of the auto-incrementing ID.
      * 
@@ -27,6 +32,24 @@ class ProductCategory extends Model
      * @var array
      */
     protected $fillable = ['name', 'descirption', 'featured', 'promo', 'created_at', 'updated_at'];
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('cover');
+        $this->addMediaCollection('featured');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        // $this->addMediaConversion('thumb')
+        //     ->width(100)
+        //     ->height(100)->performOnCollections('profile');
+
+        $this->addMediaConversion('cover')
+            ->width(672)
+            ->height(310)
+            ->performOnCollections('cover');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

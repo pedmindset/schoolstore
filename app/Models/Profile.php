@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * @property integer $id
@@ -28,9 +31,10 @@ use Prettus\Repository\Traits\TransformableTrait;
  * @property string $deleted_at
  * @property User $user
  */
-class Profile extends Model implements Transformable
+class Profile extends Model implements Transformable, HasMedia
 {
-    use TransformableTrait;
+
+    use InteractsWithMedia, TransformableTrait;
 
     /**
      * The "type" of the auto-incrementing ID.
@@ -43,6 +47,29 @@ class Profile extends Model implements Transformable
      * @var array
      */
     protected $fillable = ['user_id', 'name', 'phone', 'phone2', 'email', 'address', 'address2', 'date_of_birth', 'level', 'postcode', 'city', 'region', 'country', 'lng', 'lat', 'created_at', 'updated_at', 'deleted_at'];
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('profile');
+        $this->addMediaCollection('attachments');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        // $this->addMediaConversion('thumb')
+        //     ->width(100)
+        //     ->height(100)->performOnCollections('profile');
+
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)
+            ->performOnCollections('profile');
+
+        $this->addMediaConversion('big')
+            ->width(300)
+            ->height(300)
+            ->performOnCollections('profile');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

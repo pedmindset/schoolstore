@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * @property integer $id
@@ -22,8 +25,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property User $user
  * @property Driver $driver
  */
-class Driver extends Model
+class Driver extends Model implements HasMedia
 {
+    use InteractsWithMedia;
     /**
      * The "type" of the auto-incrementing ID.
      * 
@@ -35,6 +39,29 @@ class Driver extends Model
      * @var array
      */
     protected $fillable = ['user_id', 'vehicle_id', 'name', 'phone', 'phone2', 'address', 'address2', 'email', 'date_of_birth', 'lng', 'lat', 'created_at', 'updated_at'];
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('profile');
+        $this->addMediaCollection('attachments');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        // $this->addMediaConversion('thumb')
+        //     ->width(100)
+        //     ->height(100)->performOnCollections('profile');
+
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)
+            ->performOnCollections('profile');
+
+        $this->addMediaConversion('big')
+            ->width(300)
+            ->height(300)
+            ->performOnCollections('profile');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

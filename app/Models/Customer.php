@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * @property integer $id
@@ -34,8 +37,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property Transaction[] $transactions
  * @property Wishlist[] $wishlists
  */
-class Customer extends Model
+class Customer extends Model implements HasMedia
 {
+
+    use InteractsWithMedia;
+
     /**
      * The "type" of the auto-incrementing ID.
      * 
@@ -47,6 +53,30 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = ['user_id', 'school_id', 'name', 'phone', 'phone2', 'email', 'address', 'address2', 'date_of_birth', 'level', 'postcode', 'city', 'region', 'country', 'lng', 'lat', 'created_at', 'updated_at', 'deleted_at'];
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('profile');
+        $this->addMediaCollection('attachments');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        // $this->addMediaConversion('thumb')
+        //     ->width(100)
+        //     ->height(100)->performOnCollections('profile');
+
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)
+            ->performOnCollections('profile');
+
+        $this->addMediaConversion('big')
+            ->width(300)
+            ->height(300)
+            ->performOnCollections('profile');
+    }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
