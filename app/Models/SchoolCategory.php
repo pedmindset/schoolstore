@@ -3,23 +3,36 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class SchoolCategory.
- *
- * @package namespace App\Models;
+ * @property integer $id
+ * @property string $name
+ * @property string $duration
+ * @property string $start_date
+ * @property string $end_date
+ * @property string $created_at
+ * @property string $updated_at
+ * @property School[] $schools
  */
-class SchoolCategory extends Model implements Transformable
+class SchoolCategory extends Model
 {
-    use TransformableTrait;
+    /**
+     * The "type" of the auto-incrementing ID.
+     * 
+     * @var string
+     */
+    protected $keyType = 'integer';
 
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'duration', 'start_date', 'end_date', 'created_at', 'updated_at'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function schools()
+    {
+        return $this->hasMany('App\Models\School');
+    }
 }

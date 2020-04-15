@@ -20,7 +20,7 @@ class CreateProductCategoriesTable extends Migration
             $table->string('promo')->nullable();
             $table->timestamps();
         });
-    }
+    } 
 
     /**
      * Reverse the migrations.

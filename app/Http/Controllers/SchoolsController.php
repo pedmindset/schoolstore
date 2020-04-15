@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Requests\SchoolCreateRequest;
 use App\Http\Requests\SchoolUpdateRequest;
 use App\Repositories\SchoolRepositoryEloquent as SchoolRepository;
@@ -39,7 +38,7 @@ class SchoolsController extends Controller
      */
     public function index()
     {
-        // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+         // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria')) ; 
         $schools = $this->repository->all();
 
         if (request()->wantsJson()) {

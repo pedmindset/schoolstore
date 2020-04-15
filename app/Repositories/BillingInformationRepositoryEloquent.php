@@ -6,7 +6,6 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\BillingInformationRepository;
 use App\Models\BillingInformation;
-use App\Validators\BillingInformationValidator;
 
 /**
  * Class BillingInformationRepositoryEloquent.

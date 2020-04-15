@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\UserRepositoryEloquent as UserRepository;
@@ -39,7 +38,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+         // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria')) ; 
         $users = $this->repository->all();
 
         if (request()->wantsJson()) {
@@ -59,7 +58,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
+     * @throws \Exception
      */
     public function store(UserCreateRequest $request)
     {
@@ -133,7 +132,7 @@ class UsersController extends Controller
      *
      * @return Response
      *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
+     * @throws \Exception
      */
     public function update(UserUpdateRequest $request, $id)
     {

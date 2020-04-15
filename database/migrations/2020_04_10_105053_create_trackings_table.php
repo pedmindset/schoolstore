@@ -14,12 +14,7 @@ class CreateTrackingsTable extends Migration
     {
         Schema::create('trackings', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('customer_id')->nullable();
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->unsignedBigInteger('driver_id')->nullable();
-            $table->foreign('driver_id')->references('id')->on('drivers');
-            $table->unsignedBigInteger('profile_id')->nullable();
-            $table->foreign('profile_id')->references('id')->on('profiles');
+            $table->nullableMorphs('trackable');
             $table->string('address')->nullable();
             $table->decimal('lng', 10, 5)->nullable();
             $table->decimal('lat', 10, 5)->nullable();

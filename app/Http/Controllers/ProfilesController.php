@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Requests\ProfileCreateRequest;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Repositories\ProfileRepositoryEloquent as ProfileRepository;
@@ -39,7 +38,7 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-        // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+         // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria')) ; 
         $profiles = $this->repository->all();
 
         if (request()->wantsJson()) {

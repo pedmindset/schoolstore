@@ -35,4 +35,12 @@ class Vehicle extends Model
         return $this->hasOne('App\Models\Driver');
     }
 
+    /**
+     * Get all of the post's comments.
+     */
+    public function trackings()
+    {
+        return $this->morphMany('App\Model\Tracking', 'trackable');
+    }
+
 }

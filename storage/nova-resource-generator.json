@@ -7,7 +7,7 @@
     },
     "namespace": {
         "name": "Namespace",
-        "value": "App",
+        "value": "App\\Models",
         "type": "String",
         "help": "Default namespace for models ( Do not end with / )"
     },

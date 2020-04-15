@@ -24,7 +24,7 @@ class CreateTransactionsTable extends Migration
             $table->string('type')->nullable();
             $table->timestamps();
         });
-    }
+    } 
 
     /**
      * Reverse the migrations.

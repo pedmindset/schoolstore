@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Requests\BillingInformationCreateRequest;
 use App\Http\Requests\BillingInformationUpdateRequest;
 use App\Repositories\BillingInformationRepositoryEloquent as BillingInformationRepository;
@@ -39,7 +38,7 @@ class BillingInformationsController extends Controller
      */
     public function index()
     {
-        // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+         // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria')) ; 
         $billingInformations = $this->repository->all();
 
         if (request()->wantsJson()) {

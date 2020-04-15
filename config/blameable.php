@@ -6,6 +6,6 @@ return [
         'updatedByAttribute' => 'updated_by',
     ],
     'models' => [
-        'user' => \App\User::class
+        'user' => \App\Models\User::class
     ]
 ];

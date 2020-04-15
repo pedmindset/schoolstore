@@ -6,7 +6,6 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\SchoolCategoryRepository;
 use App\Models\SchoolCategory;
-use App\Validators\SchoolCategoryValidator;
 
 /**
  * Class SchoolCategoryRepositoryEloquent.

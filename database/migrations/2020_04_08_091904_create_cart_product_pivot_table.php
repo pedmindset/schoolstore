@@ -17,7 +17,7 @@ class CreateCartProductPivotTable extends Migration
             $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
             $table->unsignedBigInteger('product_id')->unsigned()->index();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->primary(['product_id', 'cart_id']);
+            $table->primary(['cart_id','product_id']);
         });
     }
 

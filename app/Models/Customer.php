@@ -30,9 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Account[] $accounts
  * @property BillingInformation[] $billingInformations
  * @property Cart[] $carts
- * @property CustomerDefault[] $customerDefaults
  * @property Order[] $orders
- * @property Tracking[] $trackings
  * @property Transaction[] $transactions
  * @property Wishlist[] $wishlists
  */
@@ -93,25 +91,9 @@ class Customer extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function customerDefaults()
-    {
-        return $this->hasMany('App\Models\CustomerDefault');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function orders()
     {
         return $this->hasMany('App\Models\Order');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function trackings()
-    {
-        return $this->hasMany('App\Models\Tracking');
     }
 
     /**
@@ -129,4 +111,22 @@ class Customer extends Model
     {
         return $this->hasMany('App\Models\Wishlist');
     }
+
+     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function customer_defaults()
+    {
+        return $this->hasMany('App\Models\CustomerDefault');
+    }
+
+     /**
+     * Get all of the post's comments.
+     */
+    public function trackings()
+    {
+        return $this->morphMany('App\Model\Tracking', 'trackable');
+    }
+
+
 }

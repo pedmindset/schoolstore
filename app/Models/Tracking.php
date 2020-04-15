@@ -26,26 +26,11 @@ class Tracking extends Model
     protected $fillable = ['customer_id', 'driver_id', 'profile_id', 'address', 'lng', 'lat', 'created_at', 'updated_at'];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
-    public function customer()
+    public function trackable()
     {
-        return $this->belongsTo('App\Models\Customer');
+        return $this->morphTo();
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function driver()
-    {
-        return $this->belongsTo('App\Models\Driver');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function profile()
-    {
-        return $this->belongsTo('App\Models\Profile');
-    }
 }

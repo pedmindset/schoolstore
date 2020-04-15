@@ -56,7 +56,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function cards()
     {
         return [
-            new Help,
+            // new Help,
         ];
     }
 
@@ -77,7 +77,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
+            new \Cloudstudio\ResourceGenerator\ResourceGenerator(),
+        ];
     }
 
     /**

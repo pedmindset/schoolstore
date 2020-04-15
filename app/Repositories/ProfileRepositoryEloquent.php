@@ -6,7 +6,6 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Repositories\ProfileRepository;
 use App\Models\Profile;
-use App\Validators\ProfileValidator;
 
 /**
  * Class ProfileRepositoryEloquent.

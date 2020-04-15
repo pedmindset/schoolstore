@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Requests\CustomerCreateRequest;
 use App\Http\Requests\CustomerUpdateRequest;
 use App\Repositories\CustomerRepositoryEloquent as CustomerRepository;
@@ -40,7 +39,7 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
+         // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria')) ; 
         $customers = $this->repository->all();
 
         if (request()->wantsJson()) {
@@ -133,7 +132,7 @@ class CustomersController extends Controller
      *
      * @return Response
      *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
+     * @throws \Exception
      */
     public function update(CustomerUpdateRequest $request, $id)
     {
