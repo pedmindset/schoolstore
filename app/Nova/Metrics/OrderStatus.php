@@ -16,8 +16,7 @@ class OrderStatus extends Partition
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->sum($request, Order::class, 'amount','status')
-                    ->currency('GH₵');
+        return $this->sum($request, Order::class, 'amount','status');
     }
 
     /**
