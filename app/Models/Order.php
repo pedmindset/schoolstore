@@ -44,4 +44,13 @@ class Order extends Model
     {
         return $this->belongsToMany('App\Models\Product');
     }
+
+    /**
+     * Get all of the customers dsicount
+     */
+    public function discounts()
+    {
+        return $this->morphMany('App\Model\Discount', 'discountable');
+    }
+
 }

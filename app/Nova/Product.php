@@ -2,14 +2,16 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\MorphMany;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 
 class Product extends Resource
@@ -68,26 +70,75 @@ class Product extends Resource
     public function fields(Request $request)
     {
         return [
-                ID::make( __('Id'),  'id')        
-                ->rules('required')
-                ->sortable(),
+            Images::make('Featured', 'featured') // second parameter is the media collection name
+            ->conversionOnDetailView('thumb') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            ->rules('required'), 
 
-                BelongsTo::make('ProductCategory')
-                ->searchable()
-                ->sortable(),
-                Text::make( __('Name'),  'name')
-                ->rules('required')
-                ->sortable(),
-                Currency::make( __('Price'),  'price')
-                ->sortable(),
-                Number::make( __('Quantity'),  'quantity')
-                ->sortable(),
-                Textarea::make( __('Description'),  'description')
-                ->sortable(),
-                Text::make( __('Code'),  'code')
-                ->sortable(),
-                Text::make( __('Barcode'),  'barcode')
-                ->sortable(),
+            Images::make('Cover', 'cover') // second parameter is the media collection name
+            ->conversionOnDetailView('thumb') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            ->rules('required') 
+            ->croppingConfigs(['minHeight' => 310, 'minWidth' => 672])
+            ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
+            ->hideFromIndex(),
+
+            Images::make('Pictures', 'pictures') // second parameter is the media collection name
+            ->conversionOnDetailView('thumb') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            ->fullSize() // full size column
+            ->rules('required')
+            ->hideFromIndex(),
+            
+            ID::make( __('Id'),  'id')        
+            ->rules('required')
+            ->sortable(),
+
+            BelongsTo::make('ProductCategory')
+            ->searchable()
+            ->sortable(),
+
+            Text::make( __('Name'),  'name')
+            ->rules('required')
+            ->sortable(),
+
+            Currency::make( __('Price'),  'price')
+            ->sortable(),
+
+            Number::make( __('Quantity'),  'quantity')
+            ->sortable(),
+
+            Textarea::make( __('Description'),  'description')
+            ->sortable(),
+
+            Text::make( __('Code'),  'code')
+            ->sortable(),
+
+            Text::make( __('Barcode'),  'barcode')
+            ->sortable(),
+
+            MorphMany::make('Discounts'),
+            
+            BelongsToManyField::make('Orders', 'Orders', 'App\Nova\Order'),
+
+            BelongsToMany::make('Order'),
+
+            BelongsToManyField::make('Collections', 'Collections', 'App\Nova\Collection'),
+
+            BelongsToMany::make('Collections'),
+
+            BelongsToManyField::make('Carts', 'Carts', 'App\Nova\Cart'),
+
+            BelongsToMany::make('Carts'),
+
+            BelongsToManyField::make('Wishlists', 'Wishlists', 'App\Nova\Wishlist'),
+
+            BelongsToMany::make('Wishlist'),
+
+           
         ];
     }
 

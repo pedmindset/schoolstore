@@ -2,14 +2,17 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Text;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Country;
+use Josrom\MapAddress\MapAddress;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 
 class Profile extends Resource
@@ -46,7 +49,7 @@ class Profile extends Resource
      */
     public static function label()
     {
-        return __('Profiles');
+        return __('Staffs');
     }
 
     /**
@@ -56,7 +59,7 @@ class Profile extends Resource
     */
     public static function singularLabel()
     {
-        return __('Profile');
+        return __('Staff');
     }
 
     /**
@@ -68,75 +71,87 @@ class Profile extends Resource
     public function fields(Request $request)
     {
         return [
-                ID::make( __('Id'),  'id')
-                ->rules('required')
-                ->sortable(),
+            Images::make('Profile Picture', 'profile') // second parameter is the media collection name
+            ->conversionOnDetailView('big') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            , 
 
-                BelongsTo::make('User')
+            Files::make('Supporting Documents', 'attachments')
+            ->hideFromIndex(), 
 
-                ->searchable()
-                ->sortable(),
+            ID::make( __('Id'),  'id')
+            ->rules('required')
+            ->sortable(),
 
-                Text::make( __('Name'),  'name')
-                ->rules('required')
-                ->sortable(),
+            BelongsTo::make('User')
 
-                Text::make( __('Phone'),  'phone')
-                ->sortable(),
+            ->searchable()
+            ->sortable(),
 
-                Text::make( __('Phone2'),  'phone2')
-                ->hideFromIndex()
-                ->sortable(),
+            Text::make( __('Name'),  'name')
+            ->rules('required')
+            ->sortable(),
 
-                Text::make( __('Email'),  'email')
-                ->sortable(),
+            Text::make( __('Phone'),  'phone')
+            ->sortable(),
 
-                Text::make( __('Address'),  'address')
-                ->sortable(),
+            Text::make( __('Phone2'),  'phone2')
+            ->hideFromIndex()
+            ->sortable(),
 
-                Text::make( __('Address2'),  'address2')
-                ->hideFromIndex()
-                ->sortable(),
+            Text::make( __('Email'),  'email')
+            ->sortable(),
 
-                Date::make( __('Date Of Birth'),  'date_of_birth')
-                ->hideFromIndex()
-                ->sortable(),
+            Text::make( __('Address'),  'address')
+            ->sortable(),
 
-                Text::make( __('Level'),  'level')
-                ->sortable(),
+            Text::make( __('Address2'),  'address2')
+            ->hideFromIndex()
+            ->sortable(),
 
-                Text::make( __('Postcode'),  'postcode')
-                ->hideFromIndex()
-                ->sortable(),
+            Date::make( __('Date Of Birth'),  'date_of_birth')
+            ->hideFromIndex()
+            ->sortable(),
 
-                Place::make( __('City'),  'city')
-                ->sortable()
-                ->countries([
-                        'GH',
-                    ])
-                ->onlyCities(),
+            Text::make( __('Level'),  'level')
+            ->sortable(),
 
-                Text::make( __('Region'),  'region')
-                ->hideFromIndex()
-                ->sortable()
-                ->countries([
-                        'GH',
-                    ])
-                ->onlyCities(),
+            Text::make( __('Postcode'),  'postcode')
+            ->hideFromIndex()
+            ->sortable(),
 
-                Country::make( __('Country'),  'country')
-                ->hideFromIndex()
-                ->sortable(),
+            Place::make( __('City'),  'city')
+            ->sortable()
+            ->countries([
+                    'GH',
+                ])
+            ->onlyCities(),
 
-                Text::make( __('Lng'),  'lng')
-                ->hideFromIndex()
-                ->sortable(),
+            Text::make( __('Region'),  'region')
+            ->hideFromIndex()
+            ->sortable(),
 
-                Text::make( __('Lat'),  'lat')
-                ->hideFromIndex()
-                ->sortable(),
+            Country::make( __('Country'),  'country')
+            ->hideFromIndex()
+            ->sortable(),
 
-            ];
+            // Text::make( __('Lng'),  'lng')
+            // ->hideFromIndex()
+            // ->sortable(),
+
+            // Text::make( __('Lat'),  'lat')
+            // ->hideFromIndex()
+            // ->sortable(),
+
+
+            MapAddress::make('Location')
+            ->initLocation(5.57, -0.17)
+            ->setLatitudeField('lat')
+            ->setLongitudeField('lng')
+            ->zoom(12),
+
+        ];
     }
 
     /**

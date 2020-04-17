@@ -43,16 +43,24 @@ class Product extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('cover');
-        $this->addMediaCollection('featured');
+        $this->addMediaCollection('cover')->singleFile();
+        $this->addMediaCollection('featured')->singleFile();
         $this->addMediaCollection('pictures');
     }
 
     public function registerMediaConversions(Media $media = null): void
     {
-        // $this->addMediaConversion('thumb')
-        //     ->width(100)
-        //     ->height(100)->performOnCollections('profile');
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)->performOnCollections('featured');
+
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)->performOnCollections('pictures');
+            
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)->performOnCollections('cover');
 
         $this->addMediaConversion('cover')
             ->width(672)
@@ -99,4 +107,13 @@ class Product extends Model implements HasMedia
     {
         return $this->belongsToMany('App\Models\Wishlist');
     }
+
+    /**
+     * Get all of the customers dsicount
+     */
+    public function discounts()
+    {
+        return $this->morphMany('App\Model\Discount', 'discountable');
+    }
+
 }

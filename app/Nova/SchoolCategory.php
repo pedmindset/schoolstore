@@ -2,10 +2,11 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\DateTime;
 
 
@@ -65,6 +66,7 @@ class SchoolCategory extends Resource
     public function fields(Request $request)
     {
         return [
+            
             ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable(),
@@ -82,6 +84,8 @@ class SchoolCategory extends Resource
 
             DateTime::make( __('End Date'),  'end_date')
             ->sortable(),
+
+            HasMany::make('Schools'),
 
         ];
     }

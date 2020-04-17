@@ -2,19 +2,25 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Text;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Place;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\Country;
+use Laravel\Nova\Fields\HasMany;
+use Josrom\MapAddress\MapAddress;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\MorphMany;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 
 class Customer extends Resource
 {
-    public static $group = "Shop";
+    public static $group = "Management";
 
     /**
      * The model the resource corresponds to.
@@ -68,6 +74,15 @@ class Customer extends Resource
     public function fields(Request $request)
     {
         return [
+            Images::make('Profile Picture', 'profile') // second parameter is the media collection name
+            ->conversionOnDetailView('big') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            , 
+
+            Files::make('Supporting Documents', 'attachments')
+            ->hideFromIndex(), 
+
             ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable(),
@@ -120,6 +135,7 @@ class Customer extends Resource
                     'GH',
                 ])
             ->onlyCities(),
+            
             Text::make( __('Region'),  'region')
             ->hideFromIndex()
             ->sortable(),
@@ -128,14 +144,37 @@ class Customer extends Resource
             ->hideFromIndex()
             ->sortable(),
 
-            Text::make( __('Lng'),  'lng')
-            ->hideFromIndex()
-            ->sortable(),
+            // Text::make( __('Lng'),  'lng')
+            // ->hideFromIndex()
+            // ->sortable(),
 
-            Text::make( __('Lat'),  'lat')
-            ->hideFromIndex()
-            ->sortable(),
+            // Text::make( __('Lat'),  'lat')
+            // ->hideFromIndex()
+            // ->sortable(),
 
+            MapAddress::make('Location')
+            ->initLocation(5.57, -0.17)
+            ->setLatitudeField('lat')
+            ->setLongitudeField('lng')
+            ->zoom(12),
+
+            MorphMany::make('Discounts'),
+
+            HasOne::make('Accounts'),
+
+            HasMany::make('CustomerDefaults'),
+
+            HasOne::make('Billing Information', 'billingInformation'),
+
+            HasMany::make('Orders'),
+
+            HasMany::make('Transactions'),
+
+            HasMany::make('Carts'),
+
+            HasMany::make('Wishlists'),
+
+            MorphMany::make('Trackings'),
         ];
     }
 

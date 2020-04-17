@@ -35,15 +35,15 @@ class Vehicle extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('profile');
+        $this->addMediaCollection('profile')->singleFile();
         $this->addMediaCollection('attachments');
     }
 
     public function registerMediaConversions(Media $media = null): void
     {
-        // $this->addMediaConversion('thumb')
-        //     ->width(100)
-        //     ->height(100)->performOnCollections('profile');
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)->performOnCollections('profile');
 
         $this->addMediaConversion('thumb')
             ->width(100)
@@ -70,7 +70,7 @@ class Vehicle extends Model implements HasMedia
     }
 
     /**
-     * Get all of the post's comments.
+     * Get all of the tracking's comments.
      */
     public function trackings()
     {

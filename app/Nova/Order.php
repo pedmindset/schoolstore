@@ -2,13 +2,15 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\BelongsTo;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
+use Benjacho\BelongsToManyField\BelongsToManyField;
 
 
 class Order extends Resource
@@ -76,7 +78,7 @@ class Order extends Resource
                 ->sortable(),
 
                 Currency::make( __('Amount'),  'amount')
-                ->sortable(),
+                ->sortable()->onlyOnIndex(),
 
                 Select::make( __('Status'),  'status')
                 ->sortable()
@@ -97,6 +99,12 @@ class Order extends Resource
                 Text::make( __('Lat'),  'lat')
                 ->onlyOnDetail()
                 ->sortable(),
+                
+                MorphMany::make('Discounts'),
+
+                BelongsToManyField::make('Products', 'Products', 'App\Nova\Product'),
+
+                BelongsToMany::make('Products')
             ];
     }
 

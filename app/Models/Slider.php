@@ -27,29 +27,25 @@ class Slider extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('slider');
+        $this->addMediaCollection('slider')->singleFile();
     }
 
     public function registerMediaConversions(Media $media = null): void
     {
-        // $this->addMediaConversion('thumb')
-        //     ->width(100)
-        //     ->height(100)->performOnCollections('profile');
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)->performOnCollections('slider');
 
         $this->addMediaConversion('homeslider')
             ->width(1920)
             ->height(718)
             ->performOnCollections('slider');
 
-        $this->addMediaConversion('featured')
-            ->width(673)
-            ->height(310)
-            ->performOnCollections('profile');
 
         $this->addMediaConversion('section')
             ->width(1920)
             ->height(1080)
-            ->performOnCollections('profile');
+            ->performOnCollections('slider');
     }
 
 }

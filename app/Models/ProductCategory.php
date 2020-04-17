@@ -35,15 +35,19 @@ class ProductCategory extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('cover');
-        $this->addMediaCollection('featured');
+        $this->addMediaCollection('cover')->singleFile();
+        $this->addMediaCollection('featured')->singleFile();
     }
 
     public function registerMediaConversions(Media $media = null): void
     {
-        // $this->addMediaConversion('thumb')
-        //     ->width(100)
-        //     ->height(100)->performOnCollections('profile');
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)->performOnCollections('featured');
+
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)->performOnCollections('cover');
 
         $this->addMediaConversion('cover')
             ->width(672)

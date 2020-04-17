@@ -81,15 +81,26 @@ class Tracking extends Resource
             ->hideFromIndex()
             ->sortable(),
 
-            Text::make( __('Lng'),  'lng')
-            ->hideFromIndex()
-            ->sortable(),
+            // Text::make( __('Lng'),  'lng')
+            // ->hideFromIndex()
+            // ->sortable(),
 
-            Text::make( __('Lat'),  'lat')
-            ->hideFromIndex()
-            ->sortable(),
+            // Text::make( __('Lat'),  'lat')
+            // ->hideFromIndex()
+            // ->sortable(),
 
-            ];
+            MapAddress::make('Location')
+            ->initLocation(5.57, -0.17)
+            ->setLatitudeField('lat')
+            ->setLongitudeField('lng')
+            ->zoom(12),
+
+            MorphTo::make('Trackable')->types([
+                Customer::class,
+                Driver::class,
+                Vehicle::class,
+            ])
+        ];
     }
 
     /**

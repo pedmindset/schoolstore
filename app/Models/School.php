@@ -47,25 +47,20 @@ class School extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('profile');
+        $this->addMediaCollection('logo')->singleFile();
         $this->addMediaCollection('attachments');
     }
 
     public function registerMediaConversions(Media $media = null): void
     {
-        // $this->addMediaConversion('thumb')
-        //     ->width(100)
-        //     ->height(100)->performOnCollections('profile');
-
         $this->addMediaConversion('thumb')
             ->width(100)
-            ->height(100)
-            ->performOnCollections('profile');
+            ->height(100)->performOnCollections('logo');
 
         $this->addMediaConversion('big')
             ->width(300)
             ->height(300)
-            ->performOnCollections('profile');
+            ->performOnCollections('logo');
     }
 
     /**

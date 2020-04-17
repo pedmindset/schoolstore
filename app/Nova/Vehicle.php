@@ -2,11 +2,13 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\MorphMany;
 
 
 class Vehicle extends Resource
@@ -80,6 +82,11 @@ class Vehicle extends Resource
             
             Textarea::make( __('Remarks'),  'remarks')
             ->sortable(),
+
+            HasOne::make('Driver'),
+
+            MorphMany::make('Trackings')
+
         ];
     }
 

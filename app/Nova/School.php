@@ -2,14 +2,18 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\BelongsTo;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Place;
-use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Country;
+use Laravel\Nova\Fields\HasMany;
+use Josrom\MapAddress\MapAddress;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 
 class School extends Resource
@@ -68,11 +72,19 @@ class School extends Resource
     public function fields(Request $request)
     {
         return [
+            Images::make('Logo', 'logo') // second parameter is the media collection name
+            ->conversionOnDetailView('big') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            , 
+
+            Files::make('Documents', 'attachments')
+            ->hideFromIndex(), 
+
             ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable(),
             BelongsTo::make('SchoolCategory')
-
             ->searchable()
             ->sortable(),
             Text::make( __('Name'),  'name')
@@ -104,12 +116,12 @@ class School extends Resource
             Country::make( __('Country'),  'country')
             ->hideFromIndex()
             ->sortable(),
-            Text::make( __('Lng'),  'lng')
-            ->hideFromIndex()
-            ->sortable(),
-            Text::make( __('Lat'),  'lat')
-            ->hideFromIndex()
-            ->sortable(),
+            // Text::make( __('Lng'),  'lng')
+            // ->hideFromIndex()
+            // ->sortable(),
+            // Text::make( __('Lat'),  'lat')
+            // ->hideFromIndex()
+            // ->sortable(),
             Number::make( __('Duration(Months)'),  'duration')
             ->sortable()
             ->step(1),
@@ -119,6 +131,14 @@ class School extends Resource
             DateTime::make( __('End Date'),  'end_date')
             ->hideFromIndex()
             ->sortable(),
+            
+            MapAddress::make('Location')
+            ->initLocation(5.57, -0.17)
+            ->setLatitudeField('lat')
+            ->setLongitudeField('lng')
+            ->zoom(12),
+
+            HasMany::make('Customers'),
         ];
     }
 

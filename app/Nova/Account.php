@@ -101,6 +101,8 @@ class Account extends Resource
             Currency::make( __('Default Amount'),  'default_amount')
             ->sortable(),
 
+           
+
         ];
     }
 

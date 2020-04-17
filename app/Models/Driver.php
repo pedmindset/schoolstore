@@ -42,7 +42,7 @@ class Driver extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('profile');
+        $this->addMediaCollection('profile')->singleFile();
         $this->addMediaCollection('attachments');
     }
 
@@ -80,7 +80,7 @@ class Driver extends Model implements HasMedia
     }
 
     /**
-     * Get all of the post's comments.
+     * Get all of the location tracking.
      */
     public function trackings()
     {

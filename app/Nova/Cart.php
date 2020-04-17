@@ -2,11 +2,14 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
+use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\BelongsTo;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
+use Benjacho\BelongsToManyField\BelongsToManyField;
 
 
 class Cart extends Resource
@@ -75,6 +78,10 @@ class Cart extends Resource
 
                 Text::make( __('Name'),  'name')
                 ->sortable(),
+
+                BelongsToManyField::make('Products', 'Products', 'App\Nova\Product'),
+
+                BelongsToMany::make('Products')
 
             ];
     }

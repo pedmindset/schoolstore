@@ -2,12 +2,16 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Text;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Text;
+use Josrom\MapAddress\MapAddress;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\MorphMany;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 
 class Driver extends Resource
@@ -66,6 +70,15 @@ class Driver extends Resource
     public function fields(Request $request)
     {
         return [
+            Images::make('Profile Picture', 'profile') // second parameter is the media collection name
+            ->conversionOnDetailView('big') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            , 
+
+            Files::make('Supporting Documents', 'attachments')
+            ->hideFromIndex(),
+
             ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable(),
@@ -106,13 +119,23 @@ class Driver extends Resource
             Date::make( __('Date Of Birth'),  'date_of_birth')
             ->sortable(),
 
-            Text::make( __('Lng'),  'lng')
-            ->hideFromIndex()
-            ->sortable(),
+            // Text::make( __('Lng'),  'lng')
+            // ->hideFromIndex()
+            // ->sortable(),
 
-            Text::make( __('Lat'),  'lat')
-            ->hideFromIndex()
-            ->sortable(),
+            // Text::make( __('Lat'),  'lat')
+            // ->hideFromIndex()
+            // ->sortable(),
+
+
+            MapAddress::make('Location')
+            ->initLocation(5.57, -0.17)
+            ->setLatitudeField('lat')
+            ->setLongitudeField('lng')
+            ->zoom(12),
+
+            MorphMany::make('Trackings')
+
 
         ];
     }

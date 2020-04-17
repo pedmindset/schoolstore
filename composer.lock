@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e566cfb81b0fc3588c0e297c2fa229f2",
+    "content-hash": "89efb9a9afd9749f2a5f4afe4989aa47",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,6 +57,49 @@
                 "stack"
             ],
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "benjacho/belongs-to-many-field",
+            "version": "1.5.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Benjacho/belongs-to-many-field-nova.git",
+                "reference": "a17e506b3e1bb546670039d49f1d934096ecefee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Benjacho/belongs-to-many-field-nova/zipball/a17e506b3e1bb546670039d49f1d934096ecefee",
+                "reference": "a17e506b3e1bb546670039d49f1d934096ecefee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Benjacho\\BelongsToManyField\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Benjacho\\BelongsToManyField\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "belongsToMany nova representation in field.",
+            "keywords": [
+                "Many to Many Field",
+                "belongsToMany",
+                "laravel",
+                "nova"
+            ],
+            "time": "2020-04-03T01:33:05+00:00"
         },
         {
             "name": "brick/math",
@@ -1409,6 +1452,113 @@
                 "watermark"
             ],
             "time": "2019-11-02T09:15:47+00:00"
+        },
+        {
+            "name": "kabbouchi/nova-impersonate",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KABBOUCHI/nova-impersonate.git",
+                "reference": "9f25dcd830326f8b0455d7ab8954bc64b3cadf8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KABBOUCHI/nova-impersonate/zipball/9f25dcd830326f8b0455d7ab8954bc64b3cadf8d",
+                "reference": "9f25dcd830326f8b0455d7ab8954bc64b3cadf8d",
+                "shasum": ""
+            },
+            "require": {
+                "lab404/laravel-impersonate": "^1.4.1",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "KABBOUCHI\\NovaImpersonate\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KABBOUCHI\\NovaImpersonate\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field allows you to authenticate as your users.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2020-04-06T17:26:47+00:00"
+        },
+        {
+            "name": "lab404/laravel-impersonate",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/404labfr/laravel-impersonate.git",
+                "reference": "ac3a2bfe056f35b4201b1a06db04af2b3a2905d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/404labfr/laravel-impersonate/zipball/ac3a2bfe056f35b4201b1a06db04af2b3a2905d6",
+                "reference": "ac3a2bfe056f35b4201b1a06db04af2b3a2905d6",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^6.0 | ^7.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "orchestra/database": "^4.0 | ^5.0",
+                "orchestra/testbench": "^4.0 | ^5.0",
+                "phpunit/phpunit": "^7.5 | ^8.0",
+                "symfony/http-foundation": ">=4.3.8",
+                "symfony/mime": ">=4.3.8"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Lab404\\Impersonate\\ImpersonateServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Lab404\\Impersonate\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "404lab",
+                    "email": "web@404lab.fr"
+                }
+            ],
+            "description": "Laravel Impersonate is a plugin that allows to you to authenticate as your users.",
+            "keywords": [
+                "auth",
+                "impersonate",
+                "impersonation",
+                "laravel",
+                "laravel-package",
+                "laravel-plugin",
+                "package",
+                "plugin",
+                "user"
+            ],
+            "time": "2020-03-03T15:57:38+00:00"
         },
         {
             "name": "laracasts/generators",
@@ -3053,6 +3203,69 @@
                 "serialize"
             ],
             "time": "2019-11-29T22:36:02+00:00"
+        },
+        {
+            "name": "orlyapps/nova-belongsto-depend",
+            "version": "2.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orlyapps/nova-belongsto-depend.git",
+                "reference": "9e6e8a4769813c593d50115968321e0d1f220ebb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orlyapps/nova-belongsto-depend/zipball/9e6e8a4769813c593d50115968321e0d1f220ebb",
+                "reference": "9e6e8a4769813c593d50115968321e0d1f220ebb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Orlyapps\\NovaBelongsToDepend\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orlyapps\\NovaBelongsToDepend\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova field.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2020-02-10T12:18:31+00:00"
+        },
+        {
+            "name": "pedmindset/nova-map-address",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pedmindset/nova-map-address",
+                "reference": "origin/master"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Josrom\\MapAddress\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Josrom\\MapAddress\\": "src/"
+                }
+            }
         },
         {
             "name": "phpoffice/phpspreadsheet",

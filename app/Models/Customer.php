@@ -56,7 +56,7 @@ class Customer extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('profile');
+        $this->addMediaCollection('profile')->singleFile();
         $this->addMediaCollection('attachments');
     }
 
@@ -97,17 +97,17 @@ class Customer extends Model implements HasMedia
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function accounts()
+    public function account()
     {
-        return $this->hasMany('App\Models\Account');
+        return $this->hasOne('App\Models\Account');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function billingInformations()
+    public function billingInformation()
     {
-        return $this->hasMany('App\Models\BillingInformation');
+        return $this->hasOne('App\Models\BillingInformation');
     }
 
     /**
@@ -151,11 +151,19 @@ class Customer extends Model implements HasMedia
     }
 
      /**
-     * Get all of the post's comments.
+     * Get all of the location tracking
      */
     public function trackings()
     {
         return $this->morphMany('App\Model\Tracking', 'trackable');
+    }
+
+    /**
+     * Get all of the customers dsicount
+     */
+    public function discounts()
+    {
+        return $this->morphMany('App\Model\Discount', 'discountable');
     }
 
 

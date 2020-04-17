@@ -2,12 +2,14 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Textarea;
+use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 
 class ProductCategory extends Resource
@@ -66,6 +68,21 @@ class ProductCategory extends Resource
     public function fields(Request $request)
     {
         return [
+            Images::make('Featured', 'featured') // second parameter is the media collection name
+            ->conversionOnDetailView('thumb') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            ->rules('required'), 
+
+            Images::make('Cover', 'cover') // second parameter is the media collection name
+            ->conversionOnDetailView('thumb') // conversion used on the model's view
+            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
+            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
+            ->rules('required') 
+            ->croppingConfigs(['minHeight' => 310, 'minWidth' => 672])
+            ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
+            ->hideFromIndex(),
+
             ID::make( __('Id'),  'id')        
             ->rules('required')
             ->sortable(),
@@ -89,7 +106,9 @@ class ProductCategory extends Resource
             ->options([
                 'yes' => 'yes',
                 'no' => 'no',
-            ]),                            
+            ]),  
+            
+            HasMany::make('Products')
         ];
     }
 

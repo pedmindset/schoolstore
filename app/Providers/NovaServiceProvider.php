@@ -57,6 +57,22 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             // new Help,
+            (new \App\Nova\Metrics\NewUsers)->width('1/4'),
+            (new \App\Nova\Metrics\NewSchools)->width('1/4'),
+            (new \App\Nova\Metrics\NewCustomers)->width('1/4'),
+            (new \App\Nova\Metrics\CustomersPerWeek)->width('1/4'),
+            (new \App\Nova\Metrics\NewOrders)->width('1/4'),
+            (new \App\Nova\Metrics\Orders)->width('1/4'),
+            (new \App\Nova\Metrics\OrderPerMonth)->width('1/4'),
+            (new \App\Nova\Metrics\WeeklyOrders)->width('1/4'),
+            (new \App\Nova\Metrics\OrderStatus)->width('1/4'),
+            (new \App\Nova\Metrics\NewCustomerDefaults)->width('1/4'),
+            (new \App\Nova\Metrics\CustomerDefaults)->width('1/4'),
+            (new \App\Nova\Metrics\NewProducts)->width('1/4'),
+            (new \App\Nova\Metrics\NewTransactions)->width('1/4'),
+            (new \App\Nova\Metrics\Transactions)->width('1/4'),
+            (new \App\Nova\Metrics\WeeklyTransactions)->width('1/4'),
+            (new \App\Nova\Metrics\TransactionsStatus)->width('1/4'),
         ];
     }
 

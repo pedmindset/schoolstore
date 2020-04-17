@@ -5,23 +5,21 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsToMany;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
-use Benjacho\BelongsToManyField\BelongsToManyField;
 
 
-class Collection extends Resource
+class Discount extends Resource
 {
-    public static $group = "Shop";
+    public static $group = "Management";
 
     /**
      * The model the resource corresponds to.
      *
      * @var  string
      */
-    public static $model = \App\Models\Collection::class;
+    public static $model = \App\Models\Discount::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -36,7 +34,7 @@ class Collection extends Resource
      * @var  array
      */
     public static $search = [
-        'id', 'name'
+        'id', 'name', 'code'
     ];
 
     /**
@@ -46,7 +44,7 @@ class Collection extends Resource
      */
     public static function label()
     {
-        return __('Collections');
+        return __('Discounts');
     }
 
     /**
@@ -56,7 +54,7 @@ class Collection extends Resource
     */
     public static function singularLabel()
     {
-        return __('Collection');
+        return __('Discount');
     }
 
     /**
@@ -68,29 +66,6 @@ class Collection extends Resource
     public function fields(Request $request)
     {
         return [
-            Images::make('Featured', 'featured') // second parameter is the media collection name
-            ->conversionOnDetailView('thumb') // conversion used on the model's view
-            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
-            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required'), 
-
-            Images::make('Cover', 'cover') // second parameter is the media collection name
-            ->conversionOnDetailView('thumb') // conversion used on the model's view
-            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
-            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required') 
-            ->croppingConfigs(['minHeight' => 310, 'minWidth' => 672])
-            ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
-            ->hideFromIndex(),
-
-            Images::make('Pictures', 'pictures') // second parameter is the media collection name
-            ->conversionOnDetailView('thumb') // conversion used on the model's view
-            ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
-            ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->fullSize() // full size column
-            ->rules('required')
-            ->hideFromIndex(),
-            
             ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable(),
@@ -99,12 +74,28 @@ class Collection extends Resource
             ->rules('required')
             ->sortable(),
 
-            Textarea::make( __('Description'),  'description')
+            Text::make( __('Description'),  'description')
             ->sortable(),
 
-            BelongsToManyField::make('Products', 'Products', 'App\Nova\Product'),
+            Text::make( __('Code'),  'code')
+            ->sortable(),
 
-            BelongsToMany::make('Products')
+            Text::make( __('Percentage'),  'percentage')
+            ->rules('required')
+            ->sortable(),
+
+            Text::make( __('Amount'),  'amount')
+            ->rules('required')
+            ->sortable(),
+
+            Number::make( __('Usage'),  'usage')
+            ->sortable(),
+
+            MorphTo::make('Discountable')->types([
+                Customer::class,
+                Product::class,
+                Order::class,
+            ])
 
         ];
     }

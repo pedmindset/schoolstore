@@ -70,11 +70,7 @@ class Receipt extends Resource
             ->sortable(),
 
             BelongsTo::make('Transaction')
-
             ->searchable()
-            ->sortable(),
-
-            Text::make( __('Uuid'),  'uuid')
             ->sortable(),
 
             Text::make( __('Code'),  'code')
