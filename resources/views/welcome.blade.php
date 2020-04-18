@@ -510,7 +510,7 @@
                 return Vue.swal.fire({
                   icon: 'error', 
                   title: 'Validation',
-                  text: 'enter a valid email',
+                  text: 'Enter a valid email',
                   toast: true,
                   timer: 5000,
                   position: 'top-end',
