@@ -16,7 +16,8 @@ class Orders extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->sum($request, Order::class, 'amount');
+        return $this->sum($request, Order::class, 'amount')
+                    ->currency('GH₵');
     }
 
     /**
