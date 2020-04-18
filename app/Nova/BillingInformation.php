@@ -72,7 +72,6 @@ class BillingInformation extends Resource
             ->sortable(),
 
             BelongsTo::make('Customer')
-
             ->searchable()
             ->sortable(),
 
@@ -87,7 +86,7 @@ class BillingInformation extends Resource
                 'bank' => 'bank',
             ]),
                         
-                        Text::make( __('Momo Number'),  'momo_number')
+            Text::make( __('Momo Number'),  'momo_number')
             ->sortable(),
 
             Text::make( __('Phone'),  'phone')
@@ -118,7 +117,7 @@ class BillingInformation extends Resource
                 ])
             ->onlyCities()
                 ,
-                            Text::make( __('Region'),  'region')
+            Text::make( __('Region'),  'region')
             ->hideFromIndex()
             ->sortable(),
 

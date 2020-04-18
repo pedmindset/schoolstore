@@ -116,7 +116,12 @@ class Order extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new \App\Nova\Metrics\Orders)->width('1/4'),
+            (new \App\Nova\Metrics\WeeklyOrders)->width('1/4'),
+            (new \App\Nova\Metrics\OrderPerMonth)->width('1/4'),
+            (new \App\Nova\Metrics\OrderStatus)->width('1/4'),
+        ];
     }
 
     /**

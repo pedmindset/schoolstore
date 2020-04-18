@@ -130,7 +130,12 @@ class Transaction extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new \App\Nova\Metrics\NewTransactions)->width('1/4'),
+            (new \App\Nova\Metrics\Transactions)->width('1/4'),
+            (new \App\Nova\Metrics\WeeklyTransactions)->width('1/4'),
+            (new \App\Nova\Metrics\TransactionsStatus)->width('1/4'),
+        ];
     }
 
     /**

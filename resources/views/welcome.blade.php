@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         {{-- <link href="{{ asset('css/bootstrapcss.css') }}" rel="stylesheet"> --}}
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}"></script>
         <title>Home</title>
     </head>
     <body>
@@ -38,7 +38,7 @@
                 </nav>
               </div>
         
-              <div x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+              <div x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute z-0 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
                 <div class="rounded-lg shadow-md">
                   <div class="rounded-lg bg-white shadow-xs overflow-hidden">
                     <div class="px-5 pt-4 flex items-center justify-between">
@@ -60,7 +60,7 @@
                       <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Store</a>
                     </div>
                     <div>
-                      <a href="../login" class="block w-full px-5 py-3 text-center font-medium text-red-600 bg-gray-50 hover:bg-gray-100 hover:text-red-700 focus:outline-none focus:bg-gray-100 focus:text-red-700 transition duration-150 ease-in-out">
+                      <a href="../login" class="block  w-full px-5 py-3 text-center font-medium text-red-600 bg-gray-50 hover:bg-gray-100 hover:text-red-700 focus:outline-none focus:bg-gray-100 focus:text-red-700 transition duration-150 ease-in-out">
                         Get Started
                       </a>
                     </div>
@@ -83,9 +83,9 @@
                     <p class="text-base font-medium text-gray-900">
                       Sign up to get notified when it’s ready.
                     </p>
-                    <form action="" method="POST" class="mt-3 sm:flex">
-                      <input aria-label="Email" class="appearance-none block w-full px-3 py-3 border border-gray-300 text-base leading-6 rounded-md placeholder-gray-500 shadow-sm focus:outline-none focus:placeholder-gray-400 focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:flex-1" placeholder="Enter your email" />
-                      <button  type="submit" class="mt-3 w-full px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-400 shadow-sm hover:bg-gray-700 focus:outline-none focus:shadow-outline active:bg-gray-900 transition duration-150 ease-in-out sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto">
+                    <form class="mt-3 sm:flex">
+                      <input v-model="email" required aria-label="Email" class="appearance-none block w-full px-3 py-3 border border-gray-300 text-base leading-6 rounded-md placeholder-gray-500 shadow-sm focus:outline-none focus:placeholder-gray-400 focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:flex-1" placeholder="Enter your email" />
+                      <button v-on:click.prevent="submitContact"   type="submit" class="mt-3 w-full px-6 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-400 shadow-sm hover:bg-gray-700 focus:outline-none focus:shadow-outline active:bg-gray-900 transition duration-150 ease-in-out sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto">
                         Notify me
                       </button>
                     </form>
@@ -98,7 +98,7 @@
               </div>
         
             
-                <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <svg class="hidden z-10 lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <polygon points="50,0 100,0 50,100 0,100" />
                 </svg>
                </div>
@@ -411,9 +411,9 @@
               </div>
               <div class="mt-8 lg:mt-0 lg:ml-8">
                 <form class="sm:flex">
-                  <input aria-label="Email address" type="email" required class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out sm:max-w-xs" placeholder="Enter your email" />
+                  <input v-model="email" aria-label="Email address" type="email" required class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out sm:max-w-xs" placeholder="Enter your email" />
                   <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                    <button class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-500 hover:bg-red-400 focus:outline-none focus:bg-red-400 transition duration-150 ease-in-out">
+                    <button  v-on:click.prevent="submitContact" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-red-500 hover:bg-red-400 focus:outline-none focus:bg-red-400 transition duration-150 ease-in-out">
                       Notify me
                     </button>
                   </div>
@@ -495,5 +495,60 @@
             </div>
           </div>
       </div>
+      <script>
+       const app = new Vue({
+          el: '#app',
+          data: function(){
+            return {
+                email: '',
+            }
+          },
+
+          methods: {
+            submitContact: function(){
+              var self = this;
+              const checkEmail = validateEmail.validate(this.email);              
+              if(checkEmail === false){
+                return Vue.swal.fire({
+                  icon: 'error', 
+                  title: 'Validation',
+                  text: 'enter email',
+                  toast: true,
+                  timer: 5000,
+                  position: 'top-end',
+                  timerProgressBar: true,
+                })
+              }
+
+              axios.post('../newsletters/signup', {
+                email: this.email
+              }).then(function(response){
+                  self.email = '';
+                  return Vue.swal.fire({
+                    icon: 'success', 
+                    title: 'Received',
+                    text: 'Contact Received',
+                    toast: true,
+                    timer: 10000,
+                    position: 'top-end',
+                    timerProgressBar: true,
+                  })
+              }).catch(function(error){
+                console.log(error.response);
+                
+                  return Vue.swal.fire({
+                    icon: error.response.data.status, 
+                    title: 'Try Again',
+                    text: error.response.data.message,
+                    toast: true,
+                    timer: 10000,
+                    position: 'top-end',
+                    timerProgressBar: true,
+                  })
+              })
+            },
+          }
+      })
+    </script>
     </body>
 </html>

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\Models\NewsletterContact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +21,33 @@ Route::get('/', function () {
 
 Route::get('/accounts', function () {
     return view('accounts.index');
+});
+
+Route::post('/newsletters/signup', function(Request $request){
+    if($request->filled('email')){
+        $newsletterContact = NewsletterContact::where('email', $request->email)->first();
+        if(!$newsletterContact){
+            NewsletterContact::create([
+                'email' => $request->email,
+                'ipAddress' => $request->ip()
+            ]);
+    
+            return response()->json([
+                'status' => 'success'
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'info',
+            'message' => 'We already have your contact',
+        ])->setStatusCode(401);
+     
+    };
+
+    return response()->json([
+        'status' => 'error',
+        'message' => 'Error Occured Try Again',
+    ])->setStatusCode(401);
 });
 
 Auth::routes();
