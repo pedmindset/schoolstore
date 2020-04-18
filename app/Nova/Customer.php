@@ -162,7 +162,9 @@ class Customer extends Resource
 
             HasOne::make('Accounts'),
 
-            HasMany::make('CustomerDefaults'),
+            HasMany::make('Customer Defaults', 'customer_defaults'),
+
+            HasMany::make('Transactions'),
 
             HasOne::make('Billing Information', 'billingInformation'),
 
@@ -186,7 +188,12 @@ class Customer extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new \App\Nova\Metrics\NewCustomers)->width('1/4'),
+            (new \App\Nova\Metrics\CustomersPerWeek)->width('1/4'),
+            (new \App\Nova\Metrics\NewCustomerDefaults)->width('1/4'),
+            (new \App\Nova\Metrics\CustomerDefaults)->width('1/4'),
+        ];
     }
 
     /**
@@ -198,10 +205,7 @@ class Customer extends Resource
     public function filters(Request $request)
     {
         return [
-            (new \App\Nova\Metrics\NewCustomers)->width('1/4'),
-            (new \App\Nova\Metrics\CustomersPerWeek)->width('1/4'),
-            (new \App\Nova\Metrics\NewCustomerDefaults)->width('1/4'),
-            (new \App\Nova\Metrics\CustomerDefaults)->width('1/4'),
+
         ];
     }
 
