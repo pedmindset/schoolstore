@@ -297,7 +297,7 @@
                       Door Step Delivery
                     </h4>
                     <p class="mt-3 text-lg leading-7 text-gray-500">
-                     As a company we take convienience very seriously that why we added door-step delivery to the package. Every Product is deliveredto your campuses, hostels or dormitories.
+                     As a company we take convienience very seriously that why we added door-step delivery to the package. Every Product is delivered to your campuses, hostels or dormitories.
                     </p>
           
                     <ul class="mt-10">
