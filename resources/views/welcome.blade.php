@@ -29,7 +29,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="hidden md:block md:ml-10 md:pr-4 lg:-mr-10">
+                  <div style="z-index: 400;" class="hidden md:block md:ml-10 md:pr-4 lg:-mr-10">
                     <a href="#how" class="font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">How it works</a>
                     <a href="#features" class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Features</a>
                     <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Shop</a>
@@ -38,7 +38,7 @@
                 </nav>
               </div>
         
-              <div x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute z-0 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+              <div  x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute z-0 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
                 <div class="rounded-lg shadow-md">
                   <div class="rounded-lg bg-white shadow-xs overflow-hidden">
                     <div class="px-5 pt-4 flex items-center justify-between">
@@ -60,7 +60,7 @@
                       <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out">Store</a>
                     </div>
                     <div>
-                      <a href="../login" class="block  w-full px-5 py-3 text-center font-medium text-red-600 bg-gray-50 hover:bg-gray-100 hover:text-red-700 focus:outline-none focus:bg-gray-100 focus:text-red-700 transition duration-150 ease-in-out">
+                      <a href="../login" class="block w-full mx-5 py-3 text-center font-medium text-red-600 bg-gray-50 hover:bg-gray-100 hover:text-red-700 focus:outline-none focus:bg-gray-100 focus:text-red-700 transition duration-150 ease-in-out">
                         Get Started
                       </a>
                     </div>
@@ -96,9 +96,7 @@
                   </div>
                 </div>
               </div>
-        
-            
-                <svg class="hidden z-10 lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <svg  class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
                     <polygon points="50,0 100,0 50,100 0,100" />
                 </svg>
                </div>
