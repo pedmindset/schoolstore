@@ -54,4 +54,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/shop', function(){
+    return view('commingsoon');
+})->name('shop');

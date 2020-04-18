@@ -54513,16 +54513,172 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/scss/admin.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/scss/admin.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/chartist.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/scss/chartist.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/datatables.scss":
+/*!*********************************************!*\
+  !*** ./resources/sass/scss/datatables.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/date-picker.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/scss/date-picker.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/dropzone.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/scss/dropzone.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/flag-icon.scss":
+/*!********************************************!*\
+  !*** ./resources/sass/scss/flag-icon.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/fontawesome.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/scss/fontawesome.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/landing_page.scss":
+/*!***********************************************!*\
+  !*** ./resources/sass/scss/landing_page.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/owlcarousel.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/scss/owlcarousel.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/prism.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/scss/prism.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/rating.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/scss/rating.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/slick-theme.scss":
+/*!**********************************************!*\
+  !*** ./resources/sass/scss/slick-theme.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/scss/slick.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/scss/slick.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/bootstrapcss.scss ./resources/sass/app.scss ***!
-  \************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/bootstrapcss.scss ./resources/sass/app.scss ./resources/sass/scss/admin.scss ./resources/sass/scss/chartist.scss ./resources/sass/scss/datatables.scss ./resources/sass/scss/date-picker.scss ./resources/sass/scss/dropzone.scss ./resources/sass/scss/flag-icon.scss ./resources/sass/scss/fontawesome.scss ./resources/sass/scss/landing_page.scss ./resources/sass/scss/owlcarousel.scss ./resources/sass/scss/prism.scss ./resources/sass/scss/rating.scss ./resources/sass/scss/slick-theme.scss ./resources/sass/scss/slick.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/bootstrapcss.scss */"./resources/sass/bootstrapcss.scss");
-module.exports = __webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/admin.scss */"./resources/sass/scss/admin.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/chartist.scss */"./resources/sass/scss/chartist.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/datatables.scss */"./resources/sass/scss/datatables.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/date-picker.scss */"./resources/sass/scss/date-picker.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/dropzone.scss */"./resources/sass/scss/dropzone.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/flag-icon.scss */"./resources/sass/scss/flag-icon.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/fontawesome.scss */"./resources/sass/scss/fontawesome.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/landing_page.scss */"./resources/sass/scss/landing_page.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/owlcarousel.scss */"./resources/sass/scss/owlcarousel.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/prism.scss */"./resources/sass/scss/prism.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/rating.scss */"./resources/sass/scss/rating.scss");
+__webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/slick-theme.scss */"./resources/sass/scss/slick-theme.scss");
+module.exports = __webpack_require__(/*! /Users/emmanuel/laravel/schoolstore/resources/sass/scss/slick.scss */"./resources/sass/scss/slick.scss");
 
 
 /***/ })

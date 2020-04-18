@@ -1,5 +1,18 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/bootstrapcss.css": "/css/bootstrapcss.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/css/admin.css": "/css/admin.css",
+    "/css/chartist.css": "/css/chartist.css",
+    "/css/datatables.css": "/css/datatables.css",
+    "/css/date-picker.css": "/css/date-picker.css",
+    "/css/dropzone.css": "/css/dropzone.css",
+    "/css/flag-icon.css": "/css/flag-icon.css",
+    "/css/fontawesome.css": "/css/fontawesome.css",
+    "/css/landing_page.css": "/css/landing_page.css",
+    "/css/owlcarousel.css": "/css/owlcarousel.css",
+    "/css/prism.css": "/css/prism.css",
+    "/css/rating.css": "/css/rating.css",
+    "/css/slick-theme.css": "/css/slick-theme.css",
+    "/css/slick.css": "/css/slick.css"
 }
