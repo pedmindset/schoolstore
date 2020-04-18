@@ -81,7 +81,7 @@
                   
                   <div class="mt-5 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                     <p class="text-base font-medium text-gray-900">
-                      Sign up to get notified when it’s ready.
+                      Sign up to get notified when we lunch.
                     </p>
                     <form class="mt-3 sm:flex">
                       <input v-model="email" required aria-label="Email" class="appearance-none block w-full px-3 py-3 border border-gray-300 text-base leading-6 rounded-md placeholder-gray-500 shadow-sm focus:outline-none focus:placeholder-gray-400 focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out sm:flex-1" placeholder="Enter your email" />
