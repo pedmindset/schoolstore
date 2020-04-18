@@ -57,6 +57,6 @@ class NewsLetterContacts extends Value
      */
     public function uriKey()
     {
-        return 'news-letter-contacts';
+        return 'newsletter-contacts';
     }
 }
