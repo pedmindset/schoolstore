@@ -227,7 +227,7 @@
                         <div class="ml-4">
                           <h5 class="text-lg leading-6 font-medium text-gray-900">Lowest Prices</h5>
                           <p class="mt-2 text-base leading-6 text-gray-500">
-                           Our Price are one of the lowest, you will save more buying from us.
+                           Our Price are one of the lowest in the market, you will save more buying from us.
                           </p>
                         </div>
                       </div>
@@ -297,7 +297,7 @@
                       Door Step Delivery
                     </h4>
                     <p class="mt-3 text-lg leading-7 text-gray-500">
-                     As a company we take convienience very seriously that why we added door-step delivery to the package. Every Product is delivered to your campuses, hostels or dormitories.
+                     As a company we take convienience very seriously that why we added door-step delivery. Every Product is delivered to your campuses, hostels or dormitories.
                     </p>
           
                     <ul class="mt-10">
