@@ -87,7 +87,9 @@ class NewsletterContact extends Resource
      */
     public function cards(Request $request)
     {
-        return [];
+        return [
+            (new \App\Nova\Metrics\NewsLetterContacts)->width('1/4'),
+        ];
     }
 
     /**

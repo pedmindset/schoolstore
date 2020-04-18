@@ -73,6 +73,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             (new \App\Nova\Metrics\Transactions)->width('1/4'),
             (new \App\Nova\Metrics\WeeklyTransactions)->width('1/4'),
             (new \App\Nova\Metrics\TransactionsStatus)->width('1/4'),
+            (new \App\Nova\Metrics\Contacts)->width('1/4'),
+            (new \App\Nova\Metrics\NewsLetterContacts)->width('1/4'),
         ];
     }
 
