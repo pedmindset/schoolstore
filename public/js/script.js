@@ -57,7 +57,7 @@
     });
 
 
-    /*=====================  
+    /*=====================
      02.Tap on Top
      ==========================*/
     $(window).on('scroll', function() {
@@ -1267,12 +1267,12 @@
     /*=====================
      20. Color Picker
      ==========================*/
-     var color_picker1 = document.getElementById("ColorPicker1").value;
-     document.getElementById("ColorPicker1").onchange = function() {
-         color_picker1 = this.value;
-         document.documentElement.style.setProperty('--theme-deafult', color_picker1);
-     };
-     
+    //  var color_picker1 = document.getElementById("ColorPicker1").value;
+    //  document.getElementById("ColorPicker1").onchange = function() {
+    //      color_picker1 = this.value;
+    //      document.documentElement.style.setProperty('--theme-deafult', color_picker1);
+    //  };
+
 
 })(jQuery);
 

@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="actions">
-                                                <button v-on:click.prevent="submitContact" type="submit" class="btn btn-solid focus:text-gray-700">notify me</button>
+                                                <button v-on:click.prevent="submitContact" type="submit" class="btn btn-solid hover:border-transparent hover:text-gray-700 focus:text-gray-700 ">notify me</button>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +87,7 @@
                         </div>
                         <div id="footer" class="mt-4 text-white">
                             <div id="owner">
-                                Are you the Admin? <a href="../nova">Log in here</a> 
+                                Are you the Admin? <a href="../nova">Log in here</a>
                             </div>
                         </div>
                     </div>
@@ -146,10 +146,10 @@
         methods: {
             submitContact: function(){
             var self = this;
-            const checkEmail = validateEmail.validate(this.email);              
+            const checkEmail = validateEmail.validate(this.email);
             if(checkEmail === false){
                 return Vue.swal.fire({
-                icon: 'error', 
+                icon: 'error',
                 title: 'Validation',
                 text: 'Enter a valid email',
                 toast: true,
@@ -164,7 +164,7 @@
             }).then(function(response){
                 self.email = '';
                 return Vue.swal.fire({
-                    icon: 'success', 
+                    icon: 'success',
                     title: 'Received',
                     text: 'Contact Received',
                     toast: true,
@@ -174,10 +174,10 @@
                 })
             }).catch(function(error){
                 console.log(error.response);
-                
+
                 return Vue.swal.fire({
-                    icon: error.response.data.status, 
-                    title: 'Try Again',
+                    icon: error.response.data.status,
+                    title: 'Error',
                     text: error.response.data.message,
                     toast: true,
                     timer: 10000,

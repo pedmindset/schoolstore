@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Models\NewsletterContact;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +32,7 @@ Route::post('/newsletters/signup', function(Request $request){
                 'email' => $request->email,
                 'ipAddress' => $request->ip()
             ]);
-    
+
             return response()->json([
                 'status' => 'success'
             ]);
@@ -41,7 +42,7 @@ Route::post('/newsletters/signup', function(Request $request){
             'status' => 'info',
             'message' => 'We already have your contact',
         ])->setStatusCode(401);
-     
+
     };
 
     return response()->json([
