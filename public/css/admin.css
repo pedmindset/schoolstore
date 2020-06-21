@@ -3982,9 +3982,8 @@ header.marketplace .top-header .header-dropdown li a i {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  -webkit-writing-mode: vertical-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
   transform: rotate(-180deg);
   top: 7px;
   right: 7px;
@@ -12197,7 +12196,6 @@ footer.footer-christmas .social-white i:hover {
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   transform: rotate(-180deg);
@@ -24448,10 +24446,6 @@ table tbody .border-bottom-warning td {
 .chat-box .people-list .search .form-control {
   background-color: #f1f4fb;
   border: 1px solid #f8f8f9;
-}
-
-.chat-box .people-list .search .form-control::-webkit-input-placeholder {
-  color: #aaaaaa;
 }
 
 .chat-box .people-list .search .form-control::-moz-placeholder {

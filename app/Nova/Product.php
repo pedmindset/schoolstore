@@ -11,7 +11,9 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
+use Benjacho\BelongsToManyField\BelongsToManyField;
 
 
 class Product extends Resource
@@ -74,13 +76,13 @@ class Product extends Resource
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required'), 
+            ->rules('required'),
 
             Images::make('Cover', 'cover') // second parameter is the media collection name
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required') 
+            ->rules('required')
             ->croppingConfigs(['minHeight' => 310, 'minWidth' => 672])
             ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
             ->hideFromIndex(),
@@ -92,8 +94,8 @@ class Product extends Resource
             ->fullSize() // full size column
             ->rules('required')
             ->hideFromIndex(),
-            
-            ID::make( __('Id'),  'id')        
+
+            ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable(),
 
@@ -121,7 +123,7 @@ class Product extends Resource
             ->sortable(),
 
             MorphMany::make('Discounts'),
-            
+
             BelongsToManyField::make('Orders', 'Orders', 'App\Nova\Order'),
 
             BelongsToMany::make('Order'),
@@ -138,7 +140,7 @@ class Product extends Resource
 
             BelongsToMany::make('Wishlist'),
 
-           
+
         ];
     }
 
