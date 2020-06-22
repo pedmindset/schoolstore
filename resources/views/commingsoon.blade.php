@@ -121,9 +121,6 @@
     <!-- Bootstrap Notification js-->
     <script src="../js/bootstrap-notify.min.js"></script>
 
-    <!-- Theme js-->
-    <script src="../js/script.js"></script>
-
     <script>
         function openSearch() {
             document.getElementById("search-overlay").style.display = "block";
@@ -145,46 +142,44 @@
 
         methods: {
             submitContact: function(){
-            var self = this;
-            const checkEmail = validateEmail.validate(this.email);
-            if(checkEmail === false){
-                return Vue.swal.fire({
-                icon: 'error',
-                title: 'Validation',
-                text: 'Enter a valid email',
-                toast: true,
-                timer: 5000,
-                position: 'top-end',
-                timerProgressBar: true,
-                })
-            }
-
-            axios.post('../newsletters/signup', {
-                email: this.email
-            }).then(function(response){
-                self.email = '';
-                return Vue.swal.fire({
-                    icon: 'success',
-                    title: 'Received',
-                    text: 'Contact Received',
+                var self = this;
+                const checkEmail = validateEmail.validate(this.email);
+                if(checkEmail === false){
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Validation',
+                    text: 'Enter a valid email',
                     toast: true,
-                    timer: 10000,
+                    timer: 5000,
                     position: 'top-end',
                     timerProgressBar: true,
-                })
-            }).catch(function(error){
-                console.log(error.response);
+                    })
+                }
 
-                return Vue.swal.fire({
-                    icon: error.response.data.status,
-                    title: 'Error',
-                    text: error.response.data.message,
-                    toast: true,
-                    timer: 10000,
-                    position: 'top-end',
-                    timerProgressBar: true,
+                axios.post('../newsletters/signup', {
+                    email: this.email
+                }).then(function(response){
+                    self.email = '';
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Received',
+                        text: 'Contact Received',
+                        toast: true,
+                        timer: 10000,
+                        position: 'top-end',
+                        timerProgressBar: true,
+                    });
+                }).catch(function(error){
+                    Swal.fire({
+                        icon: error.response.data.status,
+                        title: 'Error',
+                        text: error.response.data.message,
+                        toast: true,
+                        timer: 10000,
+                        position: 'top-end',
+                        timerProgressBar: true,
+                    });
                 })
-            })
             },
         }
     })

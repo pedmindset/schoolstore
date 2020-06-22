@@ -5,12 +5,13 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\MorphOne;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Benjacho\BelongsToManyField\BelongsToManyField;
-
 
 class Collection extends Resource
 {
@@ -72,13 +73,13 @@ class Collection extends Resource
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required'), 
+            ->rules('required'),
 
             Images::make('Cover', 'cover') // second parameter is the media collection name
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required') 
+            ->rules('required')
             ->croppingConfigs(['minHeight' => 310, 'minWidth' => 672])
             ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
             ->hideFromIndex(),
@@ -90,7 +91,7 @@ class Collection extends Resource
             ->fullSize() // full size column
             ->rules('required')
             ->hideFromIndex(),
-            
+
             ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable(),
@@ -101,6 +102,16 @@ class Collection extends Resource
 
             Textarea::make( __('Description'),  'description')
             ->sortable(),
+
+            MorphOne::make(__('Discount'), 'Discount'),
+
+            Select::make( __('Active'),  'active')
+            ->rules('required')
+            ->sortable()
+            ->options([
+                'yes' => 'Yes',
+                'no' => 'No',
+            ]),
 
             BelongsToManyField::make('Products', 'Products', 'App\Nova\Product'),
 

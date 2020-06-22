@@ -18,10 +18,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Collection extends Model implements HasMedia
 {
     use InteractsWithMedia;
-    
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -29,7 +29,7 @@ class Collection extends Model implements HasMedia
     /**
      * @var array
      */
-    protected $fillable = ['name', 'description', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'description', 'discount', 'active', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -51,7 +51,7 @@ class Collection extends Model implements HasMedia
         $this->addMediaConversion('thumb')
             ->width(100)
             ->height(100)->performOnCollections('pictures');
-            
+
         $this->addMediaConversion('thumb')
             ->width(100)
             ->height(100)->performOnCollections('cover');
@@ -65,5 +65,13 @@ class Collection extends Model implements HasMedia
     public function products()
     {
         return $this->belongsToMany('App\Models\Product');
+    }
+
+    /**
+     * Get all of the customers dsicount
+     */
+    public function discounts()
+    {
+        return $this->morphOne('App\Model\Discount', 'discountable');
     }
 }

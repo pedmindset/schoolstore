@@ -20,8 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/accounts', function () {
-    return view('accounts.index');
+Route::get('/shop/open', function () {
+    return view('shop.index');
 });
 
 Route::post('/newsletters/signup', function(Request $request){

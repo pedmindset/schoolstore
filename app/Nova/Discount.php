@@ -8,7 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\MorphTo;
 use Laravel\Nova\Fields\DateTime;
-
+use Laravel\Nova\Fields\Textarea;
 
 class Discount extends Resource
 {
@@ -74,7 +74,7 @@ class Discount extends Resource
             ->rules('required')
             ->sortable(),
 
-            Text::make( __('Description'),  'description')
+            Textarea::make( __('Description'),  'description')
             ->sortable(),
 
             Text::make( __('Code'),  'code')
@@ -85,7 +85,6 @@ class Discount extends Resource
             ->sortable(),
 
             Text::make( __('Amount'),  'amount')
-            ->rules('required')
             ->sortable(),
 
             Number::make( __('Usage'),  'usage')
@@ -95,6 +94,7 @@ class Discount extends Resource
                 Customer::class,
                 Product::class,
                 Order::class,
+                Collection::class,
             ])
 
         ];

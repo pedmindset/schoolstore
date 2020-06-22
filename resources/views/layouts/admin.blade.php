@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,12 +16,12 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Styles -->
-    <title>@yield('title') {{ config('app.name', 'Field Service') }}</title>
+    <title>@yield('title') {{ config('app.name', 'Shop') }}</title>
 </head>
 <body>
 <div class="h-screen flex overflow-hidden bg-gray-100" x-data="{ sidebarOpen: false }" @keydown.window.escape="sidebarOpen = false">
   <!-- Off-canvas menu for mobile -->
-  
+
   @include('partials.sidebar')
   <!-- replace your content here -->
   <div class="py-4">
