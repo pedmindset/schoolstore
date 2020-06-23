@@ -145,7 +145,7 @@
                 var self = this;
                 const checkEmail = validateEmail.validate(this.email);
                 if(checkEmail === false){
-                    Swal.fire({
+                   return Swal.fire({
                     icon: 'error',
                     title: 'Validation',
                     text: 'Enter a valid email',

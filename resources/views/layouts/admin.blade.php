@@ -5,33 +5,44 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SchoolShop">
+    <meta name="keywords" content="SchoolShop">
+    <meta name="author" content="SchoolShop">
+    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/favicon/1.png" type="image/x-icon">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Styles -->
+    @include('partials.styles')
 
     <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Styles -->
     <title>@yield('title') {{ config('app.name', 'Shop') }}</title>
 </head>
 <body>
-<div class="h-screen flex overflow-hidden bg-gray-100" x-data="{ sidebarOpen: false }" @keydown.window.escape="sidebarOpen = false">
-  <!-- Off-canvas menu for mobile -->
+    <!-- loader start -->
+    @include('partials.header.loader')
+    <!-- loader end -->
 
-  @include('partials.sidebar')
-  <!-- replace your content here -->
-  <div class="py-4">
-    @yield('content')
-</div>
- <!-- end replace -->
-  @include('partials.content')
+    <!-- header start -->
+    @include('partials.header.header')
+    <!-- header end -->
 
-</div>
+    <!-- Home slider -->
+    @include('partials.header.slider')
+    <!-- Home slider end -->
 
+    <!-- Content -->
+    @yeild('content')
+    <!-- Content -->
 
+    @include('partials.scripts')
 </body>
 </html>

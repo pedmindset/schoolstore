@@ -10,6 +10,8 @@ use Laravel\Nova\Fields\Text;
 
 class User extends Resource
 {
+    public static $group = "Management";
+
     /**
      * The model the resource corresponds to.
      *

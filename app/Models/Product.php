@@ -20,6 +20,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property string $created_at
  * @property string $updated_at
  * @property ProductCategory $productCategory
+ * @property Brand $brand
  * @property Cart[] $carts
  * @property Collection[] $collections
  * @property Order[] $orders
@@ -31,7 +32,7 @@ class Product extends Model implements HasMedia
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -39,7 +40,7 @@ class Product extends Model implements HasMedia
     /**
      * @var array
      */
-    protected $fillable = ['product_category_id', 'uuid', 'name', 'price', 'quantity', 'description', 'code', 'barcode', 'created_at', 'updated_at'];
+    protected $fillable = ['product_category_id', 'brand_id', 'uuid', 'name', 'price', 'quantity', 'description', 'code', 'barcode', 'created_at', 'updated_at'];
 
     public function registerMediaCollections(): void
     {
@@ -57,7 +58,7 @@ class Product extends Model implements HasMedia
         $this->addMediaConversion('thumb')
             ->width(100)
             ->height(100)->performOnCollections('pictures');
-            
+
         $this->addMediaConversion('thumb')
             ->width(100)
             ->height(100)->performOnCollections('cover');
@@ -74,6 +75,14 @@ class Product extends Model implements HasMedia
     public function productCategory()
     {
         return $this->belongsTo('App\Models\ProductCategory');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function brand()
+    {
+        return $this->belongsTo('App\Models\Brand');
     }
 
     /**

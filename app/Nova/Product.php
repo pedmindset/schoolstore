@@ -103,6 +103,10 @@ class Product extends Resource
             ->searchable()
             ->sortable(),
 
+            BelongsTo::make('Brand')
+            ->searchable()
+            ->sortable(),
+
             Text::make( __('Name'),  'name')
             ->rules('required')
             ->sortable(),
