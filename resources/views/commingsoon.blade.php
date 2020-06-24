@@ -8,8 +8,8 @@
     <meta name="description" content="multikart">
     <meta name="keywords" content="multikart">
     <meta name="author" content="multikart">
-    <link rel="icon" href="../images/favicon/1.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="../images/favicon/1.png" type="image/x-icon" />
+    <link rel="icon" href="asset('images/favicon/1.png') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="asset('images/favicon/1.png') }}" type="image/x-icon" />
     <title>SchoolStore</title>
 
     <!--Google font-->

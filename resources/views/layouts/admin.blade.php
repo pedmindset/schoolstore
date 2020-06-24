@@ -8,8 +8,8 @@
     <meta name="description" content="SchoolShop">
     <meta name="keywords" content="SchoolShop">
     <meta name="author" content="SchoolShop">
-    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/favicon/1.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/favicon/1.png') }}" type="image/x-icon">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -40,9 +40,10 @@
     <!-- Home slider end -->
 
     <!-- Content -->
-    @yeild('content')
+    @yield('content')
     <!-- Content -->
 
+    @include('partials.footer.footer')
     @include('partials.scripts')
 </body>
 </html>

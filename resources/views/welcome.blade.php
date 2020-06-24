@@ -37,7 +37,7 @@
                   </div>
                 </nav>
               </div>
-        
+
               <div  x-show="open" x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute z-0 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
                 <div class="rounded-lg shadow-md">
                   <div class="rounded-lg bg-white shadow-xs overflow-hidden">
@@ -67,18 +67,18 @@
                   </div>
                 </div>
               </div>
-        
+
               <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                 <div class="sm:text-center lg:text-left">
                   <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
-                    We are here for 
+                    We are here for
                     <br class="xl:hidden" />
                     <span class="text-red-600">Students</span>
                   </h2>
                   <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                     Get your needed food items delivered to your school at the right time without paying a dime
                   </p>
-                  
+
                   <div class="mt-5 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                     <p class="text-base font-medium text-gray-900">
                       Sign up to get notified when we lunch.
@@ -116,7 +116,7 @@
                   Four simple steps to start enjoying the benefits of SchoolStore
                 </p>
               </div>
-          
+
               <div class="mt-10">
                 <ul class="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
                   <li>
@@ -174,7 +174,7 @@
                       <div class="ml-4">
                         <h5 class="text-lg leading-6 font-medium text-gray-900">Deliever</h5>
                         <p class="mt-2 text-base leading-6 text-gray-500">
-                          Purchased food items and products are delivered right at your school, hostel or dormitory 
+                          Purchased food items and products are delivered right at your school, hostel or dormitory
                         </p>
                       </div>
                     </div>
@@ -194,17 +194,17 @@
                 </defs>
                 <rect width="404" height="784" fill="url(#svg-pattern-squares-1)" />
               </svg>
-          
+
               <div class="relative">
                 <h3 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
                  Treating our Student as VIPs
                 </h3>
                 <p class="mt-4 max-w-3xl mx-auto text-center text-xl leading-7 text-gray-500">
-                 SchoolStore 
+                 SchoolStore
 
                 </p>
               </div>
-          
+
               <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
                 <div class="relative">
                   <h4 class="text-2xl leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">
@@ -213,7 +213,7 @@
                   <p class="mt-3 text-lg leading-7 text-gray-500">
                     Our Catelogue is packed with all essential products from Milo, Rice, Tin Tomatoes etc. The best part is we deliver at your door step.
                   </p>
-          
+
                   <ul class="mt-10">
                     <li>
                       <div class="flex">
@@ -243,7 +243,7 @@
                           <h5 class="text-lg leading-6 font-medium text-gray-900">No Cash upfront</h5>
                           <p class="mt-2 text-base leading-6 text-gray-500">
                             Student do not require to have cash in their account to start shopping online, all you have to do is request for a credit facility and voila
-                            
+
                           </p>
                         </div>
                       </div>
@@ -260,14 +260,14 @@
                         <div class="ml-4">
                           <h5 class="text-lg leading-6 font-medium text-gray-900">Discount Offers</h5>
                           <p class="mt-2 text-base leading-6 text-gray-500">
-                            Enjoy weekly and monthly discount on product and items. 
+                            Enjoy weekly and monthly discount on product and items.
                           </p>
                         </div>
                       </div>
                     </li>
                   </ul>
                 </div>
-          
+
                 <div class="mt-10 -mx-4 relative lg:mt-0">
                   <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
                     <defs>
@@ -277,10 +277,10 @@
                     </defs>
                     <rect width="784" height="404" fill="url(#svg-pattern-squares-2)" />
                   </svg>
-                  <img class="relative mx-auto" width="490" src="/img/features/feature-example-1.png" alt="" />
+                  <img class="relative mx-auto" width="490" src="/img/features/feature-example-1.png') }}" alt="" />
                 </div>
               </div>
-          
+
               <svg class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12" width="404" height="784" fill="none" viewBox="0 0 404 784">
                 <defs>
                   <pattern id="svg-pattern-squares-3" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -289,7 +289,7 @@
                 </defs>
                 <rect width="404" height="784" fill="url(#svg-pattern-squares-3)" />
               </svg>
-          
+
               <div class="relative mt-12 sm:mt-16 lg:mt-24">
                 <div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
                   <div class="lg:col-start-2">
@@ -299,7 +299,7 @@
                     <p class="mt-3 text-lg leading-7 text-gray-500">
                      As a company we take convienience very seriously that why we added door-step delivery. Every Product is delivered to your campuses, hostels or dormitories.
                     </p>
-          
+
                     <ul class="mt-10">
                       <li>
                         <div class="flex">
@@ -335,7 +335,7 @@
                       </li>
                     </ul>
                   </div>
-          
+
                   <div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
                     <svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404">
                       <defs>
@@ -345,7 +345,7 @@
                       </defs>
                       <rect width="784" height="404" fill="url(#svg-pattern-squares-4)" />
                     </svg>
-                    <img class="relative mx-auto" width="490" src="/img/features/feature-example-2.png" alt="" />
+                    <img class="relative mx-auto" width="490" src="/img/features/feature-example-2.png') }}" alt="" />
                   </div>
                 </div>
               </div>
@@ -401,10 +401,10 @@
             <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center">
               <div class="lg:w-0 lg:flex-1">
                 <h2 class="text-3xl leading-9 font-extrabold tracking-tight text-white sm:text-4xl sm:leading-10">
-                  Sign up for to be informed when we lunch 
+                  Sign up for to be informed when we lunch
                 </h2>
                 <p class="mt-3 max-w-3xl text-lg leading-6 text-gray-300">
-                  Be the first to know when we lunch 
+                  Be the first to know when we lunch
                </p>
               </div>
               <div class="mt-8 lg:mt-0 lg:ml-8">
@@ -417,7 +417,7 @@
                   </div>
                 </form>
                 <p class="mt-3 text-sm leading-5 text-gray-300">
-                  We care about the protection of your data. 
+                  We care about the protection of your data.
                   {{-- <a href="#" class="text-white font-medium underline">
                     Privacy Policy.
                   </a> --}}
@@ -505,10 +505,10 @@
           methods: {
             submitContact: function(){
               var self = this;
-              const checkEmail = validateEmail.validate(this.email);              
+              const checkEmail = validateEmail.validate(this.email);
               if(checkEmail === false){
                 return Vue.swal.fire({
-                  icon: 'error', 
+                  icon: 'error',
                   title: 'Validation',
                   text: 'Enter a valid email',
                   toast: true,
@@ -523,7 +523,7 @@
               }).then(function(response){
                   self.email = '';
                   return Vue.swal.fire({
-                    icon: 'success', 
+                    icon: 'success',
                     title: 'Received',
                     text: 'Contact Received',
                     toast: true,
@@ -533,9 +533,9 @@
                   })
               }).catch(function(error){
                 console.log(error.response);
-                
+
                   return Vue.swal.fire({
-                    icon: error.response.data.status, 
+                    icon: error.response.data.status,
                     title: 'Try Again',
                     text: error.response.data.message,
                     toast: true,

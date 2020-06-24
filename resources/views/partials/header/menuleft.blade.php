@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="col-xl-4">
                                         <a href="#" class="mega-menu-banner"><img
-                                                src="../assets/images/mega-menu/fashion.jpg"
+                                                src="{{ asset('images/mega-menu/fashion.jpg') }}"
                                                 alt="" class="img-fluid blur-up lazyload"></a>
                                     </div>
                                 </div>
@@ -137,7 +137,7 @@
         </div>
     </div>
     <div class="brand-logo">
-        <a href="index.html"><img src="../assets/images/icon/logo.png"
+        <a href="index.html"><img src="{{ asset('images/icon/logo.png') }}"
                 class="img-fluid blur-up lazyload" alt=""></a>
     </div>
 </div>

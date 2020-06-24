@@ -6,7 +6,7 @@
                 <div class="col-lg-6">
                     <div class="header-contact">
                         <ul>
-                            <li>Welcome to Our store Multikart</li>
+                            <li>Welcome to Our store School Shop</li>
                             <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
                         </ul>
                     </div>
@@ -36,7 +36,7 @@
                                 </a>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html"><img src="../assets/images/icon/logo.png"
+                                <a href="index.html"><img src="{{ asset('images/icon/logo.png') }}"
                                         class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
@@ -74,17 +74,17 @@
                                 <div class="icon-nav d-none d-sm-block">
                                     <ul>
                                         <li class="onhover-div mobile-search">
-                                            <div><img src="../assets/images/icon/search.png" onclick="openSearch()"
+                                            <div><img src="{{ asset('images/icon/search.png') }}" onclick="openSearch()"
                                                     class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
                                                     onclick="openSearch()"></i></div>
                                         </li>
                                         <li class="onhover-div mobile-setting">
-                                            <div><img src="../assets/images/icon/setting.png"
+                                            <div><img src="{{ asset('images/icon/setting.png') }}"
                                                     class="img-fluid blur-up lazyload" alt=""> <i
                                                     class="ti-settings"></i></div>
                                         </li>
                                         <li class="onhover-div mobile-cart">
-                                            <div><img src="../assets/images/icon/cart.png"
+                                            <div><img src="{{ asset('images/icon/cart.png') }}"
                                                     class="img-fluid blur-up lazyload" alt=""> <i
                                                     class="ti-shopping-cart"></i></div>
                                         </li>
@@ -100,34 +100,50 @@
     <div class="home-slider">
         <div class="home"></div>
     </div>
-    <section class="collection-banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="ldr-bg">
-                        <div class="contain-banner">
-                            <div>
+    <div class="banner-padding absolute-banner pb-0 tools-service">
+        <div class="container absolute-bg">
+            <div class="service p-0 ">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 service-block">
+                        <div class="media">
+                            <svg></svg>
+                            <div class="media-body">
                                 <h4></h4>
-                                <h2></h2>
-                                <h6></h6>
+                                <p></p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="ldr-bg">
-                        <div class="contain-banner">
-                            <div>
+                    <div class="col-lg-3 col-sm-6 service-block">
+                        <div class="media">
+                            <svg></svg>
+                            <div class="media-body">
                                 <h4></h4>
-                                <h2></h2>
-                                <h6></h6>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 service-block">
+                        <div class="media">
+                            <svg></svg>
+                            <div class="media-body">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 service-block">
+                        <div class="media">
+                            <svg></svg>
+                            <div class="media-body">
+                                <h4></h4>
+                                <p></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <div class="container section-b-space">
         <div class="row section-t-space">
             <div class="col-lg-6 offset-lg-3">

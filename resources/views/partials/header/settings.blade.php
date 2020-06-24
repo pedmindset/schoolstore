@@ -2,7 +2,7 @@
     <div class="icon-nav">
         <ul>
             <li class="onhover-div mobile-search">
-                <div><img src="../assets/images/icon/search.png" onclick="openSearch()"
+                <div><img src="{{ asset('images/icon/search.png') }}" onclick="openSearch()"
                         class="img-fluid blur-up lazyload" alt=""> <i class="ti-search"
                         onclick="openSearch()"></i></div>
                 <div id="search-overlay" class="search-overlay">
@@ -29,7 +29,7 @@
                 </div>
             </li>
             <li class="onhover-div mobile-setting">
-                <div><img src="../assets/images/icon/setting.png"
+                <div><img src="{{ asset('images/icon/setting.png') }}"
                         class="img-fluid blur-up lazyload" alt=""> <i
                         class="ti-settings"></i></div>
                 <div class="show-div setting">
@@ -48,14 +48,14 @@
                 </div>
             </li>
             <li class="onhover-div mobile-cart">
-                <div><img src="../assets/images/icon/cart.png"
+                <div><img src="{{ asset('images/icon/cart.png') }}"
                         class="img-fluid blur-up lazyload" alt=""> <i
                         class="ti-shopping-cart"></i></div>
                 <ul class="show-div shopping-cart">
                     <li>
                         <div class="media">
                             <a href="#"><img alt="" class="mr-3"
-                                    src="../assets/images/fashion/product/1.jpg"></a>
+                                    src="{{ asset('images/fashion/product/1.jpg') }}"></a>
                             <div class="media-body">
                                 <a href="#">
                                     <h4>item name</h4>
@@ -69,7 +69,7 @@
                     <li>
                         <div class="media">
                             <a href="#"><img alt="" class="mr-3"
-                                    src="../assets/images/fashion/product/2.jpg"></a>
+                                    src="{{ asset('images/fashion/product/2.jpg') }}"></a>
                             <div class="media-body">
                                 <a href="#">
                                     <h4>item name</h4>
