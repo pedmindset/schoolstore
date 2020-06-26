@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 13,  2)->nullable();
             $table->integer('quantity')->nullable();
             $table->text('description')->nullable();
+            $table->string('featured')->nullable();
             $table->string('code')->nullable();
             $table->string('barcode')->nullable();
             $table->timestamps();

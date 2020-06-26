@@ -22,7 +22,7 @@
     <script src="{{ asset('/js/lazysizes.min.js') }}"></script>
 
      <!-- Bootstrap js-->
-    {{-- <script src="{{ asset('/js/bootstrap.js') }}"></script>  --}}
+    <script src="{{ asset('/js/bootstrap.js') }}"></script>
 
     <!-- Bootstrap Notification js-->
     <script src="{{ asset('/js/bootstrap-notify.min.js') }}"></script>

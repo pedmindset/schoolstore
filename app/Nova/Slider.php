@@ -5,6 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
 use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
@@ -12,7 +13,7 @@ use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 
 class Slider extends Resource
 {
-    public static $group = "Website";
+    public static $group = "Shop";
 
     /**
      * The model the resource corresponds to.
@@ -69,8 +70,8 @@ class Slider extends Resource
             Images::make('Featured', 'featured') // second parameter is the media collection name
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->fullSize() 
-            ->rules('required'), 
+            ->fullSize()
+            ->rules('required'),
 
             ID::make( __('Id'),  'id')
             ->rules('required')
@@ -87,8 +88,12 @@ class Slider extends Resource
             Textarea::make( __('Description'),  'description')
             ->sortable(),
 
-            Text::make( __('Active'),  'active')
-            ->sortable(),
+            Select::make( __('Featured'),  'featured')
+            ->sortable()
+            ->options([
+                'yes' => 'yes',
+                'no' => 'no',
+            ]),
 
             Text::make( __('Link'),  'link')
             ->sortable(),

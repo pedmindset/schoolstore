@@ -73,7 +73,6 @@ class Account extends Resource
             ->sortable(),
 
             BelongsTo::make('Customer')
-
             ->searchable()
             ->sortable(),
 
@@ -82,7 +81,7 @@ class Account extends Resource
             ->options([
                 'wallet' => 'wallet',
             ]),
-                        
+
             Currency::make( __('Balance'),  'balance')
             ->sortable()
             ->step(0.01),
@@ -101,7 +100,7 @@ class Account extends Resource
             Currency::make( __('Default Amount'),  'default_amount')
             ->sortable(),
 
-           
+
 
         ];
     }

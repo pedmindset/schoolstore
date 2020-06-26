@@ -18,7 +18,7 @@
     @include('partials.styles')
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
 
     <!-- Fonts -->
@@ -28,7 +28,7 @@
 </head>
 <body>
     <!-- loader start -->
-    @include('partials.header.loader')
+    @yield('loader')
     <!-- loader end -->
 
     <!-- header start -->
@@ -36,7 +36,7 @@
     <!-- header end -->
 
     <!-- Home slider -->
-    @include('partials.header.slider')
+    @yield('slider')
     <!-- Home slider end -->
 
     <!-- Content -->

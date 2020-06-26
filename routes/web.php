@@ -24,6 +24,10 @@ Route::get('/shop/open', function () {
     return view('shop.index');
 });
 
+Route::get('/shop/shop', function () {
+    return view('shop.shop');
+});
+
 Route::post('/newsletters/signup', function(Request $request){
     if($request->filled('email')){
         $newsletterContact = NewsletterContact::where('email', $request->email)->first();

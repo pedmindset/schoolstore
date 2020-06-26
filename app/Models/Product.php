@@ -15,6 +15,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property float $price
  * @property int $quantity
  * @property string $description
+ * @property string $featured
  * @property string $code
  * @property string $barcode
  * @property string $created_at
@@ -40,7 +41,7 @@ class Product extends Model implements HasMedia
     /**
      * @var array
      */
-    protected $fillable = ['product_category_id', 'brand_id', 'uuid', 'name', 'price', 'quantity', 'description', 'code', 'barcode', 'created_at', 'updated_at'];
+    protected $fillable = ['product_category_id', 'brand_id', 'uuid', 'name', 'price', 'quantity', 'description', 'featured', 'code', 'barcode', 'created_at', 'updated_at'];
 
     public function registerMediaCollections(): void
     {

@@ -13,51 +13,6 @@
                 </div>
                 <ul id="sub-menu" class="sm pixelstrap sm-vertical">
                     <li> <a href="#">clothing</a>
-                        <ul class="mega-menu clothing-menu">
-                            <li>
-                                <div class="row m-0">
-                                    <div class="col-xl-4">
-                                        <div class="link-section">
-                                            <h5>women's fashion</h5>
-                                            <ul>
-                                                <li><a href="#">dresses</a></li>
-                                                <li><a href="#">skirts</a></li>
-                                                <li><a href="#">westarn wear</a></li>
-                                                <li><a href="#">ethic wear</a></li>
-                                                <li><a href="#">sport wear</a></li>
-                                            </ul>
-                                            <h5>men's fashion</h5>
-                                            <ul>
-                                                <li><a href="#">sports wear</a></li>
-                                                <li><a href="#">western wear</a></li>
-                                                <li><a href="#">ethic wear</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4">
-                                        <div class="link-section">
-                                            <h5>accessories</h5>
-                                            <ul>
-                                                <li><a href="#">fashion jewellery</a></li>
-                                                <li><a href="#">caps and hats</a></li>
-                                                <li><a href="#">precious jewellery</a></li>
-                                                <li><a href="#">necklaces</a></li>
-                                                <li><a href="#">earrings</a></li>
-                                                <li><a href="#">wrist wear</a></li>
-                                                <li><a href="#">ties</a></li>
-                                                <li><a href="#">cufflinks</a></li>
-                                                <li><a href="#">pockets squares</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4">
-                                        <a href="#" class="mega-menu-banner"><img
-                                                src="{{ asset('images/mega-menu/fashion.jpg') }}"
-                                                alt="" class="img-fluid blur-up lazyload"></a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
                     </li>
                     <li> <a href="#">bags</a>
                         <ul>

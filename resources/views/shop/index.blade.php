@@ -2,6 +2,14 @@
 
 @section('title', 'Welcome to School Shop')
 
+@section('loader')
+    @include('partials.header.loader')
+@endsection
+
+@section('slider')
+    @include('partials.header.slider')
+@endsection
+
 @section('content')
     <!-- service layout 3 -->
     <section class=" tools-service section-b-space">
@@ -1406,146 +1414,6 @@
     @include('partials.footer.partners')
     <!--  partners section end-->
 
-    <!--modal popup start-->
-    <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog"
-       aria-hidden="true">
-       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-           <div class="modal-content">
-               <div class="modal-body modal1">
-                   <div class="container-fluid p-0">
-                       <div class="row">
-                           <div class="col-12">
-                               <div class="modal-bg">
-                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                           aria-hidden="true">&times;</span></button>
-                                   <div class="offer-content"> <img src="{{ asset('images/Offer-banner.png') }}"
-                                           class="img-fluid blur-up lazyload" alt="">
-                                       <h2>newsletter</h2>
-                                       <form
-                                           action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda"
-                                           class="auth-form needs-validation" method="post"
-                                           id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                                           target="_blank">
-                                           <div class="form-group mx-sm-3">
-                                               <input type="email" class="form-control" name="EMAIL" id="mce-EMAIL"
-                                                   placeholder="Enter your email" required="required">
-                                               <button type="submit" class="btn btn-solid"
-                                                   id="mc-submit">subscribe</button>
-                                           </div>
-                                       </form>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-        </div>
-    </div>
-   <!--modal popup end-->
-
-
-   <!-- Quick-view modal popup start-->
-   <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog"
-       aria-hidden="true">
-       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-           <div class="modal-content quick-view-modal">
-               <div class="modal-body">
-                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                           aria-hidden="true">&times;</span></button>
-                   <div class="row">
-                       <div class="col-lg-6 col-xs-12">
-                           <div class="quick-view-img"><img src="{{ asset('images/pro3/1.jpg') }}" alt=""
-                                   class="img-fluid blur-up lazyload"></div>
-                       </div>
-                       <div class="col-lg-6 rtl-text">
-                           <div class="product-right">
-                               <h2>Women Pink Shirt</h2>
-                               <h3>$32.96</h3>
-                               <ul class="color-variant">
-                                   <li class="bg-light0"></li>
-                                   <li class="bg-light1"></li>
-                                   <li class="bg-light2"></li>
-                               </ul>
-                               <div class="border-product">
-                                   <h6 class="product-title">product details</h6>
-                                   <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
-                                       doloremque laudantium</p>
-                               </div>
-                               <div class="product-description border-product">
-                                   <div class="size-box">
-                                       <ul>
-                                           <li class="active"><a href="#">s</a></li>
-                                           <li><a href="#">m</a></li>
-                                           <li><a href="#">l</a></li>
-                                           <li><a href="#">xl</a></li>
-                                       </ul>
-                                   </div>
-                                   <h6 class="product-title">quantity</h6>
-                                   <div class="qty-box">
-                                       <div class="input-group"><span class="input-group-prepend"><button type="button"
-                                                   class="btn quantity-left-minus" data-type="minus" data-field=""><i
-                                                       class="ti-angle-left"></i></button> </span>
-                                           <input type="text" name="quantity" class="form-control input-number"
-                                               value="1"> <span class="input-group-prepend"><button type="button"
-                                                   class="btn quantity-right-plus" data-type="plus" data-field=""><i
-                                                       class="ti-angle-right"></i></button></span></div>
-                                   </div>
-                               </div>
-                               <div class="product-buttons"><a href="#" class="btn btn-solid">add to cart</a> <a
-                                       href="#" class="btn btn-solid">view detail</a></div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
-   <!-- Quick-view modal popup end-->
-
-
-   <!-- theme setting -->
-
-   <!-- theme setting -->
-
-
-   <!-- exit modal popup start-->
-   <div class="modal fade bd-example-modal-lg theme-modal exit-modal" id="exit_popup" tabindex="-1" role="dialog"
-       aria-hidden="true">
-       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-           <div class="modal-content">
-               <div class="modal-body modal1">
-                   <div class="container-fluid p-0">
-                       <div class="row">
-                           <div class="col-12">
-                               <div class="modal-bg">
-                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                       <span aria-hidden="true">&times;</span>
-                                   </button>
-                                   <div class="media">
-                                       <img src="{{ asset('images/stop.png') }}"
-                                           class="stop img-fluid blur-up lazyload mr-3" alt="">
-                                       <div class="media-body text-left align-self-center">
-                                           <div>
-                                               <h2>wait!</h2>
-                                               <h4>We want to give you
-                                                   <b>10% discount</b>
-                                                   <span>for your first order</span>
-                                               </h4>
-                                               <h5>Use discount code at checkout</h5>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
-   <!-- Add to cart modal popup end-->
-
 
    <!-- facebook chat section start -->
    <div id="fb-root"></div>
@@ -1562,15 +1430,6 @@
        logged_out_greeting="Hi! Welcome to PixelStrap Themes  How can we help you?">
    </div>
    <!-- facebook chat section end -->
-
-
-   <!-- cart start -->
-   <div class="addcart_btm_popup" id="fixed_cart_icon">
-       <a href="#" class="fixed_cart">
-           <i class="ti-shopping-cart"></i>
-       </a>
-   </div>
-   <!-- cart end -->
 
 
    <!-- tap to top -->

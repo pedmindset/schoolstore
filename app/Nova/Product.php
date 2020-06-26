@@ -6,6 +6,7 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Textarea;
@@ -119,6 +120,13 @@ class Product extends Resource
 
             Textarea::make( __('Description'),  'description')
             ->sortable(),
+
+            Select::make( __('Featured'),  'featured')
+            ->sortable()
+            ->options([
+                'yes' => 'yes',
+                'no' => 'no',
+            ]),
 
             Text::make( __('Code'),  'code')
             ->sortable(),
