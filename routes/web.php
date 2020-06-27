@@ -28,6 +28,54 @@ Route::get('/shop/shop', function () {
     return view('shop.shop');
 });
 
+Route::get('/shop/product', function () {
+    return view('shop.product');
+});
+
+Route::get('/shop/collections/{slug}', function () {
+    return view('shop.collection_products');
+});
+
+Route::get('/shop/brands/{slug}', function () {
+    return view('shop.brand_products');
+});
+
+Route::get('/shop/collections/', function () {
+    return view('shop.collections');
+});
+
+Route::get('/shop/brands/', function () {
+    return view('shop.brands');
+});
+
+Route::get('/shop/ordersuccess/', function () {
+    return view('shop.order_success');
+});
+
+Route::get('/shop/cart/', function () {
+    return view('shop.cart');
+});
+
+Route::get('/shop/wishlist/', function () {
+    return view('shop.wishlist');
+});
+
+Route::get('/shop/checkout/', function () {
+    return view('shop.checkout');
+});
+
+Route::get('/shop/dashboard/', function () {
+    return view('customers.dashboard');
+});
+
+Route::get('/shop/orders/', function () {
+    return view('customers.orders');
+});
+
+Route::get('/shop/accounts/', function () {
+    return view('customers.account');
+});
+
 Route::post('/newsletters/signup', function(Request $request){
     if($request->filled('email')){
         $newsletterContact = NewsletterContact::where('email', $request->email)->first();

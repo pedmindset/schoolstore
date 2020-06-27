@@ -38,6 +38,7 @@ class Collection extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('cover')->singleFile();
+        $this->addMediaCollection('banner')->singleFile();
         $this->addMediaCollection('featured')->singleFile();
         $this->addMediaCollection('pictures');
     }
@@ -60,6 +61,15 @@ class Collection extends Model implements HasMedia
             ->width(672)
             ->height(310)
             ->performOnCollections('cover');
+
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)->performOnCollections('banner');
+
+        $this->addMediaConversion('banner')
+            ->width(1370)
+            ->height(385)
+            ->performOnCollections('banner');
     }
 
     public function products()

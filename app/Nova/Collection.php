@@ -84,13 +84,15 @@ class Collection extends Resource
             ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
             ->hideFromIndex(),
 
-            Images::make('Pictures', 'pictures') // second parameter is the media collection name
+            Images::make('Banner', 'banner') // second parameter is the media collection name
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->fullSize() // full size column
             ->rules('required')
+            ->croppingConfigs(['minHeight' => 1370, 'minWidth' => 385])
+            ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
             ->hideFromIndex(),
+
 
             ID::make( __('Id'),  'id')
             ->rules('required')
