@@ -68,9 +68,6 @@ Route::get('/shop/dashboard/', function () {
     return view('customers.dashboard');
 });
 
-Route::get('/shop/orders/', function () {
-    return view('customers.orders');
-});
 
 Route::get('/shop/accounts/', function () {
     return view('customers.account');

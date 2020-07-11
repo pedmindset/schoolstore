@@ -9,14 +9,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>Dashboard</h2>
+                        <h2>Accounts</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            <li class="breadcrumb-item active" aria-current="page">Accounts</li>
                         </ol>
                     </nav>
                 </div>
@@ -25,79 +25,96 @@
     </div>
     <!-- breadcrumb end -->
 
-    <!-- section start -->
-    <section class="section-b-space">
+    <!-- personal deatail section start -->
+    <section class="contact-page register-page">
         <div class="container">
             <div class="row">
-               <!-- Customer menu -->
-               @include('customers.menu')
-               <!-- Customer Menu -->
-                <div class="col-lg-9">
-                    <div class="dashboard-right">
-                        <div class="dashboard">
-                            <div class="page-title">
-                                <h2>My Dashboard</h2>
+                <div class="col-sm-12">
+                    <h3>PERSONAL DETAIL</h3>
+                    <form class="theme-form">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="name">First Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter Your name"
+                                    required="">
                             </div>
-                            <div class="welcome-msg">
-                                <p>Hello, MARK JECNO !</p>
-                                <p>From your My Account Dashboard you have the ability to view a snapshot of your recent
-                                    account activity and update your account information. Select a link below to view or
-                                    edit information.</p>
+                            <div class="col-md-6">
+                                <label for="email">Last Name</label>
+                                <input type="text" class="form-control" id="last-name" placeholder="Email" required="">
                             </div>
-                            <div class="box-account box-info">
-                                <div class="box-head">
-                                    <h2>Account Information</h2>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="box">
-                                            <div class="box-title">
-                                                <h3>Contact Information</h3><a href="#">Edit</a>
-                                            </div>
-                                            <div class="box-content">
-                                                <h6>MARK JECNO</h6>
-                                                <h6>MARk-JECNO@gmail.com</h6>
-                                                <h6><a href="#">Change Password</a></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="box">
-                                            <div class="box-title">
-                                                <h3>Newsletters</h3><a href="#">Edit</a>
-                                            </div>
-                                            <div class="box-content">
-                                                <p>You are currently not subscribed to any newsletter.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="box">
-                                        <div class="box-title">
-                                            <h3>Address Book</h3><a href="#">Manage Addresses</a>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <h6>Default Billing Address</h6>
-                                                <address>You have not set a default billing address.<br><a href="#">Edit
-                                                        Address</a></address>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <h6>Default Shipping Address</h6>
-                                                <address>You have not set a default shipping address.<br><a
-                                                        href="#">Edit Address</a></address>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-md-6">
+                                <label for="review">Phone number</label>
+                                <input type="text" class="form-control" id="review" placeholder="Enter your number"
+                                    required="">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="review">Write Your Message</label>
+                                <textarea class="form-control mb-0" placeholder="Write Your Message"
+                                    id="exampleFormControlTextarea1" rows="6"></textarea>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-    <!-- section end -->
+    <!-- Section ends -->
+
+
+    <!-- address section start -->
+    <section class="contact-page register-page section-b-space">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>SHIPPING ADDRESS</h3>
+                    <form class="theme-form">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="name">flat / plot</label>
+                                <input type="text" class="form-control" id="home-ploat" placeholder="company name"
+                                    required="">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="name">Address *</label>
+                                <input type="text" class="form-control" id="address-two" placeholder="Address"
+                                    required="">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email">Zip Code *</label>
+                                <input type="text" class="form-control" id="zip-code" placeholder="zip-code"
+                                    required="">
+                            </div>
+                            <div class="col-md-6 select_input">
+                                <label for="review">Country *</label>
+                                <select class="form-control" size="1">
+                                    <option value="India">India</option>
+                                    <option value="UAE">UAE</option>
+                                    <option value="U.K">U.K</option>
+                                    <option value="US">US</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="review">City *</label>
+                                <input type="text" class="form-control" id="city" placeholder="City" required="">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="review">Region/State *</label>
+                                <input type="text" class="form-control" id="region-state" placeholder="Region/state"
+                                    required="">
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-sm btn-solid" type="submit">Save setting</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section ends -->
 
 @endsection
