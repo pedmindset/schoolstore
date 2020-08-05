@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shop/open', function () {
+Route::get('/shop/home', function () {
     return view('shop.index');
 });
 
@@ -40,8 +40,16 @@ Route::get('/shop/brands/{slug}', function () {
     return view('shop.brand_products');
 });
 
+Route::get('/shop/categories/{slug}', function () {
+    return view('shop.category_products');
+});
+
 Route::get('/shop/collections/', function () {
     return view('shop.collections');
+});
+
+Route::get('/shop/categories/', function () {
+    return view('shop.categories');
 });
 
 Route::get('/shop/brands/', function () {
