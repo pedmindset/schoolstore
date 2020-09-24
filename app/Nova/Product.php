@@ -100,13 +100,14 @@ class Product extends Resource
             ->rules('required')
             ->sortable(),
 
-            BelongsTo::make('ProductCategory')
+            BelongsTo::make('Product Category', 'productcategory')
             ->searchable()
             ->sortable(),
 
             BelongsTo::make('Brand')
             ->searchable()
-            ->sortable(),
+            ->sortable()
+            ->nullable(),
 
             Text::make( __('Name'),  'name')
             ->rules('required')
@@ -136,19 +137,19 @@ class Product extends Resource
 
             MorphMany::make('Discounts'),
 
-            BelongsToManyField::make('Orders', 'Orders', 'App\Nova\Order'),
+            // BelongsToManyField::make('Orders', 'Orders', 'App\Nova\Order'),
 
             BelongsToMany::make('Order'),
 
-            BelongsToManyField::make('Collections', 'Collections', 'App\Nova\Collection'),
+            // BelongsToManyField::make('Collections', 'Collections', 'App\Nova\Collection'),
 
             BelongsToMany::make('Collections'),
 
-            BelongsToManyField::make('Carts', 'Carts', 'App\Nova\Cart'),
+            // BelongsToManyField::make('Carts', 'Carts', 'App\Nova\Cart'),
 
             BelongsToMany::make('Carts'),
 
-            BelongsToManyField::make('Wishlists', 'Wishlists', 'App\Nova\Wishlist'),
+            // BelongsToManyField::make('Wishlists', 'Wishlists', 'App\Nova\Wishlist'),
 
             BelongsToMany::make('Wishlist'),
 

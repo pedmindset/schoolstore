@@ -30,7 +30,7 @@ class Driver extends Model implements HasMedia
     use InteractsWithMedia;
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -74,9 +74,9 @@ class Driver extends Model implements HasMedia
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function driver()
+    public function vehicle()
     {
-        return $this->belongsTo('App\Models\Driver', 'vehicle_id');
+        return $this->belongsTo('App\Models\Vehicle', 'vehicle_id');
     }
 
     /**

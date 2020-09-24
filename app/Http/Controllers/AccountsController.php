@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AccountCreateRequest;
 use App\Http\Requests\AccountUpdateRequest;
 use App\Repositories\AccountRepository;
-use App\Validators\AccountValidator;
 
 /**
  * Class AccountsController.
@@ -32,10 +31,9 @@ class AccountsController extends Controller
      * @param AccountRepository $repository
      * @param AccountValidator $validator
      */
-    public function __construct(AccountRepository $repository, AccountValidator $validator)
+    public function __construct(AccountRepository $repository)
     {
         $this->repository = $repository;
-        $this->validator  = $validator;
     }
 
     /**
