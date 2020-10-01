@@ -123,7 +123,7 @@ class Product extends Model implements HasMedia
      */
     public function discounts()
     {
-        return $this->morphMany('App\Model\Discount', 'discountable');
+        return $this->morphMany('App\Models\Discount', 'discountable');
     }
 
 }
