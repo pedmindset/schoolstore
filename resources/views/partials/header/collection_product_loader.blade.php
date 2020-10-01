@@ -54,17 +54,11 @@
                                                 <a href="#">shop</a>
                                             </li>
                                             <li>
-                                                <a href="#">product</a>
+                                                <a href="#">Categories</a>
                                             </li>
-                                            <li class="mega"><a href="#">features
-                                                    <div class="lable-nav">new</div>
-                                                </a>
+                                            <li><a href="#">Brands</a>
                                             </li>
-                                            <li><a href="#">pages</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">blog</a>
-                                            </li>
+
                                         </ul>
                                     </nav>
                                 </div>

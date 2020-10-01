@@ -12,6 +12,7 @@
                             aria-hidden="true"></i> Back</div>
                 </div>
                 <ul id="sub-menu" class="sm pixelstrap sm-vertical">
+                    <h4 class="p-4">Categories</h4>
                     <li> <a href="#">clothing</a>
                     </li>
                     <li> <a href="#">bags</a>
