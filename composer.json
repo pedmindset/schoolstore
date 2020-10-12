@@ -22,7 +22,7 @@
         "laracasts/generators": "^1.1",
         "laravel/framework": "^7.0",
         "laravel/horizon": "^4.0",
-        "laravel/nova": "~3.11.1",
+        "laravel/nova": "*",
         "laravel/sanctum": "^2.1",
         "laravel/socialite": "^4.3",
         "laravel/telescope": "^3.1",
@@ -49,8 +49,13 @@
     },
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
+            "packagist": {
+                "type": "composer",
+                "url": "https://packagist.org"
+              },
+
+            "type": "path",
+            "url": "./nova"
         },
         {
               "type": "package",
