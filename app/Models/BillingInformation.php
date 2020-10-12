@@ -27,7 +27,7 @@ class BillingInformation extends Model
     protected $table = 'billing_informations';
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -35,7 +35,7 @@ class BillingInformation extends Model
     /**
      * @var array
      */
-    protected $fillable = ['customer_id', 'payment_method', 'mobile_number', 'phone', 'phone2', 'email', 'address', 'address2', 'postcode', 'city', 'region', 'country', 'created_at', 'updated_at'];
+    protected $fillable = ['customer_id', 'name', 'payment_method', 'mobile_number', 'phone', 'phone2', 'email', 'address', 'address2', 'postcode', 'city', 'region', 'country', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

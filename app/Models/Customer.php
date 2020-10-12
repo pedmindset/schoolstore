@@ -44,7 +44,7 @@ class Customer extends Model implements HasMedia
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -52,7 +52,7 @@ class Customer extends Model implements HasMedia
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'school_id', 'name', 'phone', 'phone2', 'email', 'address', 'address2', 'date_of_birth', 'level', 'postcode', 'city', 'region', 'country', 'lng', 'lat', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['user_id', 'school_id', 'name', 'phone', 'phone2', 'email', 'address', 'address2', 'date_of_birth', 'level', 'postcode', 'city', 'region', 'country', 'lng', 'lat', 'verify_phone', 'verify_momo', 'created_at', 'updated_at', 'deleted_at'];
 
     public function registerMediaCollections(): void
     {
