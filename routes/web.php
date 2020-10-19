@@ -18,14 +18,24 @@ use Illuminate\Support\Facades\Storage;
 */
 
 // Non-Authenticated Routes
+Auth::routes();
 
 // Authenticated Routes
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/logout', function(){
+    Route::get('/shop', function () {
+        return view('shop.home');
+    })->name('shop.home');
+
+    Route::get('/logout', function () {
         Auth::logout();
         return redirect(route('login'));
     })->name('logout');
 });
+
+
+
+
+
 
 Route::get('/test', function () {
     dd(Storage::exists('categories/Alcoholic Drink.jpg'));
@@ -35,13 +45,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shop/home', function () {
-    return view('shop.index');
-});
+// Route::get('/shop/home', function () {
+//     return view('shop.index');
+// });
 
-Route::get('/shop/shop', function () {
-    return view('shop.shop');
-});
+// Route::get('/shop/shop', function () {
+//     return view('shop.shop');
+// });
 
 Route::get('/shop/product', function () {
     return view('shop.product');
@@ -96,10 +106,10 @@ Route::get('/shop/accounts/', function () {
     return view('customers.account');
 });
 
-Route::post('/newsletters/signup', function(Request $request){
-    if($request->filled('email')){
+Route::post('/newsletters/signup', function (Request $request) {
+    if ($request->filled('email')) {
         $newsletterContact = NewsletterContact::where('email', $request->email)->first();
-        if(!$newsletterContact){
+        if (!$newsletterContact) {
             NewsletterContact::create([
                 'email' => $request->email,
                 'ipAddress' => $request->ip()
@@ -114,7 +124,6 @@ Route::post('/newsletters/signup', function(Request $request){
             'status' => 'info',
             'message' => 'We already have your contact',
         ])->setStatusCode(401);
-
     };
 
     return response()->json([
@@ -123,10 +132,9 @@ Route::post('/newsletters/signup', function(Request $request){
     ])->setStatusCode(401);
 });
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/shop', function(){
-    return view('commingsoon');
-})->name('shop');
+// Route::get('/shop', function () {
+//     return view('commingsoon');
+// })->name('shop');
