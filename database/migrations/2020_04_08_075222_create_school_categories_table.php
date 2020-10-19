@@ -15,9 +15,9 @@ class CreateSchoolCategoriesTable extends Migration
         Schema::create('school_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('duration')->nullable();
-            $table->datetime('start_date')->nullable();
-            $table->datetime('end_date')->nullable();
+            $table->integer('duration')->nullable();
+            $table->string('duration_type')->nullable();
+            $table->decimal('max_loan_amount', 13,  2)->default(0);
             $table->timestamps();
         });
     }
