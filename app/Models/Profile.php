@@ -5,8 +5,6 @@ namespace App\Models;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
@@ -31,10 +29,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property string $deleted_at
  * @property User $user
  */
-class Profile extends Model implements Transformable, HasMedia
+class Profile extends Model implements HasMedia
 {
 
-    use InteractsWithMedia, TransformableTrait;
+    use InteractsWithMedia;
 
     /**
      * The "type" of the auto-incrementing ID.
@@ -76,7 +74,7 @@ class Profile extends Model implements Transformable, HasMedia
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     /**

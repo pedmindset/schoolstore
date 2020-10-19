@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,9 +10,9 @@ use Illuminate\Notifications\Notifiable;
  *
  * @package namespace App\Models;
  */
-class User extends Authenticatable  implements Transformable
+class User extends Authenticatable
 {
-    use Notifiable, TransformableTrait;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -48,7 +46,7 @@ class User extends Authenticatable  implements Transformable
      */
     public function customer()
     {
-        return $this->hasOne('App\Models\Customer');
+        return $this->hasOne(Customer::class);
     }
 
     /**
@@ -56,6 +54,6 @@ class User extends Authenticatable  implements Transformable
      */
     public function profile()
     {
-        return $this->hasOne('App\Models\Profile');
+        return $this->hasOne(Profile::class);
     }
 }

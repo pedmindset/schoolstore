@@ -32,7 +32,6 @@
         "maatwebsite/laravel-nova-excel": "^1.2",
         "orlyapps/nova-belongsto-depend": "^2.0",
         "pedmindset/nova-map-address": "^0.1.0",
-        "prettus/l5-repository": "^2.6",
         "spatie/laravel-medialibrary": "^8.2.0",
         "spatie/laravel-permission": "^3.11",
         "spatie/laravel-schemaless-attributes": "^1.7",

@@ -17,6 +17,16 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
+// Non-Authenticated Routes
+
+// Authenticated Routes
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/logout', function(){
+        Auth::logout();
+        return redirect(route('login'));
+    })->name('logout');
+});
+
 Route::get('/test', function () {
     dd(Storage::exists('categories/Alcoholic Drink.jpg'));
 });
