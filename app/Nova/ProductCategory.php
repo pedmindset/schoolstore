@@ -91,7 +91,7 @@ class ProductCategory extends Resource
             ->rules('required')
             ->sortable(),
             
-            Textarea::make( __('Descirption'),  'descirption')
+            Textarea::make( __('Description'),  'description')
             ->sortable(),
             
             Select::make( __('Featured'),  'featured')

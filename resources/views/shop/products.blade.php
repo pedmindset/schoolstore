@@ -1,33 +1,12 @@
 @extends('layouts.admin')
 
-@section('title', 'Shop')
+@section('title', 'Products')
 
 @section('loader')
     @include('partials.header.shop_loader')
 @endsection
 
 @section('content')
-    <!-- breadcrumb start -->
-    <div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="page-title">
-                        <h2>Shop</h2>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Shop</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- breadcrumb End -->
     <!-- section start -->
     <section class="section-b-space ratio_asos">
         <div class="collection-wrapper">
@@ -39,50 +18,7 @@
                             <!-- brand filter start -->
                             <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left"
                                         aria-hidden="true"></i> back</span></div>
-                            <div class="collection-collapse-block open">
-                                <h3 class="collapse-block-title">brand</h3>
-                                <div class="collection-collapse-block-content">
-                                    <div class="collection-brand-filter">
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="zara">
-                                            <label class="custom-control-label" for="zara">zara</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="vera-moda">
-                                            <label class="custom-control-label" for="vera-moda">vera-moda</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="forever-21">
-                                            <label class="custom-control-label" for="forever-21">forever-21</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="roadster">
-                                            <label class="custom-control-label" for="roadster">roadster</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="only">
-                                            <label class="custom-control-label" for="only">only</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- color filter start here -->
-                            <div class="collection-collapse-block open">
-                                <h3 class="collapse-block-title">colors</h3>
-                                <div class="collection-collapse-block-content">
-                                    <div class="color-selector">
-                                        <ul>
-                                            <li class="color-1 active"></li>
-                                            <li class="color-2"></li>
-                                            <li class="color-3"></li>
-                                            <li class="color-4"></li>
-                                            <li class="color-5"></li>
-                                            <li class="color-6"></li>
-                                            <li class="color-7"></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <!-- price filter start here -->
                             <div class="collection-collapse-block border-0 open">
                                 <h3 class="collapse-block-title">price</h3>
@@ -191,27 +127,30 @@
                         </div>
                         <!-- side-bar banner end here -->
                     </div>
+                    
                     <div class="collection-content col">
                         <div class="page-main-content">
                             <div class="row">
                                 <div class="col-sm-12">
+                                    @if(request()->has('category'))
                                     <div class="top-banner-wrapper">
-                                        <a href="#"><img src="{{ asset('images/mega-menu/2.jpg') }}" class="img-fluid blur-up lazyload" alt=""></a>
+                                        <a href="#">
+                                            <img src="{{ asset('images/mega-menu/2.jpg') }}" class="img-fluid blur-up lazyload" alt="">
+                                        </a>
                                         <div class="top-banner-content small-section">
-                                            <h4>fashion</h4>
-                                            <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            </h5>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
-                                                it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                                                of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                            <h4>{{ $category->name }}</h4>
+                                            <p>{{ $category->description }}</p>
                                         </div>
                                     </div>
+                                    @endif
                                     <div class="collection-product-wrapper">
                                         <div class="product-top-filter">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    <div class="filter-main-btn"><span class="filter-btn btn btn-theme"><i class="fa fa-filter"
-                                                                aria-hidden="true"></i> Filter</span></div>
+                                                    <div class="filter-main-btn">
+                                                        <span class="filter-btn btn btn-theme"><i class="fa fa-filter" aria-hidden="true"></i> Filter
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">

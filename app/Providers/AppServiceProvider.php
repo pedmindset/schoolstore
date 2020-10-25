@@ -25,8 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $productCategories = ProductCategory::orderBy('name', 'asc')->get();
-        // dd($productCategories);
+        $productCategories = ProductCategory::orderBy('name', 'asc')->withCount('products')->get();
         View::share('productCategories', $productCategories);
     }
 }

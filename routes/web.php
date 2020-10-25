@@ -22,9 +22,11 @@ Auth::routes();
 
 // Authenticated Routes
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/shop', function () {
-        return view('shop.home');
-    })->name('shop.home');
+    Route::group(['prefix' => 'shop'], function () {
+        Route::get('/', 'ShopController@home')->name('shop.home');    
+        Route::get('/categories', 'ShopController@categories')->name('shop.categories'); 
+        Route::get('/products', 'ShopController@products')->name('shop.products');   
+    });
 
     Route::get('/logout', function () {
         Auth::logout();
@@ -71,10 +73,6 @@ Route::get('/shop/categories/{slug}', function () {
 
 Route::get('/shop/collections/', function () {
     return view('shop.collections');
-});
-
-Route::get('/shop/categories/', function () {
-    return view('shop.categories');
 });
 
 Route::get('/shop/brands/', function () {

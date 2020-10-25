@@ -24,7 +24,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <!-- Styles -->
-    <title>@yield('title') {{ config('app.name', 'Shop') }}</title>
+    <title>@yield('title') | {{ config('app.name', 'Shop') }}</title>
 </head>
 <body>
     <!-- loader start -->
@@ -39,9 +39,32 @@
     @yield('slider')
     <!-- Home slider end -->
 
+     <!-- breadcrumb start -->
+     <div class="breadcrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="page-title">
+                        <h2>@yield('title')</h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb End -->
+
     <!-- Content -->
     @yield('content')
     <!-- Content -->
+
 
     @include('partials.footer.footer')
     @include('partials.scripts')

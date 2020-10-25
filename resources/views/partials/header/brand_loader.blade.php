@@ -56,8 +56,6 @@
                                             <li>
                                                 <a href="#">Categories</a>
                                             </li>
-                                            <li><a href="#">Brands</a>
-                                            </li>
 
                                         </ul>
                                     </nav>
