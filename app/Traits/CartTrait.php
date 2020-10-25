@@ -8,7 +8,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 trait CartTrait
 {
 
-    public function addToCart($id, $qty)
+    public function addProductToCart($id, $qty)
     {
         // Get product
         $product = Product::find($id);
@@ -26,7 +26,7 @@ trait CartTrait
         Cart::add($product, $qty, []);
     }
 
-    public function removeFromCart($rowId)
+    public function removeProductFromCart($rowId)
     {
         Cart::remove($rowId);
     }

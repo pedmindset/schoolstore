@@ -11,19 +11,19 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-        $this->addToCart($request->id, 1);
+        $this->addToProductCart($request->id, 1);
         return back();
     }
     
     public function addToCart(int $id)
     {
-        $this->addToCart($id, 1);
+        $this->addProductToCart($id, 1);
         return back();
     }
 
     public function removeFromCart($rowId)
     {
-        $this->removeFromCart($rowId);
+        $this->removeProductFromCart($rowId);
         return back();
     }
 }
