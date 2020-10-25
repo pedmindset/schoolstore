@@ -14,7 +14,7 @@
                 <ul id="sub-menu" class="sm pixelstrap sm-vertical">
                     <h4 class="p-4">Categories</h4>
                     @foreach ($productCategories as $category)
-                    <li> <a href="#">{{ $category->name }}</a></li>
+                    <li> <a href="{{ route('shop.products', ['category' => $category->slug]) }}">{{ $category->name }}</a></li>
                     @endforeach
                     
                 </ul>
@@ -22,7 +22,8 @@
         </div>
     </div>
     <div class="brand-logo">
-        <a href="index.html"><img src="{{ asset('images/icon/logo.png') }}"
-                class="img-fluid blur-up lazyload" alt=""></a>
+        <a href="{{ route('shop.home') }}">
+            <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid blur-up lazyload" alt="" style="width: 179px">
+        </a>
     </div>
 </div>

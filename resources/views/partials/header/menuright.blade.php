@@ -11,7 +11,7 @@
                     <a href="{{ route('shop.home') }}">Home</a>
                 </li>
                 <li>
-                    <a href="../shop/shop">Products</a>
+                    <a href="{{ route('shop.products') }}">Products</a>
                 </li>
                 <li>
                     <a href="{{ route('shop.categories') }}">Categories</a>

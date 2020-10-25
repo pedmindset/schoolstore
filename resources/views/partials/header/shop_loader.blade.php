@@ -36,7 +36,9 @@
                                 </a>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html"><img src="{{ asset('images/icon/logo.png') }}" class="img-fluid blur-up lazyload" alt=""></a>
+                                <a href="{{ route('shop.home') }}">
+                                    <img src="{{ asset('assets/images/logo.png') }}" class="img-fluid blur-up lazyload" alt="" style="width: 179px">
+                                </a>
                             </div>
                         </div>
                         <div class="menu-right pull-right">

@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-    public function home(Request $request)
+    public function home()
     {
-        return view('shop.home');
+        $featuredProducts = Product::whereFeatured('yes')->limit(5)->get();
+        return view('shop.home', compact('featuredProducts'));
     }
 
-    public function categories(Request $request)
+    public function categories()
     {
         return view('shop.categories');
     }
@@ -30,10 +31,14 @@ class ShopController extends Controller
 
     public function product(string $slug)
     {
-        if(empty($slug)){
+        $featuredProducts = Product::whereFeatured('yes')->limit(6)->get();
+        $product = Product::whereSlug($slug)->first();
+        if(empty($slug) || $product == null){
             abort(404);
         }
-        $product = Product::whereSlug($slug)->first();
-        return view('shop.product', compact('product'));
+        $relatedProducts = Product::whereProductCategoryId($product->product_category_id)
+        ->where('id', '!=', $product->id)
+        ->limit(6)->get();
+        return view('shop.product', compact('product', 'featuredProducts', 'relatedProducts'));
     }
 }

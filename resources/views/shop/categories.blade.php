@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<x-breadcrumb/>
 <!--section start-->
 <section class="collection section-b-space ratio_square ">
     <div class="container">

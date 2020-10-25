@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+    <x-breadcrumb/>
     <!-- section start -->
     <section class="section-b-space ratio_asos">
         <div class="collection-wrapper">
@@ -14,7 +15,7 @@
                 <div class="row">
                     <div class="col-sm-3 collection-filter">
                         <!-- side-bar colleps block stat -->
-                        <div class="collection-filter-block">
+                        {{-- <div class="collection-filter-block">
                             <!-- brand filter start -->
                             <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left"
                                         aria-hidden="true"></i> back</span></div>
@@ -48,7 +49,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- silde-bar colleps block end here -->
                         <!-- side-bar single product slider start -->
                         <div class="theme-card">
@@ -167,7 +168,7 @@
                                                             <div class="cart-info cart-wrap">
                                                                 <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i class="ti-shopping-cart"></i></button> 
                                                                 <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a>
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
+                                                                {{-- <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> --}}
                                                             </div>
                                                         </div>
                                                         <div class="product-detail">
