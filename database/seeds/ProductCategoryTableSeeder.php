@@ -172,11 +172,12 @@ class ProductCategoryTableSeeder extends Seeder
         ];
 
         foreach ($categories as $cat) {
-           if(Storage::exists('categories/'. $cat['name'] . '.jpg')){
-                $category = ProductCategory::create($cat);
-                $category->addMedia(storage_path('app/categories/'. $cat['name'] . '.jpg'), 'local')
-                ->toMediaCollection('featured');
-           }
+            $category = ProductCategory::create($cat);
+        //    if(Storage::exists('categories/'. $cat['name'] . '.jpg')){
+        //         $category = ProductCategory::create($cat);
+        //         $category->addMedia(storage_path('app/categories/'. $cat['name'] . '.jpg'), 'local')
+        //         ->toMediaCollection('featured');
+        //    }
         }
     }
 }
