@@ -362,67 +362,36 @@
             </div>
             <div class="cart_media">
                 <ul class="cart_product">
+                    @forelse(Cart::content() as $product)
                     <li>
                         <div class="media">
                             <a href="#">
-                                <img alt="" class="mr-3" src="{{ asset('images/tools/pro/1.jpg') }}">
+                                <img alt="" class="mr-3" src="{{ $product->model->cover_photo }}">
                             </a>
                             <div class="media-body">
-                                <a href="#">
-                                    <h4>item name</h4>
+                                {{-- <a> --}}
+                                <a href="{{ route('shop.product', ['slug' => $product->model->slug]) }}">
+                                    <h4>{{ $product->name }}</h4>
                                 </a>
                                 <h4>
-                                    <span>1 x $ 299.00</span>
+                                    <span>{{ $product->qty }} x GHS {{ $product->price }}</span>
                                 </h4>
                             </div>
                         </div>
                         <div class="close-circle">
-                            <a href="#">
+                            <a href="{{ route('shop.remove-from-cart', [$product->rowId]) }}">
                                 <i class="ti-trash" aria-hidden="true"></i>
                             </a>
                         </div>
                     </li>
-                    <li>
-                        <div class="media">
-                            <a href="#">
-                                <img alt="" class="mr-3" src="{{ asset('images/tools/pro/2.jpg') }}">
-                            </a>
-                            <div class="media-body">
-                                <a href="#">
-                                    <h4>item name</h4>
-                                </a>
-                                <h4>
-                                    <span>1 x $ 299.00</span>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="close-circle">
-                            <a href="#">
-                                <i class="ti-trash" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="media">
-                            <a href="#"><img alt="" class="mr-3" src="{{ asset('images/tools/pro/3.jpg') }}"></a>
-                            <div class="media-body">
-                                <a href="#">
-                                    <h4>item name</h4>
-                                </a>
-                                <h4><span>1 x $ 299.00</span></h4>
-                            </div>
-                        </div>
-                        <div class="close-circle">
-                            <a href="#">
-                                <i class="ti-trash" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </li>
+                    @empty
+                    <li>Cart is empty</li>
+                    @endforelse
                 </ul>
                 <ul class="cart_total">
                     <li>
                         <div class="total">
-                            <h5>subtotal : <span>$299.00</span></h5>
+                            <h5>subtotal : <span>GHS {{ Cart::total() }}</span></h5>
                         </div>
                     </li>
                     <li>

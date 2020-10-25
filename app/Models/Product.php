@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Support\Str;
+use Gloudemans\Shoppingcart\Contracts\Buyable;
 
 /**
  * @property integer $id
@@ -28,7 +29,7 @@ use Illuminate\Support\Str;
  * @property Order[] $orders
  * @property Wishlist[] $wishlists
  */
-class Product extends Model implements HasMedia
+class Product extends Model implements HasMedia, Buyable
 {
     use InteractsWithMedia;
 
@@ -148,6 +149,38 @@ class Product extends Model implements HasMedia
     public function getPicturesAttribute()
     {
         return $this->getMedia('pictures');
+    }
+
+
+
+
+
+
+
+
+
+    // Cart
+    // Start Cart mutators
+    public function getBuyableIdentifier($options = null)
+    {
+        return $this->id;
+    }
+    public function getBuyableDescription($options = null)
+    {
+        return $this->name;
+    }
+    public function getBuyablePrice($options = null)
+    {
+        return $this->price;
+    }
+    public function getBuyableWeight($options = null)
+    {
+        return $this->weight ?? 0;
+    }
+
+    public function getCartOptionstAttribute($options = null)
+    {
+        return $this->options;
     }
 
 }

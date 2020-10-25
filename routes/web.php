@@ -26,7 +26,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'ShopController@home')->name('shop.home');    
         Route::get('/categories', 'ShopController@categories')->name('shop.categories'); 
         Route::get('/products', 'ShopController@products')->name('shop.products');   
-        Route::get('/product/{slug}', 'ShopController@product')->name('shop.product');   
+        Route::get('/product/{slug}', 'ShopController@product')->name('shop.product'); 
+
+        Route::resource('cart', 'CartController', ['names' => 'shop.cart'])->only('store');  
+        Route::get('add-to-cart/{id}', 'CartController@addToCart')->name('shop.add-to-cart'); 
+        Route::get('remove-from-cart/{rowId}', 'CartController@removeFromCart')->name('shop.remove-from-cart'); 
     });
 
     Route::get('/logout', function () {
