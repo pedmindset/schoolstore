@@ -30,4 +30,27 @@ trait CartTrait
     {
         Cart::remove($rowId);
     }
+
+    public function updateCartItem($rowId, $qty)
+    {
+        Cart::update($rowId, $qty);
+    }
+
+    public function increaseCartItemQty($rowId)
+    {
+        $cartItem = Cart::get($rowId);
+        $newQty = $cartItem->qty++;
+        $this->updateCartProduct($rowId, $newQty);
+    }
+
+    public function decreaseCartItemQty($rowId)
+    {
+
+        $cartItem = Cart::get($rowId);
+        $newQty = $cartItem->qty --;
+
+        if ($newQty > 0) {
+            $this->updateCartProduct($rowId, $newQty);
+        }
+    }
 }
