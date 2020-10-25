@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/', 'ShopController@home')->name('shop.home');    
         Route::get('/categories', 'ShopController@categories')->name('shop.categories'); 
         Route::get('/products', 'ShopController@products')->name('shop.products');   
+        Route::get('/product/{slug}', 'ShopController@product')->name('shop.product');   
     });
 
     Route::get('/logout', function () {

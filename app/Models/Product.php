@@ -6,6 +6,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Support\Str;
 
 /**
  * @property integer $id
@@ -124,6 +125,25 @@ class Product extends Model implements HasMedia
     public function discounts()
     {
         return $this->morphMany('App\Models\Discount', 'discountable');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+
+        self::saving(function ($model) {
+            $model->slug = Str::slug($model->name);
+        });
+    }
+
+    public function getPriceWithCurrencyAttribute(){
+        return "GHS ". $this->price;
+    }
+
+    public function getCoverPhotoAttribute()
+    {
+        return $this->getFirstMediaUrl('cover');
     }
 
 }

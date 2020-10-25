@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
 {
@@ -18,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->unsignedbiginteger('product_category_id')->nullable();
             $table->foreign('product_category_id')->references('id')->on('product_categories');
             $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->decimal('price', 13,  2)->nullable();
             $table->integer('quantity')->nullable();
             $table->text('description')->nullable();

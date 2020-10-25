@@ -20,8 +20,20 @@ class ShopController extends Controller
 
     public function products(Request $request)
     {
-        $products = Product::get();
+        $featuredProducts = Product::whereFeatured('yes')->limit(6)->get();
         $category = ProductCategory::whereSlug($request->category)->first();
-        return view('shop.products', compact('products', 'category'));
+        $products = Product::when(!empty($request->category), function($query) use ($category){
+            $query->where('product_category_id', $category->id);
+        })->paginate(25);
+        return view('shop.products', compact('products', 'category', 'featuredProducts'));
+    }
+
+    public function product(string $slug)
+    {
+        if(empty($slug)){
+            abort(404);
+        }
+        $product = Product::whereSlug($slug)->first();
+        return view('shop.product', compact('product'));
     }
 }
