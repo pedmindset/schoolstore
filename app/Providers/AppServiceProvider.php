@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,7 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $productCategories = ProductCategory::orderBy('name', 'asc')->withCount('products')->get();
-        View::share('productCategories', $productCategories);
+        if (Schema::hasTable('product_categories')) {
+            $productCategories = ProductCategory::orderBy('name', 'asc')->withCount('products')->get();
+            View::share('productCategories', $productCategories);
+        }
+
     }
 }
