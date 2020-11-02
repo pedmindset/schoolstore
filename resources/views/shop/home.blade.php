@@ -216,7 +216,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="banner-contain">
-                            <h2>chnage this 2018</h2>
+                            <h2>change this 2018</h2>
                             <h3>fashion trends</h3>
                             <h4>special offer</h4>
                         </div>
