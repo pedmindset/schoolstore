@@ -45,13 +45,13 @@
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
                                 <li class="nav-item"><a data-toggle="tab" class="nav-link active"
                                         href="#dashboard">dashboard</a></li>
-                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#products">products</a>
+                                {{-- <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#products">products</a> --}}
                                 </li>
                                 <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#orders">orders</a>
                                 </li>
                                 <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#profile">profile</a>
                                 </li>
-                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#settings">settings</a>
+                                {{-- <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#settings">settings</a> --}}
                                 </li>
                                 <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#logout"
                                         href="">logout</a>
@@ -70,7 +70,7 @@
                                             <img src="{{ asset('images/icon/dashboard/order.png') }}" class="img-fluid">
                                             <div>
                                                 <h3>25</h3>
-                                                <h5>total products</h5>
+                                                <h5>Account Balance</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -78,8 +78,8 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('images/icon/dashboard/sale.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>12500</h3>
-                                                <h5>total sales</h5>
+                                                <h3>120</h3>
+                                                <h5>Loan</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-md-7">
                                     <div class="card">
                                         <div class="card-body">
@@ -109,44 +109,39 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="card dashboard-table">
                                         <div class="card-body">
-                                            <h3>trending products</h3>
+                                            <h3>Loan</h3>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">image</th>
-                                                        <th scope="col">product name</th>
+                                                        <th scope="col">Transaction ID</th>
+                                                        <th scope="col">Date</th>
                                                         <th scope="col">price</th>
-                                                        <th scope="col">sales</th>
+                                                        <th scope="col">Status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th scope="row"><img
-                                                                src="{{ asset('images/dashboard/product/1.jpg') }}"
-                                                                class="blur-up lazyloaded"></th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>$205</td>
-                                                        <td>1000</td>
+                                                        <th>132355353332</th>
+                                                        <td>20th Dec, 2020</td>
+                                                        <td>GHS205</td>
+                                                        <td>Approved</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"><img
-                                                                src="{{ asset('images/dashboard/product/9.jpg') }}"
-                                                                class="blur-up lazyloaded"></th>
-                                                        <td>belted trench coat</td>
-                                                        <td>$350</td>
-                                                        <td>800</td>
+                                                        <th>7656838475</th>
+                                                        <td>20th Nov, 2020</td>
+                                                        <td>GHS100</td>
+                                                        <td>Paid</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"><img src="{{ asset('images/pro3/34.jpg') }}"
-                                                                class="blur-up lazyloaded"></th>
-                                                        <td>man print tee</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
+                                                        <th>132355353332</th>
+                                                        <td>20th Oct, 2020</td>
+                                                        <td>GHS505</td>
+                                                        <td>Paid</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -199,7 +194,7 @@
 
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="products">
+                        {{-- <div class="tab-pane fade" id="products">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card dashboard-table mt-0">
@@ -301,7 +296,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="tab-pane fade" id="orders">
                             <div class="row">
                                 <div class="col-12">
@@ -309,7 +304,7 @@
                                         <div class="card-body">
                                             <div class="top-sec">
                                                 <h3>orders</h3>
-                                                <a href="#" class="btn btn-sm btn-solid">add product</a>
+                                                {{-- <a href="#" class="btn btn-sm btn-solid">add product</a> --}}
                                             </div>
                                             <table class="table table-responsive-sm mb-0">
                                                 <thead>
@@ -492,7 +487,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="settings">
+                        {{-- <div class="tab-pane fade" id="settings">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card mt-0">
@@ -624,7 +619,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

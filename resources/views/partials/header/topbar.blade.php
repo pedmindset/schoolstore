@@ -16,6 +16,7 @@
                     <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
                         {{ auth()->user()->name }}
                         <ul class="onhover-show-div">
+                            <li><a href="{{ url('shop/dashboard') }}" ">Dashbaord</a></li>
                             <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                         </ul>
 

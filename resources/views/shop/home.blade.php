@@ -199,7 +199,7 @@
                                     <h6>{{ $product->name }}</h6>
                                 </a>
                             </div>
-                        </div> 
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -209,14 +209,14 @@
     <!-- Product slider end -->
 
     <!-- Parallax banner -->
-    {{-- <section class="p-0">
+    <section class="p-0">
         <div class="full-banner parallax text-center p-left">
             <img src="{{ asset('images/parallax/1.jpg') }}" alt="" class="bg-img blur-up lazyload">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="banner-contain">
-                            <h2>2018</h2>
+                            <h2>chnage this 2018</h2>
                             <h3>fashion trends</h3>
                             <h4>special offer</h4>
                         </div>
@@ -224,12 +224,12 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
     <!-- Parallax banner end -->
 
 
     <!-- Tab product -->
-    {{-- <div class="title1 section-t-space">
+    <div class="title1 section-t-space">
         <h4>exclusive products</h4>
         <h2 class="title-inner1">special products</h2>
     </div>
@@ -1173,7 +1173,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
     <!-- Tab product end -->
 
     {{-- <!-- instagram section -->

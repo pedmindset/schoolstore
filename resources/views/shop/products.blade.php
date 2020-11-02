@@ -19,7 +19,7 @@
                             <!-- brand filter start -->
                             <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left"
                                         aria-hidden="true"></i> back</span></div>
-                            
+
                             <!-- price filter start here -->
                             <div class="collection-collapse-block border-0 open">
                                 <h3 class="collapse-block-title">price</h3>
@@ -80,7 +80,7 @@
                         </div> --}}
                         <!-- side-bar banner end here -->
                     </div>
-                    
+
                     <div class="collection-content col">
                         <div class="page-main-content">
                             <div class="row">
