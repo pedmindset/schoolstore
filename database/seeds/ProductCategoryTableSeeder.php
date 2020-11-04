@@ -174,12 +174,9 @@ class ProductCategoryTableSeeder extends Seeder
         foreach ($categories as $cat) {
             $category = ProductCategory::create($cat);
            if(Storage::exists('product_categories/'. $cat['name'] . '.jpg')){
-               if(!(ProductCategory::where('name', $cat['name'])->first())){
-                    $category = ProductCategory::create($cat);
-                    $category->addMedia(storage_path('app/product_categories/'. $cat['name'] . '.jpg'), 'local')
-                    ->toMediaCollection('featured');
-               };
-
+                $category = ProductCategory::create($cat);
+                $category->addMedia(storage_path('app/product_categories/'. $cat['name'] . '.jpg'), 'local')
+                ->toMediaCollection('featured');
            }
         }
     }
