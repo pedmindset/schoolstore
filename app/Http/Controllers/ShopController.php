@@ -43,4 +43,14 @@ class ShopController extends Controller
         ->limit(6)->get();
         return view('shop.product', compact('product', 'featuredProducts', 'relatedProducts'));
     }
+
+    public function cart()
+    {
+        return view('shop.cart');
+    }
+
+    public function checkout()
+    {
+        return view('shop.checkout');
+    }
 }

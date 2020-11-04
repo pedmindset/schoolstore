@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="close-circle">
-                <a class="removeFromCart" data-row-id="{{ $product->rowId }}">
+                <a href="#" class="removeFromCart" data-row-id="{{ $product->rowId }}">
                     <i class="ti-trash" aria-hidden="true"></i>
                 </a>
             </div>
@@ -34,8 +34,8 @@
         </li>
         <li>
             <div class="buttons">
-                <a href="cart.html" class="btn btn-solid btn-xs view-cart">view cart</a>
-                <a href="#" class="btn btn-solid btn-xs checkout">checkout</a>
+                <a href="{{ route('shop.cart') }}" class="btn btn-solid btn-xs view-cart">view cart</a>
+                <a href="{{ route('shop.checkout') }}" class="btn btn-solid btn-xs checkout">checkout</a>
             </div>
         </li>
     </ul>

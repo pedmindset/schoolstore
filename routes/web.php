@@ -27,12 +27,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/categories', 'ShopController@categories')->name('shop.categories'); 
         Route::get('/products', 'ShopController@products')->name('shop.products');   
         Route::get('/product/{slug}', 'ShopController@product')->name('shop.product'); 
-
-        Route::resource('cart', 'CartController', ['names' => 'shop.cart'])->only('store'); 
+        // Route::get('/cart', 'ShopController@cart')->name('shop.cart'); 
+        Route::get('/cart', 'ShopController@cart')->name('shop.cart');   
+        Route::get('/checkout', 'ShopController@checkout')->name('shop.checkout');   
+        
         Route::post('add-to-cart-api', 'CartController@addToCartApi')->name('shop.add-to-cart-api');  
         Route::post('remove-from-cart-api', 'CartController@removeFromCartApi')->name('shop.add-from-cart-api');  
-        Route::get('add-to-cart/{id}', 'CartController@addToCart')->name('shop.add-to-cart'); 
-        Route::get('remove-from-cart/{rowId}', 'CartController@removeFromCart')->name('shop.remove-from-cart'); 
     });
 
     Route::get('/logout', function () {
@@ -62,83 +62,83 @@ Route::get('/', function () {
 //     return view('shop.shop');
 // });
 
-Route::get('/shop/product', function () {
-    return view('shop.product');
-});
+// Route::get('/shop/product', function () {
+//     return view('shop.product');
+// });
 
-Route::get('/shop/collections/{slug}', function () {
-    return view('shop.collection_products');
-});
+// Route::get('/shop/collections/{slug}', function () {
+//     return view('shop.collection_products');
+// });
 
-Route::get('/shop/brands/{slug}', function () {
-    return view('shop.brand_products');
-});
+// Route::get('/shop/brands/{slug}', function () {
+//     return view('shop.brand_products');
+// });
 
-Route::get('/shop/categories/{slug}', function () {
-    return view('shop.category_products');
-});
+// Route::get('/shop/categories/{slug}', function () {
+//     return view('shop.category_products');
+// });
 
-Route::get('/shop/collections/', function () {
-    return view('shop.collections');
-});
+// Route::get('/shop/collections/', function () {
+//     return view('shop.collections');
+// });
 
-Route::get('/shop/brands/', function () {
-    return view('shop.brands');
-});
+// Route::get('/shop/brands/', function () {
+//     return view('shop.brands');
+// });
 
-Route::get('/shop/ordersuccess/', function () {
-    return view('shop.order_success');
-});
+// Route::get('/shop/ordersuccess/', function () {
+//     return view('shop.order_success');
+// });
 
-Route::get('/shop/cart/', function () {
-    return view('shop.cart');
-});
+// Route::get('/shop/cart/', function () {
+//     return view('shop.cart');
+// });
 
-Route::get('/shop/wishlist/', function () {
-    return view('shop.wishlist');
-});
+// Route::get('/shop/wishlist/', function () {
+//     return view('shop.wishlist');
+// });
 
-Route::get('/shop/checkout/', function () {
-    return view('shop.checkout');
-});
+// Route::get('/shop/checkout/', function () {
+//     return view('shop.checkout');
+// });
 
-Route::get('/shop/dashboard/', function () {
-    return view('customers.dashboard');
-});
-
-
-Route::get('/shop/accounts/', function () {
-    return view('customers.account');
-});
-
-Route::post('/newsletters/signup', function (Request $request) {
-    if ($request->filled('email')) {
-        $newsletterContact = NewsletterContact::where('email', $request->email)->first();
-        if (!$newsletterContact) {
-            NewsletterContact::create([
-                'email' => $request->email,
-                'ipAddress' => $request->ip()
-            ]);
-
-            return response()->json([
-                'status' => 'success'
-            ]);
-        }
-
-        return response()->json([
-            'status' => 'info',
-            'message' => 'We already have your contact',
-        ])->setStatusCode(401);
-    };
-
-    return response()->json([
-        'status' => 'error',
-        'message' => 'Error Occured Try Again',
-    ])->setStatusCode(401);
-});
+// Route::get('/shop/dashboard/', function () {
+//     return view('customers.dashboard');
+// });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/shop/accounts/', function () {
+//     return view('customers.account');
+// });
+
+// Route::post('/newsletters/signup', function (Request $request) {
+//     if ($request->filled('email')) {
+//         $newsletterContact = NewsletterContact::where('email', $request->email)->first();
+//         if (!$newsletterContact) {
+//             NewsletterContact::create([
+//                 'email' => $request->email,
+//                 'ipAddress' => $request->ip()
+//             ]);
+
+//             return response()->json([
+//                 'status' => 'success'
+//             ]);
+//         }
+
+//         return response()->json([
+//             'status' => 'info',
+//             'message' => 'We already have your contact',
+//         ])->setStatusCode(401);
+//     };
+
+//     return response()->json([
+//         'status' => 'error',
+//         'message' => 'Error Occured Try Again',
+//     ])->setStatusCode(401);
+// });
+
+
+// Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/shop', function () {
 //     return view('commingsoon');
