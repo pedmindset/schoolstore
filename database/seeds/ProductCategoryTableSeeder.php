@@ -173,9 +173,9 @@ class ProductCategoryTableSeeder extends Seeder
 
         foreach ($categories as $cat) {
             $category = ProductCategory::create($cat);
-           if(Storage::exists('categories/'. $cat['name'] . '.jpg')){
+           if(Storage::exists('product_categories/'. $cat['name'] . '.jpg')){
                 $category = ProductCategory::create($cat);
-                $category->addMedia(storage_path('app/categories/'. $cat['name'] . '.jpg'), 'local')
+                $category->addMedia(storage_path('app/product_categories/'. $cat['name'] . '.jpg'), 'local')
                 ->toMediaCollection('featured');
            }
         }
