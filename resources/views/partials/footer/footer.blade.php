@@ -361,7 +361,7 @@
                 </div>
             </div>
             <div class="cart_media">
-                <ul class="cart_product">
+                {{-- <ul class="cart_product">
                     @forelse(Cart::content() as $product)
                     <li>
                         <div class="media">
@@ -369,7 +369,6 @@
                                 <img alt="" class="mr-3" src="{{ $product->model->cover_photo }}">
                             </a>
                             <div class="media-body">
-                                {{-- <a> --}}
                                 <a href="{{ route('shop.product', ['slug' => $product->model->slug]) }}">
                                     <h4>{{ $product->name }}</h4>
                                 </a>
@@ -400,7 +399,8 @@
                             <a href="#" class="btn btn-solid btn-xs checkout">checkout</a>
                         </div>
                     </li>
-                </ul>
+                </ul> --}}
+                <livewire:cart-view-livewire />
             </div>
         </div>
     </div>

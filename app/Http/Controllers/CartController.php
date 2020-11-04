@@ -28,7 +28,6 @@ class CartController extends Controller
 
         return response()->json([
             "message" => "Product has been added to cart!",
-            "data" => Cart::content()
         ], 200);
     }
 
@@ -38,7 +37,6 @@ class CartController extends Controller
 
         return response()->json([
             "message" => "Product has been removed from cart!",
-            "data" => Cart::content()
         ], 200);
     }
 

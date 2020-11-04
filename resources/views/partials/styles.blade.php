@@ -22,4 +22,6 @@
 <!-- Theme css -->
 <link rel="stylesheet" type="text/css" href="{{ asset('css/color1.css') }}" media="screen" id="color">
 
+@livewireStyles
+
 @stack('custom-styles')
