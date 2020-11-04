@@ -11,7 +11,7 @@
             </a>
         </div>
         <div class="cart-info cart-wrap">
-            <button data-toggle="modal" title="Add to cart" class="addtocart" data-product="{{ $product }}">
+            <button type="button" title="Add to cart" class="addtocart" data-product="{{ $product }}">
                 <i class="ti-shopping-cart"></i>
             </button>
             <a href="javascript:void(0)" title="Add to Wishlist">

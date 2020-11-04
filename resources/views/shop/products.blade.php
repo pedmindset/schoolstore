@@ -8,6 +8,8 @@
 
 @section('content')
     <x-breadcrumb/>
+    <form action="{{ route('shop.products') }}" method="GET" id="product_search">
+   
     <!-- section start -->
     <section class="section-b-space ratio_asos">
         <div class="collection-wrapper">
@@ -50,6 +52,15 @@
                                 </div>
                             </div>
                         </div> --}}
+
+                        <div class="collection-collapse-block border-0 open">
+                            <h3 class="collapse-block-title">price</h3>
+                            <div class="collection-collapse-block-content" style="">
+                                <div class="wrapper mt-3">
+                                    <input type="text" id="slider" class="slider">
+                                </div>
+                            </div>
+                        </div>
                         <!-- silde-bar colleps block end here -->
                         <!-- side-bar single product slider start -->
                         <div class="theme-card">
@@ -128,23 +139,22 @@
                                                                 <li><img src="{{ asset('images/icon/6.png') }}" alt="" class="product-6-layout-view"></li>
                                                             </ul>
                                                         </div>
-                                                        {{-- <div class="product-page-per-view">
-                                                            <select>
-                                                                <option value="High to low">24 Products Par Page
-                                                                </option>
-                                                                <option value="Low to High">50 Products Par Page
-                                                                </option>
-                                                                <option value="Low to High">100 Products Par Page
-                                                                </option>
+                                                        <div class="product-page-per-view">
+                                                            <select name="category" class="select">
+                                                                <option value="">Select category</option>
+                                                                @foreach($productCategories as $category)
+                                                                <option value="{{ $category->slug }}" @if(request()->category == $category->slug) selected @endif>{{ $category->name }}</option>
+                                                                @endforeach
                                                             </select>
+                                                            {{-- <input type="submit" class="btn btn-danger btn-sm" value="Filter"> --}}
                                                         </div>
-                                                        <div class="product-page-filter">
+                                                        {{-- <div class="product-page-filter">
                                                             <select>
                                                                 <option value="High to low">Sorting items</option>
                                                                 <option value="Low to High">50 Products</option>
                                                                 <option value="Low to High">100 Products</option>
                                                             </select>
-                                                        </div> --}}
+                                                        </div>  --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,5 +192,30 @@
         </div>
     </section>
     <!-- section End -->
+    
+    </form>
+
 
 @endsection
+
+@push('custom-scripts')
+<script>
+    $(window).on('load', function () {
+       
+        $('.select').on('change', function() {
+            submitForm();
+        });
+
+        var mySlider = new rSlider({
+            target: '#slider',
+            values: [2008, 2009, 2010, 2011, ...],
+            range: true // range slider
+
+        });
+
+        function submitForm(){
+            $('#product_search').submit();
+        }
+    });
+</script>
+@endpush
