@@ -96,6 +96,12 @@ class Product extends Model implements HasMedia, Buyable
         return $this->belongsToMany('App\Models\Cart');
     }
 
+
+    public function order_products()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

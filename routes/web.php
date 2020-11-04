@@ -28,7 +28,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/products', 'ShopController@products')->name('shop.products');   
         Route::get('/product/{slug}', 'ShopController@product')->name('shop.product'); 
 
-        Route::resource('cart', 'CartController', ['names' => 'shop.cart'])->only('store');  
+        Route::resource('cart', 'CartController', ['names' => 'shop.cart'])->only('store'); 
+        Route::post('add-to-cart-api', 'CartController@addToCartApi')->name('shop.add-to-cart-api');  
+        Route::post('remove-from-cart-api', 'CartController@removeFromCartApi')->name('shop.add-from-cart-api');  
         Route::get('add-to-cart/{id}', 'CartController@addToCart')->name('shop.add-to-cart'); 
         Route::get('remove-from-cart/{rowId}', 'CartController@removeFromCart')->name('shop.remove-from-cart'); 
     });

@@ -153,36 +153,7 @@
                                             <div class="row margin-res">
                                                 @foreach ($products as $product)
                                                 <div class="col-xl-3 col-6 col-grid-box">
-                                                    <div class="product-box">
-                                                        <div class="img-wrapper">
-                                                            <div class="front">
-                                                                <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                                                                    <img src="{{ $product->cover_photo }}" class="img-fluid blur-up lazyload bg-img" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="back">
-                                                                <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                                                                    <img src="{{ $product->cover_photo }}" class="img-fluid blur-up lazyload bg-img" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="cart-info cart-wrap">
-                                                                <a title="Add to cart" href="{{ route('shop.add-to-cart', [$product->id]) }}"><i class="ti-shopping-cart" ></i></a>
-                                                                {{-- <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i class="ti-shopping-cart"></i></button>  --}}
-                                                                <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a>
-                                                                {{-- <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> --}}
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-detail">
-                                                            <div>
-                                                                {{-- <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div> --}}
-                                                                <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                                                                    <h6>{{ $product->name }}</h6>
-                                                                </a>
-                                                                <p>{{ $product->description }}</p>
-                                                                <h4>{{ $product->price_with_currency }}</h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <x-product-tile :product="$product"/>
                                                 </div>
                                                 @endforeach
                                             </div>
