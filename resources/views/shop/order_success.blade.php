@@ -12,7 +12,7 @@
                     <div class="success-text"><i class="fa fa-check-circle" aria-hidden="true"></i>
                         <h2>thank you</h2>
                         <p>Payment is successfully processsed and your order is on the way</p>
-                        <p>Transaction ID:267676GHERT105467</p>
+                        <p>Transaction ID: {{ $order->uuid }}</p>
                     </div>
                 </div>
             </div>

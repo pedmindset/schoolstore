@@ -29,7 +29,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/product/{slug}', 'ShopController@product')->name('shop.product'); 
         // Route::get('/cart', 'ShopController@cart')->name('shop.cart'); 
         Route::get('/cart', 'ShopController@cart')->name('shop.cart');   
-        Route::get('/checkout', 'ShopController@checkout')->name('shop.checkout');   
+        Route::get('/checkout', 'ShopController@checkout')->name('shop.checkout'); 
+        
+        Route::get('/shop/order-success/{uuid}', 'ShopController@orderSuccess')->name('shop.order-success');
         
         Route::post('add-to-cart-api', 'CartController@addToCartApi')->name('shop.add-to-cart-api');  
         Route::post('remove-from-cart-api', 'CartController@removeFromCartApi')->name('shop.add-from-cart-api');  
@@ -86,9 +88,6 @@ Route::get('/', function () {
 //     return view('shop.brands');
 // });
 
-// Route::get('/shop/ordersuccess/', function () {
-//     return view('shop.order_success');
-// });
 
 // Route::get('/shop/cart/', function () {
 //     return view('shop.cart');

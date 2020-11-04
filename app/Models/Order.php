@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
  * @property integer $id
@@ -17,6 +18,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($model) {
+            $model->uuid = Str::uuid();
+        });
+    }
+
     /**
      * The "type" of the auto-incrementing ID.
      * 
@@ -27,7 +38,7 @@ class Order extends Model
     /**
      * @var array
      */
-    protected $fillable = ['customer_id', 'uuid', 'amount', 'status', 'lng', 'lat',  'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'uuid', 'amount', 'status', 'lng', 'lat',  'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -42,7 +53,7 @@ class Order extends Model
      */
     public function products()
     {
-        return $this->belongsToMany('App\Models\Product');
+        return $this->hasMany(OrderProduct::class, 'order_id');
     }
 
     /**
@@ -52,5 +63,4 @@ class Order extends Model
     {
         return $this->morphMany('App\Model\Discount', 'discountable');
     }
-
 }

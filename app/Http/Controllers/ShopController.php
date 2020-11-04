@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -51,6 +52,24 @@ class ShopController extends Controller
 
     public function checkout()
     {
-        return view('shop.checkout');
+        $user = auth()->user();
+
+        return view('shop.checkout', [
+            "user" => $user,
+        ]);
+    }
+    
+    public function orderSuccess(Request $request, $uuid)
+    {
+        if($uuid == null){
+            abort(404);
+        }
+        $order = Order::whereUserId(auth()->id())->where('uuid', $uuid)->first();
+        if($order == null){
+            abort(404);
+        }
+        return view('shop.order_success', [
+            "order" => $order,
+        ]);
     }
 }

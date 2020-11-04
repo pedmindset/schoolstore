@@ -11,9 +11,6 @@ class CartViewLivewire extends Component
         'updateCart' => 'updateCart',
     ];
 
-    public function mount()
-    {
-    }
 
     public function updateCart()
     {
