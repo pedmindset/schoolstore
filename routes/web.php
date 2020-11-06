@@ -23,18 +23,18 @@ Auth::routes();
 // Authenticated Routes
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'shop'], function () {
-        Route::get('/', 'ShopController@home')->name('shop.home');    
-        Route::get('/categories', 'ShopController@categories')->name('shop.categories'); 
-        Route::get('/products', 'ShopController@products')->name('shop.products');   
-        Route::get('/product/{slug}', 'ShopController@product')->name('shop.product'); 
-        // Route::get('/cart', 'ShopController@cart')->name('shop.cart'); 
-        Route::get('/cart', 'ShopController@cart')->name('shop.cart');   
-        Route::get('/checkout', 'ShopController@checkout')->name('shop.checkout'); 
-        
+        Route::get('/', 'ShopController@home')->name('shop.home');
+        Route::get('/categories', 'ShopController@categories')->name('shop.categories');
+        Route::get('/products', 'ShopController@products')->name('shop.products');
+        Route::get('/product/{slug}', 'ShopController@product')->name('shop.product');
+        // Route::get('/cart', 'ShopController@cart')->name('shop.cart');
+        Route::get('/cart', 'ShopController@cart')->name('shop.cart');
+        Route::get('/checkout', 'ShopController@checkout')->name('shop.checkout');
+
         Route::get('/shop/order-success/{uuid}', 'ShopController@orderSuccess')->name('shop.order-success');
-        
-        Route::post('add-to-cart-api', 'CartController@addToCartApi')->name('shop.add-to-cart-api');  
-        Route::post('remove-from-cart-api', 'CartController@removeFromCartApi')->name('shop.add-from-cart-api');  
+
+        Route::post('add-to-cart-api', 'CartController@addToCartApi')->name('shop.add-to-cart-api');
+        Route::post('remove-from-cart-api', 'CartController@removeFromCartApi')->name('shop.add-from-cart-api');
     });
 
     Route::get('/logout', function () {
@@ -101,9 +101,9 @@ Route::get('/', function () {
 //     return view('shop.checkout');
 // });
 
-// Route::get('/shop/dashboard/', function () {
-//     return view('customers.dashboard');
-// });
+Route::get('/shop/dashboard/', function () {
+    return view('customers.dashboard');
+});
 
 
 // Route::get('/shop/accounts/', function () {
