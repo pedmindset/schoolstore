@@ -36,8 +36,7 @@
                                 <img src="{{ asset('images/logos/17.png') }}" alt="" class="img-fluid">
                             </div>
                             <div class="profile-detail">
-                                <h5>Fashion Store</h5>
-                                <h6>750 followers | 10 review</h6>
+                                <h5>Martin Kwame</h5>
                                 <h6>mark.enderess@mail.com</h6>
                             </div>
                         </div>
@@ -69,7 +68,7 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('images/icon/dashboard/order.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>25</h3>
+                                                <h3>GHS 225</h3>
                                                 <h5>Account Balance</h5>
                                             </div>
                                         </div>
@@ -78,7 +77,7 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('images/icon/dashboard/sale.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>120</h3>
+                                                <h3>GHS 120</h3>
                                                 <h5>Loan</h5>
                                             </div>
                                         </div>

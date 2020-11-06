@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3 collection-filter">
-                        
+
                         {{-- <div class="collection-filter-block">
                             <div class="product-service">
                                 <div class="media">
@@ -159,14 +159,14 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="product-slick">
-                                        <div><img src="{{ asset('images/pro3/1.jpg') }}" alt=""
+                                        <div><img src="{{ asset($product->cover_photo) }}" alt=""
                                                 class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
-                                        <div><img src="{{ asset('images/pro3/2.jpg') }}" alt=""
+                                        {{-- <div><img src="{{ asset('images/pro3/2.jpg') }}" alt=""
                                                 class="img-fluid blur-up lazyload image_zoom_cls-1"></div>
                                         <div><img src="{{ asset('images/pro3/27.jpg') }}" alt=""
                                                 class="img-fluid blur-up lazyload image_zoom_cls-2"></div>
                                         <div><img src="{{ asset('images/pro3/27.jpg') }}" alt=""
-                                                class="img-fluid blur-up lazyload image_zoom_cls-3"></div>
+                                                class="img-fluid blur-up lazyload image_zoom_cls-3"></div> --}}
                                     </div>
                                     <div class="row">
                                         <div class="col-12 p-0">
@@ -174,8 +174,8 @@
                                                 @foreach ($product->pictures as $picture)
                                                 <div>
                                                     <img src="{{ asset('images/pro3/1.jpg') }}" alt="" class="img-fluid blur-up lazyload">
-                                                </div> 
-                                                @endforeach                                                
+                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@
                                         {{-- <h4><del>$459.00</del><span>55% off</span></h4> --}}
                                         <h3>{{ $product->price_with_currency }}</h3>
                                         <div class="product-buttons">
-                                            <button  data-product="{{ $product }}" class="btn btn-solid addtocart">add to cart</button> 
+                                            <button  data-product="{{ $product }}" class="btn btn-solid addtocart">add to cart</button>
                                             {{-- <a href="#" class="btn btn-solid">buy now</a> --}}
                                         </div>
                                         <div class="border-product">
