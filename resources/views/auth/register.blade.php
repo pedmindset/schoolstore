@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -74,7 +74,6 @@
                                 @enderror
                             </div>
                         </div>
-                        {{-- <x-input-horz title="Phone Number" name="phone"/> --}}
 
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Address</label>
@@ -157,6 +156,46 @@
                 </div>
             </div>
         </div>
+    </div>
+</div> --}}
+
+<div class="min-h-full bg-gray-50 flex flex-col justify-center py-20 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <x-branding class="mx-auto h-12 w-auto" />
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        Create a new account
+      </h2>
+      <p class="mt-2 text-center text-sm text-gray-600 max-w">
+        Or
+        <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
+          login to your account
+        </a>
+      </p>
+    </div>
+  
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <form class="space-y-6" method="POST" action="{{ route('register') }}">
+            @csrf
+          <x-form.input title="Name" name="name"/>
+
+          <x-form.input title="Email Address" name="email" type="email"/>
+
+          <x-form.input title="Phone Number" name="phone"/>
+          
+          <x-form.input title="Password" name="password" type="password"/>
+
+          <x-form.input title="Confirm Password" name="password_confirmation" type="password"/>
+  
+  
+          <div>
+            <x-misc.button title="Register" />
+          </div>
+        </form>
+  
+        <div class="mt-6">
+        </div>
+      </div>
     </div>
 </div>
 @endsection

@@ -70,7 +70,7 @@
         </div>
     </div>
 </div>  --}}
-<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+<div class="min-h-full bg-gray-50 flex flex-col justify-center py-20 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
       <x-branding class="mx-auto h-12 w-auto" />
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -94,7 +94,7 @@
   
           <div class="flex items-center justify-between">
             <div class="flex items-center">
-              <input id="remember_me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+              <input id="remember_me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
               <label for="remember_me" class="ml-2 block text-sm text-gray-900">
                 Remember me
               </label>
@@ -116,5 +116,5 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 @endsection

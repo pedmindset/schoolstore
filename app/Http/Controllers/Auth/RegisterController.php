@@ -55,11 +55,11 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone' => ['required'],
-            'address' => ['required'],
-            'date_of_birth' => ['required'],
-            'city' => ['required'],
-            'region' => ['required'],
-            'country' => ['required'],
+            // 'address' => ['required'],
+            // 'date_of_birth' => ['required'],
+            // 'city' => ['required'],
+            // 'region' => ['required'],
+            // 'country' => ['required'],
         ]);
     }
 
@@ -83,11 +83,11 @@ class RegisterController extends Controller
             'name' => $user->name,
             'phone' => request()->phone,
             'email' => request()->email,
-            'address' => request()->address,
-            'date_of_birth' => request()->date_of_birth,
-            'city' => request()->city,
-            'region' => request()->region,
-            'country' => request()->country,
+            // 'address' => request()->address,
+            // 'date_of_birth' => request()->date_of_birth,
+            // 'city' => request()->city,
+            // 'region' => request()->region,
+            // 'country' => request()->country,
         ]);
 
         return $user;
