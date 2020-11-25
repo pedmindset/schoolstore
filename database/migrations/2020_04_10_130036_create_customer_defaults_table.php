@@ -15,8 +15,7 @@ class CreateCustomerDefaultsTable extends Migration
     {
         Schema::create('customer_defaults', function (Blueprint $table) {
             $table->id('id');
-            $table->unsignedBigInteger('customer_id')->nulllable();
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->unsignedBigInteger('account_id')->nulllable();
             $table->foreign('account_id')->references('id')->on('accounts');
             $table->decimal('amount', 13, 5)->default(0)->nullable();

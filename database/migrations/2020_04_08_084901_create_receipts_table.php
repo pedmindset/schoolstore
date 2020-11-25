@@ -15,8 +15,7 @@ class CreateReceiptsTable extends Migration
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbiginteger('transaction_id')->nullable();
-            $table->foreign('transaction_id')->references('id')->on('transactions');
+            $table->foreignId('transaction_id')->nullable()->constrained()->cascadeOnDelete();
             $table->uuid('uuid')->nullable();
             $table->string('code')->nullable();
             $table->timestamps();

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->uuid('uuid')->nullable();
             $table->unsignedbiginteger('product_category_id')->nullable();
             $table->foreign('product_category_id')->references('id')->on('product_categories');
+            $table->unsignedBigInteger('brand_id')->nullable();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->decimal('price', 13,  2)->nullable();

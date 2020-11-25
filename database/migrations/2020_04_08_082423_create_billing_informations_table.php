@@ -15,8 +15,8 @@ class CreateBillingInformationsTable extends Migration
     {
         Schema::create('billing_informations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbiginteger('customer_id')->nullable();
-            $table->foreign('customer_id')->references('id')->on('customers')->ondelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->string('name')->nullable();
             $table->string('payment_method')->nullable();
             $table->string('momo_number')->nullable();
             $table->string('phone')->nullable();

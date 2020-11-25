@@ -15,12 +15,12 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbiginteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('school_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->tinyInteger('has_verified_phone')->default(0);
+            $table->tinyInteger('has_verified_momo')->default(0);
             $table->string('phone')->nullable();
             $table->string('phone2')->nullable();
-            $table->string('email')->nullable();
             $table->string('address')->nullable();
             $table->string('address2')->nullable();
             $table->date('date_of_birth')->nullable();

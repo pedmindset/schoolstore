@@ -17,8 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->uuid('uuid')->nullable();
             $table->string('transaction_id');
-            $table->unsignedbiginteger('customer_id')->nullable();
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->decimal('amount', 13,  4)->nullable();
             $table->string('status')->nullable();
             $table->string('payment_method')->nullable();

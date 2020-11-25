@@ -15,15 +15,11 @@ class ProfilesTableSeeder extends Seeder
         $data = [
             [
                 "user_id" => 1,
-                "name" => "Emmanuel Oduro",
-                "email" => "emmarthurson@gmail.com",
                 "phone" => "0209000000",
                 "address" => "Lizzy Sport Center",
             ],
             [
                 "user_id" => 2,
-                "name" => "Emmanuel Fache",
-                "email" => "emrade95@gmail.com",
                 "phone" => "0209000001",
                 "address" => "Abeka, Lapaz.",
             ],

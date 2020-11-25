@@ -17,6 +17,7 @@ class CreateCollectionsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
+            $table->string('active')->nullable();
             $table->timestamps();
         });
     }

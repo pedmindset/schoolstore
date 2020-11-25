@@ -15,8 +15,7 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbiginteger('customer_id')->nullable();
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->uuid('uuid')->nullable();
             $table->string('name')->nullable();
             $table->decimal('balance', 13,  4)->default(0)->nullable();
