@@ -37061,21 +37061,21 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/admin.scss */"./resources/sass/scss/admin.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/chartist.scss */"./resources/sass/scss/chartist.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/datatables.scss */"./resources/sass/scss/datatables.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/date-picker.scss */"./resources/sass/scss/date-picker.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/dropzone.scss */"./resources/sass/scss/dropzone.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/flag-icon.scss */"./resources/sass/scss/flag-icon.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/fontawesome.scss */"./resources/sass/scss/fontawesome.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/landing_page.scss */"./resources/sass/scss/landing_page.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/owlcarousel.scss */"./resources/sass/scss/owlcarousel.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/prism.scss */"./resources/sass/scss/prism.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/rating.scss */"./resources/sass/scss/rating.scss");
-__webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/slick-theme.scss */"./resources/sass/scss/slick-theme.scss");
-module.exports = __webpack_require__(/*! /Users/emmanuel/workspace/laravel/schoolstore/resources/sass/scss/slick.scss */"./resources/sass/scss/slick.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/admin.scss */"./resources/sass/scss/admin.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/chartist.scss */"./resources/sass/scss/chartist.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/datatables.scss */"./resources/sass/scss/datatables.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/date-picker.scss */"./resources/sass/scss/date-picker.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/dropzone.scss */"./resources/sass/scss/dropzone.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/flag-icon.scss */"./resources/sass/scss/flag-icon.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/fontawesome.scss */"./resources/sass/scss/fontawesome.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/landing_page.scss */"./resources/sass/scss/landing_page.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/owlcarousel.scss */"./resources/sass/scss/owlcarousel.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/prism.scss */"./resources/sass/scss/prism.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/rating.scss */"./resources/sass/scss/rating.scss");
+__webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/slick-theme.scss */"./resources/sass/scss/slick-theme.scss");
+module.exports = __webpack_require__(/*! /Users/emrade/Dev/Apps/laravel/schoolstore/resources/sass/scss/slick.scss */"./resources/sass/scss/slick.scss");
 
 
 /***/ })

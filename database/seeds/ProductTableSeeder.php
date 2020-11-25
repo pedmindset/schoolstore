@@ -30,16 +30,15 @@ class ProductTableSeeder extends Seeder
             ],
         ];
 
-        foreach ($products as $product) {
+        $images = [
+            "https://marketexpress.com.gh/2344-thickbox_default/club-beer-625ml-bottle-x-12.jpg",
+            "https://marketexpress.com.gh/1424-thickbox_default/famous-amos-chocolate-cookies-56g.jpg",
+        ];
+
+        foreach ($products as $i =>$product) {
             $p = Product::create($product);
-            if($p->id == 1){
-                $p->addMediaFromUrl("https://marketexpress.com.gh/2344-thickbox_default/club-beer-625ml-bottle-x-12.jpg")
+            $p->addMediaFromUrl($images[$i])
                     ->toMediaCollection('cover');
-            }
-            if($p->id == 2){
-                $p->addMediaFromUrl("https://marketexpress.com.gh/1424-thickbox_default/famous-amos-chocolate-cookies-56g.jpg")
-                    ->toMediaCollection('cover');
-            }
         }
     }
 }

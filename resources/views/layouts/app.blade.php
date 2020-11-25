@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     {{--  <link href="{{ asset('css/bootstrapcss.css') }}" rel="stylesheet">  --}}
 </head>
 <body>

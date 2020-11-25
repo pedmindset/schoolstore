@@ -54,7 +54,7 @@
       <div>
         <a href="#" class="flex">
           <span class="sr-only">Workflow</span>
-          <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
+          <x-branding class="h-8 w-auto sm:h-10"/>
         </a>
       </div>
       <div class="-mr-2 -my-2 md:hidden">
