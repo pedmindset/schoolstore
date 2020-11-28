@@ -26,7 +26,7 @@ class ShopController extends Controller
     {
         $featuredProducts = Product::whereFeatured('yes')->limit(6)->get();
         $category = ProductCategory::whereSlug($request->category)->first();
-        $products = Product::when(!empty($request->category), function($query) use ($category){
+        $products = Product::when(!empty($request->category), function ($query) use ($category) {
             $query->where('product_category_id', $category->id);
         })->paginate(25);
         return view('shop.products', compact('products', 'category', 'featuredProducts'));
@@ -36,12 +36,12 @@ class ShopController extends Controller
     {
         $featuredProducts = Product::whereFeatured('yes')->limit(6)->get();
         $product = Product::whereSlug($slug)->first();
-        if(empty($slug) || $product == null){
+        if (empty($slug) || $product == null) {
             abort(404);
         }
         $relatedProducts = Product::whereProductCategoryId($product->product_category_id)
-        ->where('id', '!=', $product->id)
-        ->limit(6)->get();
+            ->where('id', '!=', $product->id)
+            ->limit(6)->get();
         return view('shop.product', compact('product', 'featuredProducts', 'relatedProducts'));
     }
 
@@ -58,14 +58,14 @@ class ShopController extends Controller
             "user" => $user,
         ]);
     }
-    
+
     public function orderSuccess(Request $request, $uuid)
     {
-        if($uuid == null){
+        if ($uuid == null) {
             abort(404);
         }
         $order = Order::whereUserId(auth()->id())->where('uuid', $uuid)->first();
-        if($order == null){
+        if ($order == null) {
             abort(404);
         }
         return view('shop.order_success', [

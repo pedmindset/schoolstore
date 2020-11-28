@@ -4,6 +4,7 @@
     $ty = $type ?? "text";
     $ph = $placeholder ?? "";
     $rq = $required ?? "false";
+    $val = $value ?? "";
 @endphp
 
 <div {{ $attributes->merge(['class' => 'block text-sm mb-4']) }}>
@@ -14,6 +15,7 @@
         placeholder="{{ $ph }}"
         {{-- required="{{ $rq }}" --}}
         type="{{ $ty }}" name="{{ $name }}"
+        value="{{ $val }}"
         />
         @error($name) 
         <span class="text-red-500 italic text-xs">

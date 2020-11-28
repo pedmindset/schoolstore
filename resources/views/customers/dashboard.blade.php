@@ -391,10 +391,10 @@
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>company name</h6>
+                                                                    <h6>Name</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>Fashion Store</h6>
+                                                                    <h6>{{ auth()->user()->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -404,77 +404,37 @@
                                                                     <h6>email address</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>mark.enderess@mail.com</h6>
+                                                                    <h6>{{ auth()->user()->email }}</h6>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>Country / Region</h6>
+                                                                    <h6>Phone</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>Downers Grove, IL</h6>
+                                                                    <h6><x-misc.empty-text-view :text="auth()->user()->profile->phone"/></h6>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>Year Established</h6>
+                                                                    <h6>Address</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>2018</h6>
+                                                                    <h6><x-misc.empty-text-view :text="auth()->user()->profile->address"/></h6>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>Total Employees</h6>
+                                                                    <h6>Date of birth</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>101 - 200 People</h6>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="details">
-                                                                <div class="left">
-                                                                    <h6>category</h6>
-                                                                </div>
-                                                                <div class="right">
-                                                                    <h6>clothing</h6>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="details">
-                                                                <div class="left">
-                                                                    <h6>street address</h6>
-                                                                </div>
-                                                                <div class="right">
-                                                                    <h6>549 Sulphur Springs Road</h6>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="details">
-                                                                <div class="left">
-                                                                    <h6>city/state</h6>
-                                                                </div>
-                                                                <div class="right">
-                                                                    <h6>Downers Grove, IL</h6>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="details">
-                                                                <div class="left">
-                                                                    <h6>zip</h6>
-                                                                </div>
-                                                                <div class="right">
-                                                                    <h6>60515</h6>
+                                                                    <h6><x-misc.empty-text-view :text="auth()->user()->profile->date_of_birth"/></h6>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -628,21 +588,28 @@
 
 
     <!-- Modal start -->
-    <div class="modal logout-modal fade" id="logout" tabindex="-1" role="dialog">
+    <div class="modal logout-modal fade" id="edit-profile" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Logging Out</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Do you want to log out?
+                    <form method="POST" action="{{ route('customer.update-profile') }}" id="update-profile-form">
+                        @csrf
+                        <x-form.input title="Name" name="name" :value="auth()->user()->name"/>
+                        <x-form.input title="Email Address" name="email" type="email" :value="auth()->user()->email"/>
+                        <x-form.input title="Phone Number" name="phone" :value="auth()->user()->profile->phone"/>
+                        <x-form.input title="Address" name="address" :value="auth()->user()->profile->address"/>
+                        <x-form.input title="Date of Birth" name="dob" type="date" :value="auth()->user()->profile->date_of_birth"/>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <a href="#" class="btn btn-dark btn-custom" data-dismiss="modal">no</a>
-                    <a href="index.html" class="btn btn-solid btn-custom">yes</a>
+                    <a href="#" class="btn btn-dark btn-custom" data-dismiss="modal">cancel</a>
+                    <a class="btn btn-solid btn-custom" onclick="event.preventDefault(); document.getElementById('update-profile-form').submit();" >Save</a>
                 </div>
             </div>
         </div>
