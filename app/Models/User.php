@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+
+    public function recentOrders()
+    {
+        return Order::latest()->whereUserId(auth()->id())->limit(5)->get();
+    }
 }

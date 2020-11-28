@@ -4,25 +4,7 @@
 
 @section('content')
     <!-- breadcrumb start -->
-    <div class="breadcrumb-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="page-title">
-                        <h2>Dashboard</h2>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-breadcrumb/>
     <!-- breadcrumb end -->
 
     <!--  dashboard section start -->
@@ -36,8 +18,8 @@
                                 <img src="{{ asset('images/logos/17.png') }}" alt="" class="img-fluid">
                             </div>
                             <div class="profile-detail">
-                                <h5>Martin Kwame</h5>
-                                <h6>mark.enderess@mail.com</h6>
+                                <h5>{{ auth()->user()->name }}</h5>
+                                <h6>{{ auth()->user()->email }}</h6>
                             </div>
                         </div>
                         <div class="faq-tab">
@@ -130,18 +112,7 @@
                                                         <td>GHS205</td>
                                                         <td>Approved</td>
                                                     </tr>
-                                                    <tr>
-                                                        <th>7656838475</th>
-                                                        <td>20th Nov, 2020</td>
-                                                        <td>GHS100</td>
-                                                        <td>Paid</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>132355353332</th>
-                                                        <td>20th Oct, 2020</td>
-                                                        <td>GHS505</td>
-                                                        <td>Paid</td>
-                                                    </tr>
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
@@ -155,37 +126,20 @@
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">order id</th>
-                                                        <th scope="col">product details</th>
+                                                        <th scope="col">amount</th>
                                                         <th scope="col">status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @forelse (auth()->user()->recentOrders() as $order)
                                                     <tr>
-                                                        <th scope="row">#21515</th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>confrimed</td>
+                                                        <th scope="row">#{{ $order->uuid }}</th>
+                                                        <td>{{ $order->amount_with_currency }}</td>
+                                                        <td>{{ $order->status }}</td>
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">#78153</th>
-                                                        <td>belted trench coat</td>
-                                                        <td>shipped</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#51512</th>
-                                                        <td>man print tee</td>
-                                                        <td>pending</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#78153</th>
-                                                        <td>belted trench coat</td>
-                                                        <td>shipped</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#51512</th>
-                                                        <td>man print tee</td>
-                                                        <td>pending</td>
-                                                    </tr>
-                                                </tbody>
+                                                    @empty
+                                                    <tr><td colspan="3" ><p class="text-center">You have no orders</p></td></tr>
+                                                    @endforelse                                   </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -303,72 +257,25 @@
                                         <div class="card-body">
                                             <div class="top-sec">
                                                 <h3>orders</h3>
-                                                {{-- <a href="#" class="btn btn-sm btn-solid">add product</a> --}}
                                             </div>
                                             <table class="table table-responsive-sm mb-0">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">order id</th>
-                                                        <th scope="col">product details</th>
                                                         <th scope="col">status</th>
-                                                        <th scope="col">price</th>
+                                                        <th scope="col">total amount</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @forelse (auth()->user()->recentOrders() as $order)
                                                     <tr>
-                                                        <th scope="row">#125021</th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>shipped</td>
-                                                        <td>$205</td>
+                                                        <th scope="row">#{{ $order->uuid }}</th>
+                                                        <td>{{ $order->status }}</td>
+                                                        <td>{{ $order->amount_with_currency }}</td>
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">#521214</th>
-                                                        <td>belted trench coat</td>
-                                                        <td>shipped</td>
-                                                        <td>$350</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#521021</th>
-                                                        <td>men print tee</td>
-                                                        <td>pending</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#245021</th>
-                                                        <td>woman print tee</td>
-                                                        <td>shipped</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#122141</th>
-                                                        <td>men print tee</td>
-                                                        <td>canceled</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#125015</th>
-                                                        <td>men print tee</td>
-                                                        <td>pending</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#245021</th>
-                                                        <td>woman print tee</td>
-                                                        <td>shipped</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#122141</th>
-                                                        <td>men print tee</td>
-                                                        <td>canceled</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#125015</th>
-                                                        <td>men print tee</td>
-                                                        <td>pending</td>
-                                                        <td>$150</td>
-                                                    </tr>
+                                                    @empty
+                                                    <tr><td colspan="3" ><p class="text-center">You have no orders</p></td></tr>
+                                                    @endforelse
                                                 </tbody>
                                             </table>
                                         </div>

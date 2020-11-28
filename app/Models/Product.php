@@ -144,8 +144,9 @@ class Product extends Model implements HasMedia, Buyable
         });
     }
 
-    public function getPriceWithCurrencyAttribute(){
-        return "GHS ". $this->price;
+    public function getPriceWithCurrencyAttribute()
+    {
+        return "GHS " . $this->price;
     }
 
     public function getCoverPhotoAttribute()
@@ -188,5 +189,4 @@ class Product extends Model implements HasMedia, Buyable
     {
         return $this->options;
     }
-
 }

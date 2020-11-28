@@ -63,4 +63,9 @@ class Order extends Model
     {
         return $this->morphMany('App\Model\Discount', 'discountable');
     }
+
+    public function getAmountWithCurrencyAttribute()
+    {
+        return "GHS " . $this->amount;
+    }
 }
