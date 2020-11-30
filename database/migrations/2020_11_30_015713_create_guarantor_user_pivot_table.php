@@ -15,10 +15,8 @@ class CreateGuarantorUserPivotTable extends Migration
     public function up()
     {
         Schema::create('guarantor_user', function (Blueprint $table) {
-            $table->integer('guarantor_id')->unsigned()->index();
-            $table->foreign('guarantor_id')->references('id')->on('guarantors')->onDelete('cascade');
-            $table->integer('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('guarantor_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->primary(['guarantor_id', 'user_id']);
         });
     }
