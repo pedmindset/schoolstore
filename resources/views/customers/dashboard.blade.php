@@ -24,20 +24,18 @@
                         </div>
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
-                                <li class="nav-item"><a data-toggle="tab" class="nav-link active"
-                                        href="#dashboard">dashboard</a></li>
-                                {{-- <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#products">products</a> --}}
-                                </li>
-                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#orders">orders</a>
-                                </li>
-                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#profile">profile</a>
-                                </li>
-                                {{-- <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#settings">settings</a> --}}
-                                </li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#logout"
-                                        href="">logout</a>
+                                <li class="nav-item"><a data-toggle="tab" class="nav-link active"href="#dashboard">dashboard</a></li>
+                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#orders">orders</a></li>
+                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#profile">profile</a></li>
+                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#guarantors">Guarantors</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </li>
                             </ul>
+                            
                         </div>
                     </div>
                 </div>
@@ -486,6 +484,41 @@
                                 </div>
                             </div>
                         </div> --}}
+                        <div class="tab-pane fade" id="guarantors">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card dashboard-table mt-0">
+                                        <div class="card-body">
+                                            <div class="top-sec">
+                                                <h3>Guarantors</h3>
+                                            </div>
+                                            <table class="table table-responsive-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">name</th>
+                                                        <th scope="col">phone</th>
+                                                        <th scope="col">email</th>
+                                                        <th scope="col">address</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @forelse (auth()->user()->guarantors() as $gurantors)
+                                                    <tr>
+                                                        <th scope="row">#{{ $order->uuid }}</th>
+                                                        <td>{{ $order->status }}</td>
+                                                        <td>{{ $order->amount_with_currency }}</td>
+                                                    </tr>
+                                                    @empty
+                                                    <tr><td colspan="3" ><p class="text-center">You have no orders</p></td></tr>
+                                                    @endforelse
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

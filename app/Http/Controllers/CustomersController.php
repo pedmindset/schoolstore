@@ -17,6 +17,7 @@ class CustomersController extends Controller
 {
     public function dashboard()
     {
+        $guarantors = 
         return view('customers.dashboard');
     }
 

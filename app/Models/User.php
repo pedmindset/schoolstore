@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return Order::latest()->whereUserId(auth()->id())->limit(5)->get();
     }
+
+    public function guarantors()
+    {
+        return $this->belongsToMany(Guarantor::class);
+    }
 }
