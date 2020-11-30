@@ -491,6 +491,7 @@
                                         <div class="card-body">
                                             <div class="top-sec">
                                                 <h3>Guarantors</h3>
+                                                <span data-toggle="modal" data-target="#guarantor-modal" class="ml-2 text-primary hover:text-gray-500 cursor-pointer">Add new</span>
                                             </div>
                                             <table class="table table-responsive-sm mb-0">
                                                 <thead>
@@ -552,6 +553,34 @@
                 <div class="modal-footer">
                     <a href="#" class="btn btn-dark btn-custom" data-dismiss="modal">cancel</a>
                     <a class="btn btn-solid btn-custom" onclick="event.preventDefault(); document.getElementById('update-profile-form').submit();" >Save</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
+
+    <!-- Modal start -->
+    <div class="modal guarantor-modal fade" id="guarantor-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Gurantor</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{{ route('customer.create-guarantor') }}" id="add-guarantor-form">
+                        @csrf
+                        <x-form.input title="Name" name="name"/>
+                        <x-form.input title="Email Address" name="email"/>
+                        <x-form.input title="Phone Number" name="phone"/>
+                        <x-form.input title="Address" name="address"/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-dark btn-custom" data-dismiss="modal">cancel</a>
+                    <a class="btn btn-solid btn-custom" onclick="event.preventDefault(); document.getElementById('add-guarantor-form').submit();" >Save</a>
                 </div>
             </div>
         </div>

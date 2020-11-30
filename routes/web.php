@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('/dashboard', 'CustomersController@dashboard')->name('customer.dashboard');
         Route::post('/update-profile', 'CustomersController@updateProfile')->name('customer.update-profile');
+        Route::post('/create-guarantor', 'CustomersController@createGuarantor')->name('customer.create-guarantor');
     });
 
     Route::get('/logout', function () {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateGuarantorRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Guarantor;
 use App\Models\Profile;
@@ -18,10 +19,10 @@ class CustomersController extends Controller
 {
     public function dashboard()
     {
-        $guarantors = Guarantor::whereHas('users', function($query){
+        $guarantors = Guarantor::whereHas('user', function($query){
             $query->where('user_id', auth()->id());
         })->get();
-        
+
         return view('customers.dashboard', [
             "gurantors" => $guarantors,
         ]);
@@ -41,6 +42,21 @@ class CustomersController extends Controller
         $profile->save();
 
         Session::flash('success', 'Profile updated successfully!');
+        return back();
+    }
+
+    public function createGuarantor(CreateGuarantorRequest $request)
+    {
+        $guarantor = new Guarantor();
+        $guarantor->name = $request->name;
+        $guarantor->email = $request->email;
+        $guarantor->phone = $request->phone;
+        $guarantor->address = $request->address;
+        $guarantor->save();
+
+        $guarantor->user()->attach(auth()->id());
+
+        Session::flash('success', 'Guarantor addded successfully!');
         return back();
     }
 }
