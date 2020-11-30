@@ -503,14 +503,16 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @forelse (auth()->user()->guarantors() as $gurantors)
+                                                    @forelse ($gurantors as $gurantor)
                                                     <tr>
-                                                        <th scope="row">#{{ $order->uuid }}</th>
-                                                        <td>{{ $order->status }}</td>
-                                                        <td>{{ $order->amount_with_currency }}</td>
+                                                        <th scope="row">{{ $loop->iteration }}</th>
+                                                        <td>{{ $gurantor->name }}</td>
+                                                        <td>{{ $gurantor->phone }}</td>
+                                                        <td>{{ $gurantor->email }}</td>
+                                                        <td>{{ $gurantor->address }}</td>
                                                     </tr>
                                                     @empty
-                                                    <tr><td colspan="3" ><p class="text-center">You have no orders</p></td></tr>
+                                                    <tr><td colspan="5" ><p class="text-center">You have no gurantors</p></td></tr>
                                                     @endforelse
                                                 </tbody>
                                             </table>

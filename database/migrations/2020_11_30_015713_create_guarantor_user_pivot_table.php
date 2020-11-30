@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateGuarantorUserPivotTable extends Migration
 {
     /**
@@ -14,8 +15,11 @@ class CreateGuarantorUserPivotTable extends Migration
     public function up()
     {
         Schema::create('guarantor_user', function (Blueprint $table) {
-            $table->foreignId('guarantor_id');
-            $table->foreignId('user_id');
+            $table->integer('guarantor_id')->unsigned()->index();
+            $table->foreign('guarantor_id')->references('id')->on('guarantors')->onDelete('cascade');
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->primary(['guarantor_id', 'user_id']);
         });
     }
 

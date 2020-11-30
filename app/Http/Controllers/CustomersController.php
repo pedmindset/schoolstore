@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateProfileRequest;
+use App\Models\Guarantor;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,8 +18,13 @@ class CustomersController extends Controller
 {
     public function dashboard()
     {
-        $guarantors = 
-        return view('customers.dashboard');
+        $guarantors = Guarantor::whereHas('users', function($query){
+            $query->where('user_id', auth()->id());
+        })->get();
+        
+        return view('customers.dashboard', [
+            "gurantors" => $guarantors,
+        ]);
     }
 
     public function updateProfile(UpdateProfileRequest $request)
