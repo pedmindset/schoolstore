@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\CustomerDefaultCreateRequest;
 use App\Http\Requests\CustomerDefaultUpdateRequest;
-use App\Repositories\CustomerDefaultRepositoryEloquent as CustomerDefaultRepository;
 
 /**
  * Class CustomerDefaultsController.
@@ -16,7 +15,7 @@ use App\Repositories\CustomerDefaultRepositoryEloquent as CustomerDefaultReposit
 class CustomerDefaultsController extends Controller
 {
     /**
-     * @var CustomerDefaultRepository
+     * @var
      */
     protected $repository;
 
@@ -24,9 +23,9 @@ class CustomerDefaultsController extends Controller
     /**
      * CustomerDefaultsController constructor.
      *
-     * @param CustomerDefaultRepository $repository
+     * @param  $repository
      */
-    public function __construct(CustomerDefaultRepository $repository)
+    public function __construct($repository)
     {
         $this->repository = $repository;
     }
@@ -38,7 +37,7 @@ class CustomerDefaultsController extends Controller
      */
     public function index()
     {
-         // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria')) ; 
+         // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria')) ;
         $customerDefaults = $this->repository->all();
 
         if (request()->wantsJson()) {
