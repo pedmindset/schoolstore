@@ -13,14 +13,14 @@ class CreateBrandsTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('brands');
-        Schema::create('brands', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
-            $table->string('description')->nullable();
-            $table->string('featured')->nullable();
-            $table->timestamps();
-        });
+
+        // Schema::create('brands', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name')->nullable();
+        //     $table->string('description')->nullable();
+        //     $table->string('featured')->nullable();
+        //     $table->timestamps();
+        // });
     }
 
     /**
