@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateGuarantorRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Models\Account;
 use App\Models\Guarantor;
+use App\Models\Order;
 use App\Models\Profile;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -23,8 +26,23 @@ class CustomersController extends Controller
             $query->where('user_id', auth()->id());
         })->get();
 
+        $account = Account::whereUserId(auth()->id())->first();
+
+        $pendingOrders = Order::whereUserId(auth()->id())
+                                ->where('status', '!=', 'delivered')
+                                ->where('status', '!=', 'failed')
+                                ->where('status', '!=', 'cancelled')
+                                ->get();
+
+        $transactions = Transaction::whereUserId(auth()->id())
+                                    ->latest()
+                                    ->limit(5);
+
         return view('customers.dashboard', [
             "gurantors" => $guarantors,
+            "account" => $account,
+            "pendingOrders" => $pendingOrders,
+            "transactions" => $transactions
         ]);
     }
 
@@ -34,7 +52,7 @@ class CustomersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-        
+
         $profile = Profile::whereUserId(auth()->id())->first();
         $profile->phone = $request->phone;
         $profile->address = $request->address;

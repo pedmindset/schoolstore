@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $customer_id
+ * @property integer $user_id
  * @property string $payment_method
  * @property string $mobile_number
  * @property string $phone
@@ -35,13 +35,13 @@ class BillingInformation extends Model
     /**
      * @var array
      */
-    protected $fillable = ['customer_id', 'name', 'payment_method', 'mobile_number', 'phone', 'phone2', 'email', 'address', 'address2', 'postcode', 'city', 'region', 'country', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'name', 'payment_method', 'mobile_number', 'phone', 'phone2', 'email', 'address', 'address2', 'postcode', 'city', 'region', 'country', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Customer');
+        return $this->belongsTo('App\Models\User');
     }
 }

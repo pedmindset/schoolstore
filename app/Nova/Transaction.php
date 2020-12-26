@@ -80,8 +80,7 @@ class Transaction extends Resource
             ->onlyOnDetail()
             ->sortable(),
 
-            BelongsTo::make('Customer')
-
+            BelongsTo::make('User')
             ->rules('required')
             ->searchable()
             ->sortable(),
@@ -96,9 +95,10 @@ class Transaction extends Resource
                 'success' => 'success',
                 'pending' => 'pending',
                 'failed' => 'failed',
+                'denied' => 'denied',
                 'cancelled' => 'cancelled',
             ]),
-            
+
             Select::make( __('Payment Method'),  'payment_method')
             ->sortable()
             ->options([
@@ -107,18 +107,21 @@ class Transaction extends Resource
                 'airteltigo' => 'airteltigo',
                 'card' => 'card',
                 'bank' => 'bank',
+                'wallet' => 'wallet'
             ]),
-            
+
             Select::make( __('Type'),  'type')
             ->sortable()
             ->options([
-                'debit' => 'debit',
                 'credit' => 'credit',
-                'payment' => 'payment',
+                'checkout' => 'checkout payment',
+                'loan credit' => 'loan credit',
+                'loan repayment' => 'loan repayment',
+                'loan request' => 'loan request',
             ]),
 
             HasMany::make('Receipts')
-        
+
         ];
     }
 

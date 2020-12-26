@@ -72,7 +72,7 @@ class Account extends Resource
             ->rules('required')
             ->sortable(),
 
-            BelongsTo::make('Customer')
+            BelongsTo::make('User')
             ->searchable()
             ->sortable(),
 
@@ -82,22 +82,23 @@ class Account extends Resource
                 'wallet' => 'wallet',
             ]),
 
-            Currency::make( __('Balance'),  'balance')
+            Number::make( __('Balance'),  'balance')
             ->sortable()
-            ->step(0.01),
+            ->step(0.0001),
 
-            Currency::make( __('Limit'),  'limit')
+            Number::make( __('Limit'),  'limit')
             ->sortable()
-            ->step(0.01),
+            ->step(0.0001),
 
-            Currency::make( __('Credit'),  'credit')
+            Number::make( __('Credit'),  'credit')
             ->sortable()
-            ->step(0.01),
+            ->step(0.0001),
 
             Number::make( __('Default Count'),  'default_count')
             ->sortable(),
 
-            Currency::make( __('Default Amount'),  'default_amount')
+            Number::make( __('Default Amount'),  'default_amount')
+            ->step(0.0001)
             ->sortable(),
 
 

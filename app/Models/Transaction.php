@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $customer_id
+ * @property integer $user_id
  * @property string $uuid
  * @property string $transaction_id
  * @property float $amount
@@ -22,7 +22,7 @@ class Transaction extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -30,14 +30,14 @@ class Transaction extends Model
     /**
      * @var array
      */
-    protected $fillable = ['customer_id', 'uuid', 'transaction_id', 'amount', 'status', 'payment_method', 'type', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'uuid', 'transaction_id', 'amount', 'status', 'payment_method', 'type', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Customer');
+        return $this->belongsTo('App\Models\User');
     }
 
     /**

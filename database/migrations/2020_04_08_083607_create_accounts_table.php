@@ -23,7 +23,8 @@ class CreateAccountsTable extends Migration
             $table->decimal('credit', 13,  4)->default(0)->nullable();
             $table->integer('default_count')->default(0)->nullable();
             $table->decimal('default_amount', 13,  4)->default(0)->nullable();
-            $table->timestamps(); 
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 

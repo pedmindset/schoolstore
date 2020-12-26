@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
- * @property integer $customer_id
+ * @property integer $user_id
  * @property string $uuid
  * @property string $name
  * @property float $balance
@@ -18,9 +19,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Account extends Model
 {
+    use SoftDeletes;
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -28,13 +30,13 @@ class Account extends Model
     /**
      * @var array
      */
-    protected $fillable = ['customer_id', 'uuid', 'name', 'balance', 'limit', 'credit', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'uuid', 'name', 'balance', 'limit', 'credit', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Customer');
+        return $this->belongsTo('App\Models\User');
     }
 }

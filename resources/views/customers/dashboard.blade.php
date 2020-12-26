@@ -35,7 +35,7 @@
                                     </form>
                                 </li>
                             </ul>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('images/icon/dashboard/order.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>GHS 225</h3>
+                                                <h3>GHS {{ number_format($account->balance ?? 0, 2) }}</h3>
                                                 <h5>Account Balance</h5>
                                             </div>
                                         </div>
@@ -57,7 +57,7 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('images/icon/dashboard/sale.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>GHS 120</h3>
+                                                <h3>GHS {{ number_format($account->credit ?? 0, 2)  }}</h3>
                                                 <h5>Loan</h5>
                                             </div>
                                         </div>
@@ -66,8 +66,8 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('images/icon/dashboard/homework.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>50</h3>
-                                                <h5>order pending</h5>
+                                                <h3>{{ $pendingOrders->count() }}</h3>
+                                                <h5>order pendings</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -90,33 +90,47 @@
                                 </div>
                             </div> --}}
                             <div class="row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="card dashboard-table">
                                         <div class="card-body">
-                                            <h3>Loan</h3>
+                                            <div class="flex justify-between">
+                                                <h3>Loan</h3>
+                                                @if($account->credit ?? 0 < 1)
+                                                <button onclick="applyLoan()" class="px-4 py-2 bg-green-500 text-white rounded-full shadow">Apply for loan</button>
+                                                @else
+                                                <button onclick="payLoan({{ number_format($account->credit ?? 0, 2) }})" class="px-4 py-2 bg-red-500 text-white rounded-full shadow">Pay Loan: GHS {{ number_format($account->credit, 2) }} </button>
+                                                @endif
+                                            </div>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Transaction ID</th>
                                                         <th scope="col">Date</th>
-                                                        <th scope="col">price</th>
+                                                        <th scope="col">Amount</th>
+                                                        <th scope="col">Type</th>
                                                         <th scope="col">Status</th>
+                                                        <th scope="col">Done By</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @forelse ($transactions as $t)
                                                     <tr>
-                                                        <th>132355353332</th>
-                                                        <td>20th Dec, 2020</td>
-                                                        <td>GHS205</td>
-                                                        <td>Approved</td>
+                                                        <th>{{ $t->transaction_id ?? '' }}</th>
+                                                        <td>{{ $t->created_at->toDateString() }}</td>
+                                                        <td>{{ $t->amount }}</td>
+                                                        <td>{{ $t->type }}</td>
+                                                        <td>{{ $t->status }}</td>
+                                                        <td>{{ $t->doneBy }}</td>
                                                     </tr>
-                                                    
+                                                    @empty
+                                                    <tr><td colspan="3" ><p class="text-center">You have no transactions</p></td></tr>
+                                                    @endforelse
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
+                                {{-- <div class="col-lg-6">
                                     <div class="card dashboard-table">
                                         <div class="card-body">
                                             <h3>recent orders</h3>
@@ -137,11 +151,12 @@
                                                     </tr>
                                                     @empty
                                                     <tr><td colspan="3" ><p class="text-center">You have no orders</p></td></tr>
-                                                    @endforelse                                   </tbody>
+                                                    @endforelse
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                             </div>
                         </div>
@@ -501,6 +516,7 @@
                                                         <th scope="col">phone</th>
                                                         <th scope="col">email</th>
                                                         <th scope="col">address</th>
+                                                        <th scope="col">Verified</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -511,6 +527,12 @@
                                                         <td>{{ $gurantor->phone }}</td>
                                                         <td>{{ $gurantor->email }}</td>
                                                         <td>{{ $gurantor->address }}</td>
+                                                        <td>@if($gurantor->momo_verified == 1)
+                                                            Yes
+                                                            @else
+                                                            No
+                                                            @endif
+                                                        </td>
                                                     </tr>
                                                     @empty
                                                     <tr><td colspan="5" ><p class="text-center">You have no gurantors</p></td></tr>
@@ -586,5 +608,34 @@
         </div>
     </div>
     <!-- modal end -->
+    <script>
+        function applyLoan()
+        {
+            Swal.fire(
+                'Apply Loan!',
+                'You clicked the button!',
+                'success'
+            )
+        }
 
+        function payLoan(loan)
+        {
+            const { value: formValues } =  Swal.fire({
+                title: 'Pay Loan: GHS ' + loan,
+                html:
+                    '<input id="swal-input1" class="swal2-input">' +
+                    '<input id="swal-input2" class="swal2-input">',
+                focusConfirm: false,
+                preConfirm: () => {
+                    return [
+                    document.getElementById('swal-input1').value,
+                    document.getElementById('swal-input2').value
+                    ]
+                }
+            }).then(function(formValues) {
+                Swal.fire(JSON.stringify(formValues.value))
+            });
+        }
+        </script>
 @endsection
+

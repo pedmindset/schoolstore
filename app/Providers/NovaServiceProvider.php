@@ -59,8 +59,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             // new Help,
             (new \App\Nova\Metrics\NewUsers)->width('1/4'),
             (new \App\Nova\Metrics\NewSchools)->width('1/4'),
-            (new \App\Nova\Metrics\NewCustomers)->width('1/4'),
-            (new \App\Nova\Metrics\CustomersPerWeek)->width('1/4'),
             (new \App\Nova\Metrics\NewOrders)->width('1/4'),
             (new \App\Nova\Metrics\Orders)->width('1/4'),
             (new \App\Nova\Metrics\WeeklyOrders)->width('1/4'),

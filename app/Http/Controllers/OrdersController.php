@@ -26,9 +26,9 @@ class OrdersController extends Controller
      * @param OrderRepository $repository
      * @param OrderValidator $validator
      */
-    public function __construct(OrderRepository $repository)
+    public function __construct()
     {
-        $this->repository = $repository;
+
     }
 
     /**
@@ -38,17 +38,8 @@ class OrdersController extends Controller
      */
     public function index()
     {
-         // $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria')) ; 
-        $orders = $this->repository->all();
 
-        if (request()->wantsJson()) {
 
-            return response()->json([
-                'data' => $orders,
-            ]);
-        }
-
-        return view('orders.index', compact('orders'));
     }
 
     /**
@@ -60,32 +51,9 @@ class OrdersController extends Controller
      *
      * @throws \Exception
      */
-    public function store(OrderCreateRequest $request)
+    public function store( )
     {
-        try {
-            $order = $this->repository->create($request->all());
 
-            $response = [
-                'message' => 'Order created.',
-                'data'    => $order->toArray(),
-            ];
-
-            if ($request->wantsJson()) {
-
-                return response()->json($response);
-            }
-
-            return redirect()->back()->with('message', $response['message']);
-        } catch (\Exception $e) {
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'error'   => true,
-                    'message' => $e->getMessage()
-                ]);
-            }
-
-            return redirect()->back()->withErrors($e->getMessage())->withInput();
-        }
     }
 
     /**

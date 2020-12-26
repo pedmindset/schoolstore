@@ -17,6 +17,7 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->foreignId('school_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('hostel_id')->nullable()->constrained()->cascadeOnDelete();
             $table->tinyInteger('has_verified_phone')->default(0);
             $table->tinyInteger('has_verified_momo')->default(0);
             $table->string('phone')->nullable();
@@ -31,6 +32,8 @@ class CreateProfilesTable extends Migration
             $table->string('country')->nullable();
             $table->decimal('lng', 13,  5)->nullable();
             $table->decimal('lat', 13,  5)->nullable();
+            $table->string('mobile_money_number')->nullable();
+            $table->string('room')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

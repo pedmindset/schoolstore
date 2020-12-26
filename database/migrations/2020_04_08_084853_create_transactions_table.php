@@ -22,9 +22,11 @@ class CreateTransactionsTable extends Migration
             $table->string('status')->nullable();
             $table->string('payment_method')->nullable();
             $table->string('type')->nullable();
+            $table->string('doneBy')->nullable();
+            $table->string('loan_duration')->nullable();
             $table->timestamps();
         });
-    } 
+    }
 
     /**
      * Reverse the migrations.

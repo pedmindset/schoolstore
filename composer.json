@@ -43,9 +43,9 @@
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.9.1",
         "krlove/code-generator": "^1.0",
+        "krlove/eloquent-model-generator": "^1.3",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^4.1",
-        "pedmindset/eloquent-model-generator": "1.3.4",
         "phpunit/phpunit": "^8.5"
     },
     "repositories": [
@@ -57,30 +57,6 @@
 
             "type": "path",
             "url": "./nova"
-        },
-        {
-              "type": "package",
-              "package": {
-                "name": "pedmindset/eloquent-model-generator",
-                "version": "1.3.4",
-                "source": {
-                  "url": "https://github.com/pedmindset/eloquent-model-generator",
-                  "type": "git",
-                  "reference": "origin/master"
-                },
-                "extra": {
-                    "laravel": {
-                        "providers": [
-                            "Krlove\\EloquentModelGenerator\\Provider\\GeneratorServiceProvider"
-                        ]
-                    }
-                },
-                "autoload": {
-                    "psr-4": {
-                        "Krlove\\EloquentModelGenerator\\": "src/"
-                    }
-                }
-              }
         },
         {
             "type": "package",
@@ -112,6 +88,7 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
+
     "extra": {
         "laravel": {
             "dont-discover": []
@@ -124,6 +101,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Helpers/Common.php"
         ]
     },
     "autoload-dev": {

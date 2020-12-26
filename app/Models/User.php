@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 /**
@@ -12,7 +13,7 @@ use Illuminate\Notifications\Notifiable;
  */
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -59,11 +60,92 @@ class User extends Authenticatable
 
     public function recentOrders()
     {
-        return Order::latest()->whereUserId(auth()->id())->limit(5)->get();
+        return $this->orders()->latest()->whereUserId(auth()->id())->limit(5)->get();
     }
 
     public function guarantors()
     {
         return $this->belongsToMany(Guarantor::class);
+    }
+
+     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function school()
+    {
+        return $this->belongsTo('App\Models\School');
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function account()
+    {
+        return $this->hasOne('App\Models\Account');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function billingInformation()
+    {
+        return $this->hasOne('App\Models\BillingInformation');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function carts()
+    {
+        return $this->hasMany('App\Models\Cart');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany('App\Models\Order');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function transactions()
+    {
+        return $this->hasMany('App\Models\Transaction');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function wishlists()
+    {
+        return $this->hasMany('App\Models\Wishlist');
+    }
+
+     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function customer_defaults()
+    {
+        return $this->hasMany('App\Models\CustomerDefault');
+    }
+
+     /**
+     * Get all of the location tracking
+     */
+    public function trackings()
+    {
+        return $this->morphMany('App\Model\Tracking', 'trackable');
+    }
+
+    /**
+     * Get all of the customers dsicount
+     */
+    public function discounts()
+    {
+        return $this->morphMany('App\Model\Discount', 'discountable');
     }
 }

@@ -19,6 +19,7 @@ class CreateCustomerDefaultsTable extends Migration
             $table->unsignedBigInteger('account_id')->nulllable();
             $table->foreign('account_id')->references('id')->on('accounts');
             $table->decimal('amount', 13, 5)->default(0)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

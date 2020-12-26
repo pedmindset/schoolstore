@@ -35,7 +35,7 @@ class School extends Model implements HasMedia
     use InteractsWithMedia;
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

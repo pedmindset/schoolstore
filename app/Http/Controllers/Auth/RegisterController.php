@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Models\Profile;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Account;
+use App\Models\Profile;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -71,7 +72,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-       
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -88,6 +89,14 @@ class RegisterController extends Controller
             // 'city' => request()->city,
             // 'region' => request()->region,
             // 'country' => request()->country,
+        ]);
+
+        Account::create([
+            'user_id' => $user->id,
+            'name' => 'wallet',
+            'balance' => 0,
+            'credit' => 0,
+            'limit' => 0,
         ]);
 
         return $user;
