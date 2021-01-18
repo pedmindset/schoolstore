@@ -130,15 +130,15 @@
                             <div class="offer-slider slide-1">
                                 @foreach ($featuredProducts->chunk(2) as $chunk)
                                 <div>
-                                    @foreach ($chunk as $product)
+                                    @foreach ($chunk as $p)
                                     <div class="media">
-                                        <a href="{{ route('shop.product', ['slug' => $product->slug]) }}"><img class="img-fluid blur-up lazyload" src="{{ $product->cover_photo }}" alt=""></a>
+                                        <a href="{{ route('shop.product', ['slug' => $p->slug]) }}"><img class="img-fluid blur-up lazyload" src="{{ $p->cover_photo }}" alt=""></a>
                                         <div class="media-body align-self-center">
                                             {{-- <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div> --}}
-                                            <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                                                <h6>{{ $product->name }}</h6>
+                                            <a href="{{ route('shop.product', ['slug' => $p->slug]) }}">
+                                                <h6>{{ $p->name }}</h6>
                                             </a>
-                                            <h4>{{ $product->price_with_currency }}</h4>
+                                            <h4>{{ $p->price_with_currency }}</h4>
                                         </div>
                                     </div>
                                     @endforeach
