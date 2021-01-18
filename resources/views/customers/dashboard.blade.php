@@ -19,8 +19,8 @@
                 <div class="col-lg-3">
                     <div class="dashboard-sidebar">
                         <div class="profile-top">
-                            <div class="profile-image">
-                                <img src="{{ asset('images/logos/17.png') }}" alt="" class="img-fluid">
+                            <div class="flex items-center justify-center">
+                                <img class="img-fluid object-contain rounded" src="{{ $profile_picture->getFullUrl() }}">
                             </div>
                             <div class="profile-detail">
                                 <h5>{{ auth()->user()->name }}</h5>
@@ -456,7 +456,7 @@
                                                             @if($profile_picture)
                                                             <tr>
                                                                 <th>Profile Picture</th>
-                                                                <td><img class=" object-contain w-9" src="{{ $profile_picture->getFullUrl() }}"></td>
+                                                                <td><img class=" object-contain w-12" src="{{ $profile_picture->getFullUrl() }}"></td>
                                                                 <td>{{ $profile_picture->created_at->toDateString() }}</td>
                                                                 <td>view</td>
                                                             </tr>
