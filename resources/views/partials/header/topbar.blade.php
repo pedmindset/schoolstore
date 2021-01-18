@@ -17,6 +17,10 @@
                         {{ auth()->user()->name }}
                         <ul class="onhover-show-div">
                             <li><a href="{{ route('customer.dashboard') }}">Dashbaord</a></li>
+                            <li><a href="{{ url('shop/dashboard#profile') }}">Profile</a></li>
+                            <li><a href="{{ url('shop/dashboard#orders') }}">Orders</a></li>
+                            <li><a href="{{ url('shop/dashboard#verification') }}">Verifications</a></li>
+                            <li><a href="{{ url('shop/dashboard#guarantors') }}">Guarantors</a></li>
                             <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                         </ul>
 
