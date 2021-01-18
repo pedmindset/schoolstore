@@ -1054,10 +1054,10 @@
 
                 mounted(){
                     this.getSchools();
-                    this.school = {{ auth()->user()->profile->school_id ?? null }};
+                    this.school = {{ auth()->user()->profile->school_id ?? 0 }};
                     this.getHostels();
-                    this.hostel = {{ auth()->user()->profile->hostel_id ?? null }};
-                    this.level = {{ auth()->user()->profile->level ?? null }};
+                    this.hostel = {{ auth()->user()->profile->hostel_id ?? 0 }};
+                    this.level = {{ auth()->user()->profile->level ?? 0 }};
                 }
             })
 
