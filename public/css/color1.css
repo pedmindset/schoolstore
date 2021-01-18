@@ -238,8 +238,8 @@ del {
   background-color: #00829a; }
 
 .container-fluid.custom-container {
-  padding-left: 90px;
-  padding-right: 90px; }
+  padding-left: 45px;
+  padding-right: 45px; }
 
 .ratio_40 .bg-size:before {
   padding-top: 40%;
@@ -742,8 +742,8 @@ header {
     header.header-5 .onhover-div .show-div {
       top: 80px; }
     header.header-5.container-med .container-fluid {
-      padding-left: 50px;
-      padding-right: 50px; }
+      padding-left: 25px;
+      padding-right: 25px; }
   header.header-6 .top-header {
     background-color: var(--theme-deafult); }
     header.header-6 .top-header .header-contact li {
@@ -808,8 +808,8 @@ header {
     z-index: 1;
     background-color: transparent; }
     header.header-tools .container {
-      padding-left: 30px;
-      padding-right: 30px; }
+      padding-left: 15px;
+      padding-right: 15px; }
     header.header-tools .top-header {
       background-color: transparent; }
       header.header-tools .top-header .container {
@@ -4512,8 +4512,8 @@ header {
   z-index: 9;
   background-color: transparent; }
   .full-scroll-menu .container-fluid {
-    padding-left: 60px;
-    padding-right: 60px; }
+    padding-left: 30px;
+    padding-right: 30px; }
 
 .full-scroll-footer {
   position: fixed;
@@ -4523,8 +4523,8 @@ header {
   .full-scroll-footer .sub-footer {
     background-color: transparent; }
     .full-scroll-footer .sub-footer .container-fluid {
-      padding-left: 60px;
-      padding-right: 60px; }
+      padding-left: 30px;
+      padding-right: 30px; }
 
 .home-slider.fullpage .home {
   height: calc(100vh - 2px); }
@@ -15358,8 +15358,8 @@ body.dark {
   .theme-card .offer-slider img {
     height: 120px; }
   .container-fluid.custom-container {
-    padding-left: 50px;
-    padding-right: 50px; }
+    padding-left: 25px;
+    padding-right: 25px; }
   .layout-8 .loader_skeleton {
     padding: 0 40px; }
   .loader_skeleton .category-ldr .row .category-block {
@@ -16238,8 +16238,8 @@ body.dark {
 
 @media (max-width: 767px) {
   .container-fluid.custom-container {
-    padding-left: 30px;
-    padding-right: 30px; }
+    padding-left: 15px;
+    padding-right: 15px; }
   .theme-modal.cart-modal .product-section {
     display: none; }
   .addtocart_count .product-box:hover .cart-info a:nth-child(1) i, .addtocart_count .product-box:hover .cart-info a:nth-child(2) i, .addtocart_count .product-box:hover .cart-info a:nth-child(3) i {
@@ -17100,8 +17100,8 @@ body.dark {
 
 @media (max-width: 577px) {
   .container-fluid.custom-container {
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 7px;
+    padding-right: 7px; }
   .detail-cannabis .detail_section > div {
     padding: 30px 25px; }
   #fb-root {
@@ -17550,8 +17550,8 @@ body.dark {
   .box-layout-body .box-layout {
     margin-top: 0; }
   .full-scroll-menu .container-fluid {
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 7px;
+    padding-right: 7px; }
   .layout-8 {
     padding: 0 15px; }
   .layout-20 {
