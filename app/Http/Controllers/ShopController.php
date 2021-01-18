@@ -28,20 +28,25 @@ class ShopController extends Controller
         $category = ProductCategory::whereSlug($request->category)->first();
         $products = Product::when(!empty($request->category), function ($query) use ($category) {
             $query->where('product_category_id', $category->id);
-        })->paginate(25);
+        })->paginate(20);
         return view('shop.products', compact('products', 'category', 'featuredProducts'));
     }
 
     public function product(string $slug)
     {
-        $featuredProducts = Product::whereFeatured('yes')->limit(6)->get();
         $product = Product::where('slug', $slug)->first();
         if (empty($slug) || $product == null) {
             abort(404);
         }
+
+        $featuredProducts = Product::whereFeatured('yes')->limit(6)->get();
+
         $relatedProducts = Product::whereProductCategoryId($product->product_category_id)
             ->where('id', '!=', $product->id)
             ->limit(6)->get();
+
+            // return $product;
+
         return view('shop.product', compact('product', 'featuredProducts', 'relatedProducts'));
     }
 
