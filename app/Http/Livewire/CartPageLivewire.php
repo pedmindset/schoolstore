@@ -10,7 +10,6 @@ class CartPageLivewire extends Component
 {
     use CartTrait;
 
-    public $qty;
 
     protected $listeners = [
         'updateCart' => 'updateCart',
@@ -18,12 +17,12 @@ class CartPageLivewire extends Component
 
     public function render()
     {
-        
+
         return view('livewire.cart-page');
     }
 
-    public function updateCart($id)
+    public function updateCart()
     {
-        $this->updateCartItem($id, $this->qty);
+
     }
 }

@@ -49,7 +49,7 @@
                                 <td>
                                     <div class="qty-box">
                                         <div class="input-group">
-                                            <input wire:change="$emit('updateCart',{{ $product->rowId }})" type="number" name="quantity" class="form-control input-number"
+                                            <input type="number" name="quantity" class="form-control input-number"
                                                 value="{{ $product->qty }}">
                                         </div>
                                     </div>

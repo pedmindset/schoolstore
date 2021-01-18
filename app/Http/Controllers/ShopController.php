@@ -35,7 +35,7 @@ class ShopController extends Controller
     public function product(string $slug)
     {
         $featuredProducts = Product::whereFeatured('yes')->limit(6)->get();
-        $product = Product::whereSlug($slug)->first();
+        $product = Product::where('slug', $slug)->first();
         if (empty($slug) || $product == null) {
             abort(404);
         }

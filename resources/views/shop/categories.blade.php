@@ -3,7 +3,7 @@
 @section('title', 'Categories')
 
 @section('loader')
-    @include('partials.header.brand_loader')
+    @include('partials.header.category_loader')
 @endsection
 
 @section('content')

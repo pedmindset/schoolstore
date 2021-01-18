@@ -56,6 +56,9 @@
                                         <li>
                                             <a href="#">Products</a>
                                         </li>
+                                        <li>
+                                            <a href="#">Categories</a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -88,50 +91,6 @@
     </header>
     <div class="home-slider">
         <div class="home"></div>
-    </div>
-    <div class="banner-padding absolute-banner pb-0 tools-service">
-        <div class="container absolute-bg">
-            <div class="service p-0 ">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6 service-block">
-                        <div class="media">
-                            <svg></svg>
-                            <div class="media-body">
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 service-block">
-                        <div class="media">
-                            <svg></svg>
-                            <div class="media-body">
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 service-block">
-                        <div class="media">
-                            <svg></svg>
-                            <div class="media-body">
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 service-block">
-                        <div class="media">
-                            <svg></svg>
-                            <div class="media-body">
-                                <h4></h4>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="container section-b-space">
         <div class="row section-t-space">
@@ -219,5 +178,50 @@
             </div>
         </div>
     </div>
+    <div class="banner-padding absolute-banner pb-0 tools-service">
+        <div class="container absolute-bg">
+            <div class="service p-0 ">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 service-block">
+                        <div class="media">
+                            <svg></svg>
+                            <div class="media-body">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 service-block">
+                        <div class="media">
+                            <svg></svg>
+                            <div class="media-body">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 service-block">
+                        <div class="media">
+                            <svg></svg>
+                            <div class="media-body">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 service-block">
+                        <div class="media">
+                            <svg></svg>
+                            <div class="media-body">
+                                <h4></h4>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!-- loader end -->

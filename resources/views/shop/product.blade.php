@@ -161,12 +161,6 @@
                                     <div class="product-slick">
                                         <div><img src="{{ asset($product->cover_photo) }}" alt=""
                                                 class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
-                                        {{-- <div><img src="{{ asset('images/pro3/2.jpg') }}" alt=""
-                                                class="img-fluid blur-up lazyload image_zoom_cls-1"></div>
-                                        <div><img src="{{ asset('images/pro3/27.jpg') }}" alt=""
-                                                class="img-fluid blur-up lazyload image_zoom_cls-2"></div>
-                                        <div><img src="{{ asset('images/pro3/27.jpg') }}" alt=""
-                                                class="img-fluid blur-up lazyload image_zoom_cls-3"></div> --}}
                                     </div>
                                     <div class="row">
                                         <div class="col-12 p-0">
@@ -202,10 +196,10 @@
                                                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                                     <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                                                 </ul>
-                                                <form class="d-inline-block">
+                                                {{-- <form class="d-inline-block">
                                                     <button class="wishlist-btn"><i class="fa fa-heart"></i><span
                                                             class="title-font">Add To WishList</span></button>
-                                                </form>
+                                                </form> --}}
                                             </div>
                                         </div>
                                     </div>

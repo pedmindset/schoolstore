@@ -54,13 +54,12 @@
                                                 <a href="#">Home</a>
                                             </li>
                                             <li>
-                                                <a href="#">shop</a>
+                                                <a href="#">Product</a>
                                             </li>
                                             <li>
                                                 <a href="#">Categories</a>
                                             </li>
-                                            <li><a href="#">Brands</a>
-                                            </li>
+                                           
 
                                         </ul>
                                     </nav>

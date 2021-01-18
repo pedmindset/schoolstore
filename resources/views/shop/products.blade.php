@@ -9,7 +9,7 @@
 @section('content')
     <x-breadcrumb/>
     <form action="{{ route('shop.products') }}" method="GET" id="product_search">
-   
+
     <!-- section start -->
     <section class="section-b-space ratio_asos">
         <div class="collection-wrapper">
@@ -53,24 +53,24 @@
                             </div>
                         </div> --}}
 
-                        <div class="collection-collapse-block border-0 open">
+                        {{-- <div class="collection-collapse-block border-0 open">
                             <h3 class="collapse-block-title">price</h3>
                             <div class="collection-collapse-block-content" style="">
                                 <div class="wrapper mt-3">
-                                    <input type="text" id="slider" class="slider">
+                                    <input  type="text" id="slider" class="slider">
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- silde-bar colleps block end here -->
                         <!-- side-bar single product slider start -->
-                        <div class="theme-card">
+                        <div class="theme-card ">
                             <h5 class="title-border">featured products</h5>
                             <div class="offer-slider slide-1">
-                                @foreach ($featuredProducts->chunk(2) as $chunk)
+                                @foreach ($featuredProducts->chunk(6) as $chunk)
                                 <div>
                                     @foreach ($chunk as $product)
-                                    <div class="media">
-                                        <a href="{{ route('shop.product', ['slug' => $product->slug]) }}"><img class="img-fluid blur-up lazyload" src="{{ $product->cover_photo }}" alt=""></a>
+                                    <div class="media border-r border-gray-100">
+                                        <a href="{{ route('shop.product', ['slug' => $product->slug]) }}"><img class="img-fluid blur-up lazyload object-fill" src="{{ $product->cover_photo }}" alt=""></a>
                                         <div class="media-body align-self-center">
                                             {{-- <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div> --}}
                                             <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
@@ -192,7 +192,7 @@
         </div>
     </section>
     <!-- section End -->
-    
+
     </form>
 
 
@@ -201,7 +201,7 @@
 @push('custom-scripts')
 <script>
     $(window).on('load', function () {
-       
+
         $('.select').on('change', function() {
             submitForm();
         });

@@ -52,20 +52,13 @@
                                         <li>
                                             <a href="#">Home</a>
                                         </li>
+
                                         <li>
-                                            <a href="#">shop</a>
+                                            <a href="#">Products</a>
                                         </li>
+
                                         <li>
-                                            <a href="#">product</a>
-                                        </li>
-                                        <li class="mega"><a href="#">features
-                                                <div class="lable-nav">new</div>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">pages</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">blog</a>
+                                            <a href="#">Categories</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -96,14 +89,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>Shop</h2>
+                        <h2>Products</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                            <li class="breadcrumb-item active" aria-current="page">Products</li>
                         </ol>
                     </nav>
                 </div>

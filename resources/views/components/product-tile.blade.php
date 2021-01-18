@@ -7,7 +7,7 @@
         </div>
         <div class="back">
             <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                <img src="{{ $product->cover_photo }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                <img src="{{ $product->cover_photo }}" class=" img-fluid blur-up lazyload bg-img" alt="">
             </a>
         </div>
         <div class="cart-info cart-wrap">

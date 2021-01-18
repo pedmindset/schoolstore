@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="slider-contain">
-                                <div>
+                                <div class="p-8 bg-gray-300 bg-opacity-50 rounded">
                                     <h4>welcome to</h4>
                                     <h1>{{ config('app.name') }}</h1>
                                     <a href="{{ route('shop.products') }}" class="btn btn-solid">shop now</a>

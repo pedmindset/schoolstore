@@ -11,6 +11,112 @@
 @endsection
 
 @section('content')
+
+    <!-- Tab product -->
+    <div class="title1 section-t-space">
+        <h4>exclusive products</h4>
+        <h2 class="title-inner1">special products</h2>
+    </div>
+    <section class="section-b-space p-t-0 ratio_asos">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="theme-tab">
+                        <ul class="tabs tab-title">
+                            <li class="current"><a href="tab-4">New Products</a></li>
+                            <li class=""><a href="tab-5">Featured Products</a></li>
+                            <li class=""><a href="tab-6">Best Sellers</a></li>
+                        </ul>
+                        <div class="tab-content-cls">
+                            <div id="tab-4" class="tab-content active default">
+                                <div class="no-slider row">
+                                    @foreach ($newProducts as $product)
+                                    <x-product-tile :product="$product"/>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div id="tab-5" class="tab-content">
+                                <div class="no-slider row">
+                                    @foreach ($featuredProducts as $product)
+                                    <x-product-tile :product="$product"/>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div id="tab-6" class="tab-content">
+                                <div class="no-slider row">
+                                    @foreach ($bestSellingProducts as $product)
+                                    <x-product-tile :product="$product"/>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tab product end -->
+
+
+    <!-- Parallax banner -->
+    <section class="p-0">
+        <div class="full-banner parallax text-center p-left">
+            <img src="{{ asset('assets/images/banner3.jpg') }}" alt="" class="bg-img blur-up lazyload">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="banner-contain bg-opacity-75 bg-gray-600 p-6 rounded">
+                            <h2>just</h2>
+                            <h3 class="text-white">place your orders</h3>
+                            <h4 class="text-white">even when busy</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Parallax banner end -->
+     <!-- Paragraph-->
+     <div class="title1 section-t-space">
+        <h4>special offer</h4>
+        <h2 class="title-inner1 mb-0">featured products</h2>
+    </div>
+    <!-- Paragraph end -->
+    <!-- Product slider -->
+    <section class="section-b-space pt-0 ratio_asos">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="product-4 product-l no-arrow">
+                        @foreach ($featuredProducts as $product)
+                        <x-product-tile :product="$product"/>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product slider end -->
+
+      {{-- <!-- about section start-->
+      <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="title3">
+                        <h2 class="title-inner3">School Shop</h2>
+                        <div class="line"></div>
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            Get your needed food items delivered to your school at the right time without paying a dime upfront.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about section end--> --}}
     <!-- service layout 3 -->
     <section class=" tools-service section-b-space">
         <div class="container">
@@ -133,119 +239,7 @@
         </div>
     </section>
 
-    <!-- about section start-->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="title3">
-                        <h2 class="title-inner3">welcome to School Shop</h2>
-                        <div class="line"></div>
-                    </div>
-                    <div class="about-text">
-                        <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                            laudantium,
-                            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
-                            vitae
-                            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                            fugit,
-                            sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- about section end-->
 
-    <!-- Paragraph-->
-    <div class="title1 section-t-space">
-        <h4>special offer</h4>
-        <h2 class="title-inner1">featured products</h2>
-    </div>
-    <!-- Paragraph end -->
-
-    <!-- Product slider -->
-    <section class="section-b-space p-t-5 ratio_asos">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="product-4 product-m no-arrow">
-                        @foreach ($featuredProducts as $product)
-                        <x-product-tile :product="$product"/>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Product slider end -->
-
-    <!-- Parallax banner -->
-    <section class="p-0">
-        <div class="full-banner parallax text-center p-left">
-            <img src="{{ asset('assets/images/banner3.jpg') }}" alt="" class="bg-img blur-up lazyload">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="banner-contain">
-                            <h2>just</h2>
-                            <h3>place your orders</h3>
-                            <h4>even when busy</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Parallax banner end -->
-
-
-    <!-- Tab product -->
-    <div class="title1 section-t-space">
-        <h4>exclusive products</h4>
-        <h2 class="title-inner1">special products</h2>
-    </div>
-    <section class="section-b-space p-t-0 ratio_asos">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="theme-tab">
-                        <ul class="tabs tab-title">
-                            <li class="current"><a href="tab-4">New Products</a></li>
-                            <li class=""><a href="tab-5">Featured Products</a></li>
-                            <li class=""><a href="tab-6">Best Sellers</a></li>
-                        </ul>
-                        <div class="tab-content-cls">
-                            <div id="tab-4" class="tab-content active default">
-                                <div class="no-slider row">
-                                    @foreach ($newProducts as $product)
-                                    <x-product-tile :product="$product"/>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <div id="tab-5" class="tab-content">
-                                <div class="no-slider row">
-                                    @foreach ($featuredProducts as $product)
-                                    <x-product-tile :product="$product"/>
-                                    @endforeach 
-                                </div>
-                            </div>
-                            <div id="tab-6" class="tab-content">
-                                <div class="no-slider row">
-                                    @foreach ($bestSellingProducts as $product)
-                                    <x-product-tile :product="$product"/>
-                                    @endforeach 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Tab product end -->
 
     {{-- <!-- instagram section -->
     @include('partials.footer.instagram')

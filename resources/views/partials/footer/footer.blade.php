@@ -12,8 +12,7 @@
                         </div>
                         <div class="footer-contant">
                             <div class="footer-logo"><img src="{{ asset('assets/images/logo.png') }}" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <p>Our Catelogue is packed with all essential products from Milo, Rice, Tin Tomatoes etc. The best part is we deliver at your door step.</p>
                             <div class="footer-social">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -32,11 +31,11 @@
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">mens</a></li>
-                                    <li><a href="#">womens</a></li>
-                                    <li><a href="#">clothing</a></li>
-                                    <li><a href="#">accessories</a></li>
-                                    <li><a href="#">featured</a></li>
+                                    @inject('category', 'App\Models\ProductCategory')
+                                    @foreach ($category->where('featured', 'yes')->limit(5)->get() as $cat)
+                                        <li><a href="{{ url('shop/products?category=' . $cat->slug) }}">{{ $cat->name }}</a></li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                         </div>
@@ -48,11 +47,11 @@
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
+                                    <li><a href="{{ url('shop/cart') }}">Cart</a></li>
+                                    <li><a href="{{ url('shop/checkout') }}">Checkout</a></li>
+                                    <li><a href="{{ url('shop/products') }}">Shop</a></li>
+                                    <li><a href="{{ url('shop/categories') }}">Categories</a></li>
+                                    {{-- <li><a href="#">contacts</a></li> --}}
                                 </ul>
                             </div>
                         </div>
@@ -64,10 +63,10 @@
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Multikart Demo Store, Demo store India 345-659
+                                    <li><i class="fa fa-map-marker"></i>SchoolShop
                                     </li>
                                     <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">Support@Fiot.com</a></li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">Support@schoolshop.store</a></li>
                                     <li><i class="fa fa-fax"></i>Fax: 123456</li>
                                 </ul>
                             </div>
