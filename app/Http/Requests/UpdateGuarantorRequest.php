@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateGuarantorRequest extends FormRequest
+class UpdateGuarantorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class CreateGuarantorRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'phone' => 'required',
-            'momo' => 'nullable',
-            'email' => 'required',
-            'address' => 'required',
+            'guarantor_name' => 'required|string',
+            'guarantor_phone' => 'required',
+            'guarantor_momo' => 'required',
+            'guarantor_email' => 'required',
+            'guarantor_address' => 'required',
         ];
     }
 }

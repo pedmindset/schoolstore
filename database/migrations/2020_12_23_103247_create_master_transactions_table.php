@@ -15,7 +15,8 @@ class CreateMasterTransactionsTable extends Migration
     {
         Schema::create('master_transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('transaction_id')->nullable();
+            $table->foreignId('transaction_id')->constrained()->nullable();
+            $table->string('transactionID')->nullable();
             $table->string('method')->nullable();
             $table->string('type')->nullable();
             $table->decimal('amount', 13, 4)->nullable();

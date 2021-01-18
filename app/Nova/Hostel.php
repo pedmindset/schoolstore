@@ -2,12 +2,13 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\BelongsTo;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
+use Josrom\MapAddress\MapAddress;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
 
 
 class Hostel extends Resource
@@ -64,33 +65,20 @@ class Hostel extends Resource
     public function fields(Request $request)
     {
         return [
-                                                ID::make( __('Id'),  'id')
-->rules('required')
-->sortable()
-,
-                                                                BelongsTo::make('School')
-
-->searchable()
-->sortable()
-,
-                                                                Text::make( __('Name'),  'name')
-->sortable()
-,
-                                                                Text::make( __('Address'),  'address')
-->sortable()
-,
-                                                                Number::make( __('Lat'),  'lat')
-->sortable()
-->step(00001)
-,
-                                                                Number::make( __('Lng'),  'lng')
-->sortable()
-->step(00001)
-,
-                                                                Number::make( __('Number of Rooms'),  'no_of_rooms')
-->sortable()
-,
-                                                                                            ];
+                ID::make( __('Id'),  'id')
+                ->rules('required')
+                ->sortable(),
+                BelongsTo::make('School')
+                ->searchable()
+                ->sortable(),
+                Text::make( __('Name'),  'name')
+                ->sortable(),
+                MapAddress::make('Address')
+                ->initLocation(5.57, -0.17)
+                ->setLatitudeField('lat')
+                ->setLongitudeField('lng')
+                ->zoom(12),
+            ];
     }
 
     /**

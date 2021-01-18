@@ -69,7 +69,7 @@ class CustomerDefault extends Resource
             ->rules('required')
             ->sortable(),
 
-            BelongsTo::make('Customer')
+            BelongsTo::make('User')
             ->rules('required')
             ->searchable()
             ->sortable(),

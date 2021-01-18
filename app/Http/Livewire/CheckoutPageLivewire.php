@@ -28,6 +28,33 @@ class CheckoutPageLivewire extends Component
 
     public function placeOrder()
     {
+        $profile = auth()->user()->profile;
+
+        if($profile->has_verified_number == 0){
+            Session::flash('error', "Verify your phone number to proceed");
+            return;
+        }
+
+        $guarantors = auth()->user()->guarantors;
+
+        if(!$guarantors){
+            Session::flash('error', "Add the minimum of 3 guarantors to proceed");
+            return;
+        }
+
+        if(!$guarantors <= 2){
+            Session::flash('error', "Add the minimum of 3 guarantors to proceed");
+            return;
+        }
+
+        foreach ($guarantors as $g) {
+            if($g->momo_verified == 0){
+                Session::flash('error', "Guarantor with name $g->name has not verified Mobile Money Number yet");
+                return;
+            }
+        }
+
+
         $account = Account::where('user_id', auth()->user()->id)->first();
         if($account){
             if($account->balance >=  Cart::total()){

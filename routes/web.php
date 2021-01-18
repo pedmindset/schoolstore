@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Hostel;
+use App\Models\School;
 use Illuminate\Http\Request;
 use App\Models\NewsletterContact;
 use Illuminate\Support\Facades\Auth;
@@ -37,7 +39,10 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('/dashboard', 'CustomersController@dashboard')->name('customer.dashboard');
         Route::post('/update-profile', 'CustomersController@updateProfile')->name('customer.update-profile');
+        Route::post('/update-momo', 'CustomersController@updateMomo')->name('customer.update-momo');
         Route::post('/create-guarantor', 'CustomersController@createGuarantor')->name('customer.create-guarantor');
+        Route::post('/update-guarantor', 'CustomersController@updateGuarantor')->name('customer.update-guarantor');
+        Route::get('/delete-guarantor/{id}', 'CustomersController@deleteGuarantor')->name('customer.delete-guarantor');
     });
 
     Route::get('/logout', function () {
@@ -57,6 +62,80 @@ Route::get('/test', function () {
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/user/schools', function(){
+    $schools = School::where('school_category_id', auth()->user()->profile->school_category_id)->get(['id', 'name']);
+
+    return response()->json($schools);
+});
+
+Route::post('/user/upload/picture', function(Request $request){
+    $profile = auth()->user()->profile;
+
+    $validateData = $request->validate([
+        'profile_picture' => 'required|mimes:jpg,jpeg,png|max:3000'
+    ]);
+
+    $profile->clearMediaCollection('profile');
+
+    $profile->addMedia($request->profile_picture->path())
+    ->usingName(auth()->user()->name . ' Profile Picture')
+    ->toMediaCollection('profile');
+
+    return response()->json([
+        'status' => 'success'
+    ]);
+});
+
+Route::post('/user/upload/identification', function(Request $request){
+    $profile = auth()->user()->profile;
+
+    $validateData = $request->validate([
+        'attachment' => 'required|mimes:jpg,jpeg,png,pdf|max:3000'
+    ]);
+
+    $profile->addMedia($request->attachment->path())
+    ->usingName(auth()->user()->name . ' Student Identification')
+    ->toMediaCollection('attachments');
+
+    return response()->json([
+        'status' => 'success'
+    ]);
+});
+
+Route::get('/user/hostels/{schoo_id}', function($school_id){
+    $schools = Hostel::where('school_id', $school_id)->get(['id', 'name']);
+
+    return response()->json($schools);
+});
+
+Route::post('/user/schools', function(Request $request){
+    $validateData = $request->validate([
+        'school' => 'required|integer',
+        'hostel' => 'required|integer',
+        'level' => 'nullable'
+    ]);
+
+    $profile = auth()->user()->profile;
+
+    if($request->filled('school')){
+        $profile->school_id = $request->school;
+    };
+
+    if($request->filled('hostel')){
+        $profile->hostel_id = $request->hostel;
+    };
+
+    if($request->filled('level')){
+        $profile->level = $request->level;
+    };
+
+    $profile->save();
+
+    return response()->json([
+        'status' => 'success'
+    ]);
 });
 
 // Route::get('/shop/home', function () {
@@ -113,31 +192,31 @@ Route::get('/', function () {
 //     return view('customers.account');
 // });
 
-// Route::post('/newsletters/signup', function (Request $request) {
-//     if ($request->filled('email')) {
-//         $newsletterContact = NewsletterContact::where('email', $request->email)->first();
-//         if (!$newsletterContact) {
-//             NewsletterContact::create([
-//                 'email' => $request->email,
-//                 'ipAddress' => $request->ip()
-//             ]);
+Route::post('/newsletters/signup', function (Request $request) {
+    if ($request->filled('email')) {
+        $newsletterContact = NewsletterContact::where('email', $request->email)->first();
+        if (!$newsletterContact) {
+            NewsletterContact::create([
+                'email' => $request->email,
+                'ipAddress' => $request->ip()
+            ]);
 
-//             return response()->json([
-//                 'status' => 'success'
-//             ]);
-//         }
+            return response()->json([
+                'status' => 'success'
+            ]);
+        }
 
-//         return response()->json([
-//             'status' => 'info',
-//             'message' => 'We already have your contact',
-//         ])->setStatusCode(401);
-//     };
+        return response()->json([
+            'status' => 'info',
+            'message' => 'We already have your contact',
+        ])->setStatusCode(401);
+    };
 
-//     return response()->json([
-//         'status' => 'error',
-//         'message' => 'Error Occured Try Again',
-//     ])->setStatusCode(401);
-// });
+    return response()->json([
+        'status' => 'error',
+        'message' => 'Error Occured Try Again',
+    ])->setStatusCode(401);
+});
 
 
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -68,13 +68,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Guarantor::class);
     }
 
-     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function school()
-    {
-        return $this->belongsTo('App\Models\School');
-    }
+     
 
 
     /**
@@ -84,6 +78,8 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Account');
     }
+
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

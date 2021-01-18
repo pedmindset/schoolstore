@@ -16,7 +16,7 @@
     <script src="{{ asset('/js/slick.js') }}"></script>
 
     <!-- rSlider -->
-    <script src="{{ asset('/js/rSlider.min.js') }}"></script>
+    {{-- <script src="{{ asset('/js/rSlider.min.js') }}"></script> --}}
 
     <!-- menu js-->
     <script src="{{ asset('/js/menu.js') }}"></script>

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Account;
 use App\Models\Profile;
 use App\Http\Controllers\Controller;
+use App\Models\SchoolCategory;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -43,6 +44,17 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        $school_categories = SchoolCategory::get(['id', 'name']);
+        return view('auth.register', compact('school_categories'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -55,7 +67,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required'],
+            'phone' => ['required', 'numeric'],
+            'level' => ['required', 'numeric'],
             // 'address' => ['required'],
             // 'date_of_birth' => ['required'],
             // 'city' => ['required'],
@@ -81,9 +94,8 @@ class RegisterController extends Controller
 
         Profile::create([
             'user_id' => $user->id,
-            'name' => $user->name,
             'phone' => request()->phone,
-            'email' => request()->email,
+            'school_category_id' => $data['level'],
             // 'address' => request()->address,
             // 'date_of_birth' => request()->date_of_birth,
             // 'city' => request()->city,

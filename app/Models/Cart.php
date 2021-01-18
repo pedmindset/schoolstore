@@ -17,7 +17,7 @@ class Cart extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -25,14 +25,14 @@ class Cart extends Model
     /**
      * @var array
      */
-    protected $fillable = ['customer_id', 'name', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'name', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Customer');
+        return $this->belongsTo('App\Models\User');
     }
 
     /**

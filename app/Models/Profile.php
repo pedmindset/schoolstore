@@ -36,7 +36,7 @@ class Profile extends Model implements HasMedia
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -84,4 +84,40 @@ class Profile extends Model implements HasMedia
     {
         return $this->morphMany('App\Model\Tracking', 'trackable');
     }
+
+     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function loanStage()
+    {
+        return $this->belongsTo('App\Models\LoanStage');
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function school()
+    {
+        return $this->belongsTo('App\Models\School');
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function hostel()
+    {
+        return $this->belongsTo('App\Models\Hostel');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function school_category()
+    {
+        return $this->belongsTo('App\Models\SchoolCategory');
+    }
+
+
 }

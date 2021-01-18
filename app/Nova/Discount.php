@@ -91,7 +91,7 @@ class Discount extends Resource
             ->sortable(),
 
             MorphTo::make('Discountable')->types([
-                Customer::class,
+                User::class,
                 Product::class,
                 Order::class,
                 Collection::class,

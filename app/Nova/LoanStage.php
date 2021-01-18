@@ -2,31 +2,29 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\DateTime;
 
 
-class SchoolCategory extends Resource
+class LoanStage extends Resource
 {
-    public static $group = "School";
-
     /**
      * The model the resource corresponds to.
      *
      * @var  string
      */
-    public static $model = \App\Models\SchoolCategory::class;
+    public static $model = \App\Models\LoanStage::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var  string
      */
-    public static $title = 'name';
+    public static $title = 'stage';
 
     /**
      * The columns that should be searched.
@@ -34,7 +32,7 @@ class SchoolCategory extends Resource
      * @var  array
      */
     public static $search = [
-        'id', 'name'
+        'id', 'stage', 'amount', 'interest_rate'
     ];
 
     /**
@@ -44,7 +42,7 @@ class SchoolCategory extends Resource
      */
     public static function label()
     {
-        return __('School Categories');
+        return __('Loan Stages');
     }
 
     /**
@@ -54,7 +52,7 @@ class SchoolCategory extends Resource
     */
     public static function singularLabel()
     {
-        return __('School Category');
+        return __('Loan Stage');
     }
 
     /**
@@ -66,28 +64,27 @@ class SchoolCategory extends Resource
     public function fields(Request $request)
     {
         return [
-
-            ID::make( __('Id'),  'id')
-            ->rules('required')
-            ->sortable(),
-
-            Text::make( __('Name'),  'name')
-            ->rules('required')
-            ->sortable(),
-
-            // Number::make( __('Duration(Months)'),  'duration')
-            // ->sortable()
-            // ->step(1),
-
-            // DateTime::make( __('Start Date'),  'start_date')
-            // ->sortable(),
-
-            // DateTime::make( __('End Date'),  'end_date')
-            // ->sortable(),
-
-            HasMany::make('Schools'),
-
-        ];
+                ID::make( __('Id'),  'id')
+                ->rules('required')
+                ->sortable(),
+                Number::make( __('Amount'),  'amount')
+                ->sortable()
+                ->min(0)
+                    ->step(0.01),
+                Text::make( __('Stage'),  'stage')
+                ->sortable(),
+                Select::make( __('Defualt'),  'defualt')
+                ->sortable()
+                ->options([
+                                'yes' => 'yes',
+                                'no' => 'no',
+                            ]),
+                Number::make( __('Interest Rate'),  'interest_rate')
+                ->sortable()
+                ->min(0)
+                    ->max(100)
+                    ->step(0.01),
+            ];
     }
 
     /**

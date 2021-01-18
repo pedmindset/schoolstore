@@ -18,8 +18,8 @@ class CreateHostelsTable extends Migration
             $table->unsignedBigInteger('school_id')->nullable()->foriegn();
             $table->string('name')->nullable();
             $table->string('address')->nullable();
-            $table->decimal('lat', 8, 8)->nullable();
-            $table->decimal('lng', 8, 8)->nullable();
+            $table->decimal('lat', 13, 8)->nullable();
+            $table->decimal('lng', 13, 8)->nullable();
             $table->string('no_of_rooms')->nullable();
             $table->timestamps();
         });

@@ -2,10 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\CheckoutPayment;
 use App\Models\Account;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Events\CheckoutPayment;
+use App\Models\MasterTransaction;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class CheckoutPaymentListener
 {
@@ -33,5 +34,18 @@ class CheckoutPaymentListener
         //debit account
         $account->balance = $account->balance - $account->transaction->amount;
         $account->save();
+
+        $transaction = $event->transaction;
+        $transaction->status = 'success';
+        $transaction->save();
+
+        MasterTransaction::create([
+            'transaction_id' => $transaction->id,
+            'type' => $transaction->type,
+            'status' => $transaction->status,
+            'payment_method' => $transaction->payment_method,
+            'amount' => $transaction->amount,
+        ]);
+
     }
 }

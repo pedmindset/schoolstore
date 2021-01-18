@@ -53,4 +53,5 @@ trait CartTrait
             $this->updateCartProduct($rowId, $newQty);
         }
     }
+
 }

@@ -49,7 +49,7 @@ class Profile extends Resource
      */
     public static function label()
     {
-        return __('Staffs');
+        return __('Profiles');
     }
 
     /**
@@ -59,7 +59,7 @@ class Profile extends Resource
     */
     public static function singularLabel()
     {
-        return __('Staff');
+        return __('Profile');
     }
 
     /**
@@ -75,40 +75,56 @@ class Profile extends Resource
             ->conversionOnDetailView('big') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            , 
+            ,
 
             Files::make('Supporting Documents', 'attachments')
-            ->hideFromIndex(), 
+            ->hideFromIndex(),
 
             ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable(),
 
             BelongsTo::make('User')
-
             ->searchable()
             ->sortable(),
 
-            Text::make( __('Name'),  'name')
-            ->rules('required')
+            BelongsTo::make('School Category')
+            ->nullable()
+            ->searchable()
             ->sortable(),
+
+            BelongsTo::make('School')
+            ->nullable()
+            ->searchable()
+            ->sortable(),
+
+            BelongsTo::make('Hostel')
+            ->nullable()
+            ->searchable()
+            ->sortable(),
+
+
+            Text::make('Room')
+            ->nullable()
+            ->sortable(),
+
+            BelongsTo::make('LoanStage')
+            ->nullable()
+            ->searchable()
+            ->sortable(),
+
 
             Text::make( __('Phone'),  'phone')
             ->sortable(),
 
-            Text::make( __('Phone2'),  'phone2')
+            Text::make( __('Phone 2'),  'phone2')
             ->hideFromIndex()
             ->sortable(),
 
-            Text::make( __('Email'),  'email')
-            ->sortable(),
-
-            Text::make( __('Address'),  'address')
-            ->sortable(),
-
-            Text::make( __('Address2'),  'address2')
+            Text::make( __('Mobile Money Number'),  'mobile_money_number')
             ->hideFromIndex()
             ->sortable(),
+
 
             Date::make( __('Date Of Birth'),  'date_of_birth')
             ->hideFromIndex()
@@ -145,7 +161,7 @@ class Profile extends Resource
             // ->sortable(),
 
 
-            MapAddress::make('Location')
+            MapAddress::make('address')
             ->initLocation(5.57, -0.17)
             ->setLatitudeField('lat')
             ->setLongitudeField('lng')

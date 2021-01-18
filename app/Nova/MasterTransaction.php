@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Currency;
@@ -68,7 +69,11 @@ class MasterTransaction extends Resource
             ->rules('required')
             ->sortable(),
 
-            Text::make( __('Transaction Id'),  'transaction_id')
+            BelongsTo::make( __('Transaction'))
+            ->sortable()
+            ->nullable()
+            ,
+            Text::make( __('Transaction Code'),  'transactionID')
             ->sortable()
             ,
             Currency::make( __('Amount'),  'amount')
@@ -99,7 +104,7 @@ class MasterTransaction extends Resource
             Select::make( __('Type'),  'type')
             ->sortable()
             ->options([
-                'credit' => 'credit',
+                'deposit' => 'deposit',
                 'debit' => 'debit',
                 'loan credit' => 'loan credit',
                 'loan repayment' => 'loan repayment',

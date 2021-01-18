@@ -33,38 +33,38 @@ class TransactionObserver
     public function created(Transaction $transaction)
     {
 
-        //credit
-        if($transaction->type == 'credit'  & $transaction->status == 'success'){
-            event(new AccountCredited($transaction));
-        }
-        //checkout
-        if($transaction->type == 'checkout'  & $transaction->status == 'success'){
-            event(new CheckoutPayment($transaction));
-        }
-        //loan credit
-        if($transaction->type == 'loan credit'  & $transaction->status == 'success'){
-            event(new LoanAccountCredited($transaction));
-        }
-        //loan repayment
-        if($transaction->type == 'loan repayment'  & $transaction->status == 'success'){
-            event(new LoanRepayment($transaction));
-        }
-        //loan request success
-        if($transaction->type == 'loan request'  & $transaction->status == 'success'){
-            event(new LoanAccountCredited($transaction));
-        }
-        //loan request success email
-        if($transaction->type == 'loan request'  & $transaction->status == 'success'){
-            event(new LoanRequestSuccessful($transaction));
-        }
-         //loan request pending
-        if($transaction->type == 'loan request'  & $transaction->status == 'pending'){
-            event(new LoanRequested($transaction));
-        }
-         //loan request denied
-        if($transaction->type == 'loan request'  & $transaction->status == 'denied'){
-            event(new LoanRequestDenied($transaction));
-        }
+        // //credit
+        // if($transaction->type == 'credit'  & $transaction->status == 'success'){
+        //     event(new AccountCredited($transaction));
+        // }
+        // //checkout
+        // if($transaction->type == 'checkout'  & $transaction->status == 'success'){
+        //     event(new CheckoutPayment($transaction));
+        // }
+        // //loan credit
+        // if($transaction->type == 'loan credit'  & $transaction->status == 'success'){
+        //     event(new LoanAccountCredited($transaction));
+        // }
+        // //loan repayment
+        // if($transaction->type == 'loan repayment'  & $transaction->status == 'success'){
+        //     event(new LoanRepayment($transaction));
+        // }
+        // //loan request success
+        // if($transaction->type == 'loan request'  & $transaction->status == 'success'){
+        //     event(new LoanAccountCredited($transaction));
+        // }
+        // //loan request success email
+        // if($transaction->type == 'loan request'  & $transaction->status == 'success'){
+        //     event(new LoanRequestSuccessful($transaction));
+        // }
+        //  //loan request pending
+        // if($transaction->type == 'loan request'  & $transaction->status == 'pending'){
+        //     event(new LoanRequested($transaction));
+        // }
+        //  //loan request denied
+        // if($transaction->type == 'loan request'  & $transaction->status == 'denied'){
+        //     event(new LoanRequestDenied($transaction));
+        // }
     }
 
     /**
@@ -75,14 +75,14 @@ class TransactionObserver
      */
     public function updated(Transaction $transaction)
     {
-         //loan request successful
-         if($transaction->type == 'loan request'  & $transaction->status == 'success'){
-            event(new LoanRequested($transaction));
-         }
-         //loan request failed
-         if($transaction->type == 'loan request'  & $transaction->status == 'denied'){
-            event(new LoanRequestDenied($transaction));
-         }
+        //  //loan request successful
+        //  if($transaction->type == 'loan request'  & $transaction->status == 'success'){
+        //     event(new LoanRequested($transaction));
+        //  }
+        //  //loan request failed
+        //  if($transaction->type == 'loan request'  & $transaction->status == 'denied'){
+        //     event(new LoanRequestDenied($transaction));
+        //  }
     }
 
     /**

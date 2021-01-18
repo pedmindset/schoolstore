@@ -35,7 +35,7 @@ class CreateProfilesTable extends Migration
             $table->string('mobile_money_number')->nullable();
             $table->string('room')->nullable();
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes(); 
         });
     }
 

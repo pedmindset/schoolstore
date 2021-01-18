@@ -172,7 +172,7 @@
         </a>
       </p>
     </div>
-  
+
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form class="space-y-6" method="POST" action="{{ route('register') }}">
@@ -182,17 +182,36 @@
           <x-form.input title="Email Address" name="email" type="email"/>
 
           <x-form.input title="Phone Number" name="phone"/>
-          
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Level</label>
+            <select id="level" name="level" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                <option value="">Select your Level</option>
+                @foreach ($school_categories as $item)
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                @endforeach
+             </select>
+            <div class="mt-1">
+                @error('level')
+                <span class="text-red-500 italic text-xs">
+                    {{ $message }}
+                </span>
+                @enderror
+            </div>
+          </div>
+
+          {{-- <x-form.select type=" title="Level" name="level" options="{{ $school_categories }}" /> --}}
+
           <x-form.input title="Password" name="password" type="password"/>
 
           <x-form.input title="Confirm Password" name="password_confirmation" type="password"/>
-  
-  
+
+
           <div>
             <x-misc.button title="Register" />
           </div>
         </form>
-  
+
         <div class="mt-6">
         </div>
       </div>

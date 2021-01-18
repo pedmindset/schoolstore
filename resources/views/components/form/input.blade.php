@@ -5,9 +5,11 @@
     $ph = $placeholder ?? "";
     $rq = $required ?? "false";
     $val = $value ?? "";
+    $ids = $id ?? "";
+    $pt = $pattern ?? "";
 @endphp
 
-<div {{ $attributes->merge(['class' => 'block text-sm mb-4']) }}>
+<div {{ $attributes->merge(['class' => 'block text-sm mt-4']) }}>
     <label class="block text-sm font-medium text-gray-700">{{ $ti }}</label>
     <div class="mt-1">
         <input
@@ -16,11 +18,16 @@
         {{-- required="{{ $rq }}" --}}
         type="{{ $ty }}" name="{{ $name }}"
         value="{{ $val }}"
+        id="{{ $ids }}"
+        @if(!empty($pt))
+        pattern="{{ $pt }}"
+        @endif
+        required="{{ $rq }}"
         />
-        @error($name) 
+        @error($name)
         <span class="text-red-500 italic text-xs">
             {{ $message }}
-        </span> 
+        </span>
         @enderror
     </div>
 </div>

@@ -76,10 +76,10 @@ class School extends Resource
             ->conversionOnDetailView('big') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            , 
+            ,
 
             Files::make('Documents', 'attachments')
-            ->hideFromIndex(), 
+            ->hideFromIndex(),
 
             ID::make( __('Id'),  'id')
             ->rules('required')
@@ -93,11 +93,6 @@ class School extends Resource
             Text::make( __('Phone'),  'phone')
             ->sortable(),
             Text::make( __('Phone2'),  'phone2')
-            ->hideFromIndex()
-            ->sortable(),
-            Text::make( __('Address'),  'address')
-            ->sortable(),
-            Text::make( __('Address2'),  'address2')
             ->hideFromIndex()
             ->sortable(),
             Text::make( __('Postcode'),  'postcode')
@@ -122,23 +117,23 @@ class School extends Resource
             // Text::make( __('Lat'),  'lat')
             // ->hideFromIndex()
             // ->sortable(),
-            Number::make( __('Duration(Months)'),  'duration')
-            ->sortable()
-            ->step(1),
-            DateTime::make( __('Start Date'),  'start_date')
-            ->hideFromIndex()
-            ->sortable(),
-            DateTime::make( __('End Date'),  'end_date')
-            ->hideFromIndex()
-            ->sortable(),
-            
-            MapAddress::make('Location')
+            // Number::make( __('Duration(Months)'),  'duration')
+            // ->sortable()
+            // ->step(1),
+            // DateTime::make( __('Start Date'),  'start_date')
+            // ->hideFromIndex()
+            // ->sortable(),
+            // DateTime::make( __('End Date'),  'end_date')
+            // ->hideFromIndex()
+            // ->sortable(),
+
+            MapAddress::make('Address')
             ->initLocation(5.57, -0.17)
             ->setLatitudeField('lat')
             ->setLongitudeField('lng')
             ->zoom(12),
 
-            HasMany::make('Customers'),
+            // HasMany::make('Users'),
         ];
     }
 

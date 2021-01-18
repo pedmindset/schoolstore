@@ -21,6 +21,10 @@ class MasterTransaction extends Model
     /**
      * @var array
      */
-    protected $fillable = ['transaction_id', 'method', 'type', 'amount', 'status', 'doneBy', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['transaction_id', 'transactionID', 'method', 'type', 'amount', 'status', 'doneBy', 'created_at', 'updated_at', 'deleted_at'];
 
+    public function transaction()
+    {
+        return $this->belongsTo('App\Models\Transaction');
+    }
 }
