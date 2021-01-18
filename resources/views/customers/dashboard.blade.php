@@ -110,10 +110,8 @@
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">Transaction ID</th>
                                                         <th scope="col">Date</th>
                                                         <th scope="col">Amount</th>
-                                                        <th scope="col">Type</th>
                                                         <th scope="col">Status</th>
                                                         <th scope="col">Done By</th>
                                                     </tr>
@@ -121,11 +119,9 @@
                                                 <tbody>
                                                     @forelse ($transactions as $t)
                                                     <tr>
-                                                        <th>{{ $t->transaction_id ?? '' }}</th>
                                                         <td>{{ $t->created_at->toDateString() }}</td>
                                                         <td>{{ $t->amount }}</td>
-                                                        <td>{{ $t->type }}</td>
-                                                        <td>{{ $t->status }}</td>
+                                                        <td>{{ $t->status }} <br> @if($t->type) Type: {{ $t->type }} @endif</td>
                                                         <td>{{ $t->doneBy }}</td>
                                                     </tr>
                                                     @empty
