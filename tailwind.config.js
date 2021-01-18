@@ -2,7 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   theme: {
-    extend: { 
+    extend: {
       colors: {
         'transparent': 'transparent',
         'black': '#22292f',
@@ -22,7 +22,7 @@ module.exports = {
             },
         },
         screens: {
-          xs: '320px',
+         
         },
         fontFamily: {
           sans: ['Inter var', ...defaultTheme.fontFamily.sans],

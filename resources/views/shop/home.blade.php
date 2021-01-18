@@ -13,7 +13,7 @@
 @section('content')
 
     <!-- Tab product -->
-    <div class="title1 section-t-space">
+    <div class="title1 section-t-space p-5">
         <h4>exclusive products</h4>
         <h2 class="title-inner1">special products</h2>
     </div>

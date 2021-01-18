@@ -317,8 +317,8 @@ del {
 }
 
 .container-fluid.custom-container {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 90px;
+  padding-right: 90px;
 }
 
 .ratio_40 .bg-size:before {
@@ -28105,8 +28105,8 @@ body.rtl .account-setting {
   }
 
   .container-fluid.custom-container {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 
   .layout-8 .loader_skeleton {
@@ -29568,8 +29568,8 @@ body.rtl .account-setting {
 
 @media (max-width: 767px) {
   .container-fluid.custom-container {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   .theme-modal.cart-modal .product-section {
@@ -31014,8 +31014,8 @@ body.rtl .account-setting {
 
 @media (max-width: 577px) {
   .container-fluid.custom-container {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .detail-cannabis .detail_section > div {
