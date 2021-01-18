@@ -1003,105 +1003,106 @@
     <!-- modal end -->
     <!-- Dropzone js-->
 
-    <script>
-        var vue_school = new Vue({
-            el: '#school',
-            data: function(){
-                return {
-                    schools: [],
-                    school: '',
-                    hostels: [],
-                    hostel: '',
-                    level: '',
-                }
-            },
 
-            methods: {
-                getSchools(){
-                    var self = this;
-                    axios.get('../user/schools')
-                    .then(function(result){
-                        console.log(result.data);
-                        self.schools = (result.data);
-                    })
-
+        @push('custom-scripts')
+        <script>
+            var vue_school = new Vue({
+                el: '#school',
+                data: function(){
+                    return {
+                        schools: [],
+                        school: '',
+                        hostels: [],
+                        hostel: '',
+                        level: '',
+                    }
                 },
 
-                getHostels(){
-                    var self = this;
-                    axios.get('../user/hostels/' + this.school)
-                    .then(function(result){
-                        console.log(result.data);
-                        self.hostels = (result.data);
-                    })
+                methods: {
+                    getSchools(){
+                        var self = this;
+                        axios.get('../user/schools')
+                        .then(function(result){
+                            console.log(result.data);
+                            self.schools = (result.data);
+                        })
 
+                    },
+
+                    getHostels(){
+                        var self = this;
+                        axios.get('../user/hostels/' + this.school)
+                        .then(function(result){
+                            console.log(result.data);
+                            self.hostels = (result.data);
+                        })
+
+                    },
+
+                    submitSchool(){
+
+                        axios.post('../user/schools', {
+                            school: this.school,
+                            hostel: this.hostel,
+                            level: this.level
+                        }).then(function(result){
+                            window.location.href = window.location.pathname + "#profile"
+                            window.location.reload();
+                        })
+                    }
                 },
 
-                submitSchool(){
-
-                    axios.post('../user/schools', {
-                        school: this.school,
-                        hostel: this.hostel,
-                        level: this.level
-                    }).then(function(result){
-                        window.location.href = window.location.pathname + "#profile"
-                        window.location.reload();
-                    })
+                mounted(){
+                    this.getSchools();
+                    this.school = {{ auth()->user()->profile->school_id ?? '' }};
+                    this.getHostels();
+                    this.hostel = {{ auth()->user()->profile->hostel_id ?? '' }};
+                    this.level = {{ auth()->user()->profile->level ?? '' }};
                 }
-            },
+            })
 
-            mounted(){
-                this.getSchools();
-                this.school = {{ auth()->user()->profile->school_id ?? '' }};
-                this.getHostels();
-                this.hostel = {{ auth()->user()->profile->hostel_id ?? '' }};
-                this.level = {{ auth()->user()->profile->level ?? '' }};
+            function updateGaurantor(guarantor){
+                console.log(guarantor);
+                $('#guarantor_name').val(guarantor.name);
+                $('input[name="guarantor_name"]').val(guarantor.name);
+                $('input[name="guarantor_email"]').val(guarantor.email);
+                $('input[name="guarantor_phone"]').val(guarantor.phone);
+                $('input[name="guarantor_momo"]').val(guarantor.momo_phone);
+                $('input[name="guarantor_address"]').val(guarantor.address);
+                $('input[name="guarantor_id"]').val(guarantor.id);
+
+
+                $('#edit-guarantor-modal').modal()
             }
-        })
+            function applyLoan()
+            {
+                Swal.fire(
+                    'Apply Loan!',
+                    'You clicked the button!',
+                    'success'
+                )
+            }
 
-        function updateGaurantor(guarantor){
-            console.log(guarantor);
-            $('#guarantor_name').val(guarantor.name);
-            $('input[name="guarantor_name"]').val(guarantor.name);
-            $('input[name="guarantor_email"]').val(guarantor.email);
-            $('input[name="guarantor_phone"]').val(guarantor.phone);
-            $('input[name="guarantor_momo"]').val(guarantor.momo_phone);
-            $('input[name="guarantor_address"]').val(guarantor.address);
-            $('input[name="guarantor_id"]').val(guarantor.id);
-
-
-            $('#edit-guarantor-modal').modal()
-        }
-        function applyLoan()
-        {
-            Swal.fire(
-                'Apply Loan!',
-                'You clicked the button!',
-                'success'
-            )
-        }
-
-        function payLoan(loan)
-        {
-            const { value: formValues } =  Swal.fire({
-                title: 'Pay Loan: GHS ' + loan,
-                html:
-                    '<input id="swal-input1" class="swal2-input">' +
-                    '<input id="swal-input2" class="swal2-input">',
-                focusConfirm: false,
-                preConfirm: () => {
-                    return [
-                    document.getElementById('swal-input1').value,
-                    document.getElementById('swal-input2').value
-                    ]
-                }
-            }).then(function(formValues) {
-                Swal.fire(JSON.stringify(formValues.value))
-            });
-        }
+            function payLoan(loan)
+            {
+                const { value: formValues } =  Swal.fire({
+                    title: 'Pay Loan: GHS ' + loan,
+                    html:
+                        '<input id="swal-input1" class="swal2-input">' +
+                        '<input id="swal-input2" class="swal2-input">',
+                    focusConfirm: false,
+                    preConfirm: () => {
+                        return [
+                        document.getElementById('swal-input1').value,
+                        document.getElementById('swal-input2').value
+                        ]
+                    }
+                }).then(function(formValues) {
+                    Swal.fire(JSON.stringify(formValues.value))
+                });
+            }
 
         </script>
-        @push('custom-scripts')
         <script src="{{ asset('/js/dropzone/dropzone.js') }}"></script>
         <script>
             $(function() {

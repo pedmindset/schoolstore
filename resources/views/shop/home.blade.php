@@ -118,7 +118,7 @@
     </section>
     <!-- about section end--> --}}
     <!-- service layout 3 -->
-    <section class=" tools-service section-b-space">
+    {{-- <section class=" tools-service section-b-space">
         <div class="container">
             <div class="service p-0 ">
                 <div class="row">
@@ -237,7 +237,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
 
 
