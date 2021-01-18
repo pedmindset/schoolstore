@@ -820,14 +820,14 @@
                 <div class="modal-body">
                     <form method="POST" action="{{ route('customer.update-profile') }}" id="update-profile-form">
                         @csrf
-                        <x-form.input title="Name" name="name" :value="auth()->user()->name"/>
-                        <x-form.input title="Email Address" name="email" type="email" :value="auth()->user()->email"/>
-                        <x-form.input title="Phone Number" name="phone" :value="auth()->user()->profile->phone"/>
+                        <x-form.input title="Name" name="name" :value="auth()->user()->name" required="true"/>
+                        <x-form.input title="Email Address" name="email" type="email" :value="auth()->user()->email" required="true"/>
+                        <x-form.input title="Phone Number" name="phone" :value="auth()->user()->profile->phone" required="true"/>
                         <x-form.input title="Address" name="address" :value="auth()->user()->profile->address"/>
-                        <x-form.input title="Date of Birth" name="dob" type="date" :value="auth()->user()->profile->date_of_birth" required/>
+                        <x-form.input title="Date of Birth" name="dob" type="date" :value="auth()->user()->profile->date_of_birth" required="true"/>
                         <div>
                             <label class="block text-sm font-medium text-gray-700">Level</label>
-                            <select id="level" name="level" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <select id="level" name="level" class="mt-1 block w-full pl-3 pr-10 py-3 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" required="true">
                                 <option value="">Select your Level</option>
                                 @foreach ($school_categories as $item)
                                     <option
@@ -846,12 +846,13 @@
                                 @enderror
                             </div>
                             </div>
-                    </form>
+
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-dark btn-custom" data-dismiss="modal">cancel</a>
-                    <a class="btn btn-solid btn-custom" onclick="event.preventDefault(); document.getElementById('update-profile-form').submit();" >Save</a>
+                    <button class="btn btn-solid btn-custom">Save</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
