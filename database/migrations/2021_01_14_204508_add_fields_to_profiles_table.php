@@ -15,7 +15,6 @@ class AddFieldsToProfilesTable extends Migration
     {
         Schema::table('profiles', function (Blueprint $table) {
             $table->datetime('deactivation_date')->nullable();
-            $table->foreignId('school_id')->nullable()->constrained()->cascadeOnDelete();
         });
     }
 
