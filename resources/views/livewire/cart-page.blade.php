@@ -50,7 +50,7 @@
                                     <div class="qty-box">
                                         <div class="input-group">
                                             <input type="number" name="quantity" class="form-control input-number"
-                                                value="{{ $product->qty }}">
+                                                value="{{ $product->qty }}" wire:change="updateCartQty({{ $product->id }}, $event.target.value)">
                                         </div>
                                     </div>
                                 </td>

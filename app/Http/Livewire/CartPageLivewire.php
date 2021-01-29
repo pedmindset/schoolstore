@@ -23,6 +23,12 @@ class CartPageLivewire extends Component
 
     public function updateCart()
     {
+        
+    }
 
+    public function updateCartQty($productId, $qty)
+    {
+        $cartItem = $this->getCartItemWithProductId($productId);
+        $this->updateCartItem($cartItem->rowId, $qty);
     }
 }

@@ -36,22 +36,31 @@ trait CartTrait
         Cart::update($rowId, $qty);
     }
 
-    public function increaseCartItemQty($rowId)
+    public function getCartItemWithProductId($id)
     {
-        $cartItem = Cart::get($rowId);
-        $newQty = $cartItem->qty++;
-        $this->updateCartProduct($rowId, $newQty);
+        // check if item already existed in cart
+        $items = Cart::search(function ($cartItem, $rowId) use ($id) {
+            return $cartItem->id == $id;
+        });
+        return $items->first();
     }
 
-    public function decreaseCartItemQty($rowId)
-    {
+    // public function increaseCartItemQty($rowId)
+    // {
+    //     $cartItem = Cart::get($rowId);
+    //     $newQty = $cartItem->qty++;
+    //     $this->updateCartProduct($rowId, $newQty);
+    // }
 
-        $cartItem = Cart::get($rowId);
-        $newQty = $cartItem->qty --;
+    // public function decreaseCartItemQty($rowId)
+    // {
 
-        if ($newQty > 0) {
-            $this->updateCartProduct($rowId, $newQty);
-        }
-    }
+    //     $cartItem = Cart::get($rowId);
+    //     $newQty = $cartItem->qty --;
+
+    //     if ($newQty > 0) {
+    //         $this->updateCartProduct($rowId, $newQty);
+    //     }
+    // }
 
 }
