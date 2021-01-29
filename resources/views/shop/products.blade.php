@@ -140,13 +140,14 @@
                                                             </ul>
                                                         </div>
                                                         <div class="product-page-per-view">
-                                                            <select name="category" class="select">
+                                                            <select name="category" class="select" onchange="this.form.submit()">
                                                                 <option value="">Select category</option>
                                                                 @foreach($productCategories as $category)
                                                                 <option value="{{ $category->slug }}" @if(request()->category == $category->slug) selected @endif>{{ $category->name }}</option>
                                                                 @endforeach
                                                             </select>
-                                                            {{-- <input type="submit" class="btn btn-danger btn-sm" value="Filter"> --}}
+                                                            
+                                                            {{-- <input type="hidden" class="btn btn-danger btn-sm" value="Filter"> --}}
                                                         </div>
                                                         {{-- <div class="product-page-filter">
                                                             <select>
