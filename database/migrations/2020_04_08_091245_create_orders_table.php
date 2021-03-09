@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->uuid('uuid')->nullable();
             $table->decimal('amount', 13, 2)->nullable();
-            $table->enum('status', ['pending', 'cancelled', 'shipped', 'delivered'])->default('pending');
+            $table->enum('status', ['pending', 'cancelled', 'assigned', 'delivered'])->default('pending');
             $table->decimal('lng', 13,  5)->nullable();
             $table->decimal('lat', 13,  5)->nullable();
             $table->timestamps();

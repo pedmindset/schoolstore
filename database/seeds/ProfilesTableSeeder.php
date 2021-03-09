@@ -22,6 +22,9 @@ class ProfilesTableSeeder extends Seeder
                 "user_id" => 2,
                 "phone" => "0209000001",
                 "address" => "Abeka, Lapaz.",
+                "school_id" => 1,
+                "hostel_id" => 1,
+                "room" => "Room 5",
             ],
         ];
 
