@@ -26,8 +26,8 @@ trait ApiResponser
     protected function apiSuccess(string $message = null,  int $code = 200, $data = null)
     {
         return response()->json([
-            'message' => $message,
-            'data' => $data,
+            "message" => $message,
+            "data" => $data,
         ], $code);
     }
 
@@ -42,8 +42,8 @@ trait ApiResponser
     protected function apiError(string $message = null, int $code, $data = null)
     {
         return response()->json([
-            'message' => $message,
-            'data' => $data
+            "message" => $message,
+            "data" => $data
         ], $code);
     }
 }
