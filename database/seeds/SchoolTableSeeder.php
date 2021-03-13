@@ -18,6 +18,7 @@ class SchoolTableSeeder extends Seeder
             'address' => 'Legon Boundary, Accra',
             'city' => 'Accra',
             'region' => 'Greater Accra',
+            'country' => 'Ghana',
             'postcode' => '',
             'lat' => '5.650562',
             'lng' => '-0.1962244',
@@ -26,8 +27,8 @@ class SchoolTableSeeder extends Seeder
 
         $url = 'https://upload.wikimedia.org/wikipedia/commons/6/64/University_of_Ghana.png';
         $legon
-        ->addMediaFromUrl($url)
-        ->toMediaCollection('logo');
+            ->addMediaFromUrl($url)
+            ->toMediaCollection('logo');
 
         $presec = School::create([
             'name' => 'Presbyterian Boys Secondary School',
@@ -35,6 +36,7 @@ class SchoolTableSeeder extends Seeder
             'address' => 'Legon Boundary, Accra',
             'city' => 'Accra',
             'region' => 'Greater Accra',
+            'country' => 'Ghana',
             'postcode' => '',
             'lat' => '5.66265',
             'lng' => '-0.1763339',
@@ -43,9 +45,7 @@ class SchoolTableSeeder extends Seeder
 
         $url = 'https://preseclegon.edu.gh/wp-content/uploads/2018/01/prescrest.png';
         $presec
-        ->addMediaFromUrl($url)
-        ->toMediaCollection('logo');
-
-
+            ->addMediaFromUrl($url)
+            ->toMediaCollection('logo');
     }
 }

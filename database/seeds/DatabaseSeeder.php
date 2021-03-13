@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(OrdersTableSeeder::class);
+        $this->call(DeliverySchedulesTableSeeder::class);
     }
 }

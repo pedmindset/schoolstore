@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder
         
         User::create([
             'name' => "John Doe",
-            'email' => "john_doe@mail.com",
+            'email' => "mail@mail.com",
             'password' => bcrypt("password"),
             'email_verified_at' => now()->toDateTimeString()
         ])->assignRole('driver');

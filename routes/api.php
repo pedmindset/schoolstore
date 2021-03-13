@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::namespace("API")->group(function () {
     // Unauthenticated Route
     Route::namespace("Auth")->group(function () {
-        Route::post('login', 'LoginController@login');
+        Route::post("login", "LoginController@login");
     });
 
     // Authenticated Routes
     Route::middleware("auth:sanctum")->group(function () {
+        Route::apiResource("delivery-schedules", "DeliveryScheduleController")->only("index");
     });
 });

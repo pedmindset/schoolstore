@@ -56,6 +56,11 @@ class ProductCategory extends Model implements HasMedia
             ->performOnCollections('cover');
     }
 
+    public function getCoverPhotoAttribute()
+    {
+        return $this->getFirstMediaUrl('cover');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

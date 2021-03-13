@@ -63,6 +63,11 @@ class School extends Model implements HasMedia
             ->performOnCollections('logo');
     }
 
+    public function getLogoAttribute()
+    {
+        return $this->getFirstMediaUrl('logo');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

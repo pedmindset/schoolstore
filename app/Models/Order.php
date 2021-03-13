@@ -43,9 +43,9 @@ class Order extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo('App\Models\Customer');
+        return $this->belongsTo(User::class);
     }
 
     /**

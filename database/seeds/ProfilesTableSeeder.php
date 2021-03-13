@@ -24,12 +24,19 @@ class ProfilesTableSeeder extends Seeder
                 "address" => "Abeka, Lapaz.",
                 "school_id" => 1,
                 "hostel_id" => 1,
+                "level" => "200",
                 "room" => "Room 5",
+                "lat" => "5.65683550",
+                "lng" => "-0.18151460",
+            ],
+            [
+                "user_id" => 3,
+                "phone" => "0209000002",
             ],
         ];
 
-        foreach ($data as $d ) {
-           Profile::create($d);
+        foreach ($data as $d) {
+            Profile::create($d);
         }
     }
 }
