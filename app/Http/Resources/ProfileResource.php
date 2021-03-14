@@ -18,6 +18,7 @@ class ProfileResource extends JsonResource
             "id" => $this->id,
             "school" => new SchoolResource($this->school),
             "hostel" => new HostelResource($this->hostel),
+            "photo" => $this->photo,
             "phone" => $this->phone,
             "address" => $this->address,
             "level" => $this->level,

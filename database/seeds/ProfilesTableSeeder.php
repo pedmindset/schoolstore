@@ -21,7 +21,7 @@ class ProfilesTableSeeder extends Seeder
             [
                 "user_id" => 2,
                 "phone" => "0209000001",
-                "address" => "Abeka, Lapaz.",
+                "address" => "Common Wealth Hall",
                 "school_id" => 1,
                 "hostel_id" => 1,
                 "level" => "200",

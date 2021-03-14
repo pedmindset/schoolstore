@@ -12,4 +12,20 @@ class DeliveryScheduleOrder extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::updated(function ($model) {
+            Order::find($model->order_id)->update(["status" => $model->status]);
+        });
+    }
+
+    public function confirmDelivery()
+    {
+        $this->delivered_at = now();
+        $this->status = "delivered";
+        $this->save();
+    }
 }

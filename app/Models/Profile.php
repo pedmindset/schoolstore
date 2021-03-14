@@ -48,7 +48,7 @@ class Profile extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('profile')->singleFile();
+        $this->addMediaCollection('photo')->singleFile();
         $this->addMediaCollection('attachments');
     }
 
@@ -56,17 +56,22 @@ class Profile extends Model implements HasMedia
     {
         $this->addMediaConversion('thumb')
             ->width(100)
-            ->height(100)->performOnCollections('profile');
+            ->height(100)->performOnCollections('photo');
 
         $this->addMediaConversion('thumb')
             ->width(100)
             ->height(100)
-            ->performOnCollections('profile');
+            ->performOnCollections('photo');
 
         $this->addMediaConversion('big')
             ->width(300)
             ->height(300)
-            ->performOnCollections('profile');
+            ->performOnCollections('photo');
+    }
+
+    public function getPhotoAttribute()
+    {
+        return $this->getFirstMediaUrl('photo');
     }
 
     /**
@@ -85,7 +90,7 @@ class Profile extends Model implements HasMedia
         return $this->morphMany('App\Model\Tracking', 'trackable');
     }
 
-     /**
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function loanStage()
@@ -118,6 +123,4 @@ class Profile extends Model implements HasMedia
     {
         return $this->belongsTo('App\Models\SchoolCategory');
     }
-
-
 }

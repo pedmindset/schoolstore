@@ -22,5 +22,6 @@ Route::namespace("API")->group(function () {
     // Authenticated Routes
     Route::middleware("auth:sanctum")->group(function () {
         Route::apiResource("delivery-schedules", "DeliveryScheduleController")->only("index");
+        Route::post("delivery-schedules/confirm", "DeliveryScheduleController@confirm");
     });
 });
