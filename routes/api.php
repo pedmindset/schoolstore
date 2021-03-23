@@ -23,5 +23,8 @@ Route::namespace("API")->group(function () {
     Route::middleware("auth:sanctum")->group(function () {
         Route::apiResource("delivery-schedules", "DeliveryScheduleController")->only("index");
         Route::post("delivery-schedules/confirm", "DeliveryScheduleController@confirm");
+        
+        Route::apiResource("products", "ProductController")->only("index");
+        Route::apiResource("product-categories", "ProductCategoryController")->only("index");
     });
 });

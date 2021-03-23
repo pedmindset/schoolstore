@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\QueryHelperTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -20,7 +21,7 @@ use Illuminate\Support\Str;
  */
 class ProductCategory extends Model implements HasMedia
 {
-    use InteractsWithMedia;
+    use InteractsWithMedia, QueryHelperTrait;
 
     /**
      * The "type" of the auto-incrementing ID.

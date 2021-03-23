@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\QueryHelperTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -31,7 +32,7 @@ use Gloudemans\Shoppingcart\Contracts\Buyable;
  */
 class Product extends Model implements HasMedia, Buyable
 {
-    use InteractsWithMedia;
+    use InteractsWithMedia, QueryHelperTrait;
 
     /**
      * The "type" of the auto-incrementing ID.
@@ -188,5 +189,14 @@ class Product extends Model implements HasMedia, Buyable
     public function getCartOptionstAttribute($options = null)
     {
         return $this->options;
+    }
+
+
+    // Scopes
+    public function scopeFilterByCategory($query)
+    {
+        return $query->when(!empty(request()->category_id), function ($query) {
+            $query->whereProductCategoryId(request()->category_id);
+        });
     }
 }

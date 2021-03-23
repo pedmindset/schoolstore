@@ -55,9 +55,7 @@ class ProductTableSeeder extends Seeder
             [
                 'product_category_id' => 20,
                 'name' => 'Dano UHT Full Cream Milk 1L',
-                'description' => 'Dano UHT Full Cream Milk 1L 3.5% Fat
-                 Natural Source of Calcium, Protein, Vitamin & Minerals.
-                 Milk Goodness!',
+                'description' => 'Dano UHT Full Cream Milk 1L 3.5% Fat Natural Source of Calcium, Protein, Vitamin & Minerals. Milk Goodness!',
                 'price' => 9.00,
                 'quantity' => 100,
                 'featured' => 'yes',
@@ -65,8 +63,7 @@ class ProductTableSeeder extends Seeder
             [
                 'product_category_id' => 13,
                 'name' => 'TomVita Fortified Cereal-Legume Blend 200g',
-                'description' => 'TomVita Fortified Cereal-Legume Blend 200g
-                 Ready to eat Tom Brown. All you need is to add boiled water and stir..',
+                'description' => 'TomVita Fortified Cereal-Legume Blend 200g Ready to eat Tom Brown. All you need is to add boiled water and stir..',
                 'price' => 3.50,
                 'quantity' => 20,
                 'featured' => 'yes'
@@ -83,8 +80,7 @@ class ProductTableSeeder extends Seeder
             [
                 'product_category_id' => 19,
                 'name' => 'Dano Cool Cow Instant Filled Milk Powder 400g Tin',
-                'description' => 'Dano Cool Cow Instant Filled Milk Powder 400g Tin.
-                 Vitamin A + D, Protein & Calcium',
+                'description' => 'Dano Cool Cow Instant Filled Milk Powder 400g Tin. Vitamin A + D, Protein & Calcium',
                 'price' => 18.00,
                 'quantity' => 20,
             ],
