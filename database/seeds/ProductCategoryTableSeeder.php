@@ -15,169 +15,171 @@ class ProductCategoryTableSeeder extends Seeder
     {
         $categories = [
             [
-                'name'=> 'Alcoholic Drink',
-                'description'=> 'Alcoholic Drink',
+                'name' => 'Alcoholic Drink',
+                'description' => 'Alcoholic Drink',
             ],
             [
-                'name'=> 'Baked Beans',
-                'description'=> 'Baked Beans',
-                'featured'=> 'yes'
+                'name' => 'Baked Beans',
+                'description' => 'Baked Beans',
+                'featured' => 'yes'
             ],
             [
-                'name'=> 'Biscuit',
-                'description'=> 'Biscuit',
+                'name' => 'Biscuit',
+                'description' => 'Biscuit',
             ],
             [
-                'name'=> 'Cafe',
-                'description'=> 'Cafe',
-                'featured'=> 'yes'
+                'name' => 'Cafe',
+                'description' => 'Cafe',
+                'featured' => 'yes'
             ],
             [
-                'name'=> 'Can Fish',
-                'description'=> 'Can Fish',
+                'name' => 'Can Fish',
+                'description' => 'Can Fish',
             ],
             [
-                'name'=> 'Cocoa Beverage',
-                'description'=> 'Cocoa Beverage',
+                'name' => 'Cocoa Beverage',
+                'description' => 'Cocoa Beverage',
             ],
             [
-                'name'=> 'Condensed Milk',
-                'description'=> 'Condensed Milk',
+                'name' => 'Condensed Milk',
+                'description' => 'Condensed Milk',
             ],
             [
-                'name'=> 'Confectionery',
-                'description'=> 'Confectionery',
+                'name' => 'Confectionery',
+                'description' => 'Confectionery',
             ],
             [
-                'name'=> 'Corned Beef',
-                'description'=> 'Corned Beef',
+                'name' => 'Corned Beef',
+                'description' => 'Corned Beef',
             ],
             [
-                'name'=> 'Fruit Juice',
-                'description'=> 'Fruit Juice',
-                'featured'=> 'yes'
+                'name' => 'Fruit Juice',
+                'description' => 'Fruit Juice',
+                'featured' => 'yes'
             ],
             [
-                'name'=> 'Hand Napkin',
-                'description'=> 'Hand Napkin',
+                'name' => 'Hand Napkin',
+                'description' => 'Hand Napkin',
             ],
             [
-                'name'=> 'Hand Towel',
-                'description'=> 'Hand Towel',
+                'name' => 'Hand Towel',
+                'description' => 'Hand Towel',
             ],
             [
-                'name'=> 'Infant Formula',
-                'description'=> 'Infant Formula',
+                'name' => 'Infant Formula',
+                'description' => 'Infant Formula',
             ],
             [
-                'name'=> 'Laundry Soap',
-                'description'=> 'Laundry Soap',
+                'name' => 'Laundry Soap',
+                'description' => 'Laundry Soap',
             ],
             [
-                'name'=> 'Liquid Soap',
-                'description'=> 'Liquid Soap',
+                'name' => 'Liquid Soap',
+                'description' => 'Liquid Soap',
             ],
             [
-                'name'=> 'Mackerel',
-                'description'=> 'Mackerel',
-                'featured'=> 'yes'
+                'name' => 'Mackerel',
+                'description' => 'Mackerel',
+                'featured' => 'yes'
             ],
             [
-                'name'=> 'Margarine',
-                'description'=> 'Margarine',
+                'name' => 'Margarine',
+                'description' => 'Margarine',
             ],
             [
-                'name'=> 'Mayonnaise',
-                'description'=> 'Mayonnaise',
+                'name' => 'Mayonnaise',
+                'description' => 'Mayonnaise',
             ],
             [
-                'name'=> 'Milk Powder',
-                'description'=> 'Milk Powder',
-                'featured'=> 'yes'
+                'name' => 'Milk Powder',
+                'description' => 'Milk Powder',
+                'featured' => 'yes'
             ],
             [
-                'name'=> 'Milk',
-                'description'=> 'Milk',
+                'name' => 'Milk',
+                'description' => 'Milk',
             ],
             [
-                'name'=> 'Mineral Water',
-                'description'=> 'Mineral Water',
+                'name' => 'Mineral Water',
+                'description' => 'Mineral Water',
             ],
             [
-                'name'=> 'Noodles',
-                'description'=> 'Noodles',
-                'featured'=> 'yes'
+                'name' => 'Noodles',
+                'description' => 'Noodles',
+                'featured' => 'yes'
             ],
             [
-                'name'=> 'Pomade',
-                'description'=> 'Pomade',
+                'name' => 'Pomade',
+                'description' => 'Pomade',
             ],
             [
-                'name'=> 'Rice',
-                'description'=> 'Rice',
-                'featured'=> 'yes'
+                'name' => 'Rice',
+                'description' => 'Rice',
+                'featured' => 'yes'
             ],
             [
-                'name'=> 'Salt',
-                'description'=> 'Salt',
+                'name' => 'Salt',
+                'description' => 'Salt',
             ],
             [
-                'name'=> 'Sardine',
-                'description'=> 'Sardine',
+                'name' => 'Sardine',
+                'description' => 'Sardine',
             ],
             [
-                'name'=> 'Soap',
-                'description'=> 'Soap',
+                'name' => 'Soap',
+                'description' => 'Soap',
             ],
             [
-                'name'=> 'Soya Bean Oil',
-                'description'=> 'Soya Bean Oil',
+                'name' => 'Soya Bean Oil',
+                'description' => 'Soya Bean Oil',
             ],
             [
-                'name'=> 'Spaghetti',
-                'description'=> 'Spaghetti',
+                'name' => 'Spaghetti',
+                'description' => 'Spaghetti',
             ],
             [
-                'name'=> 'Sugar',
-                'description'=> 'Sugar',
+                'name' => 'Sugar',
+                'description' => 'Sugar',
             ],
             [
-                'name'=> 'Sunflower Oil',
-                'description'=> 'Sunflower Oil',
+                'name' => 'Sunflower Oil',
+                'description' => 'Sunflower Oil',
             ],
             [
-                'name'=> 'Toilet Roll',
-                'description'=> 'Toilet Roll',
+                'name' => 'Toilet Roll',
+                'description' => 'Toilet Roll',
             ],
             [
-                'name'=> 'Toilet Soap',
-                'description'=> 'Toilet Soap',
+                'name' => 'Toilet Soap',
+                'description' => 'Toilet Soap',
             ],
             [
-                'name'=> 'Tomato Paste',
-                'description'=> 'Tomato Paste',
+                'name' => 'Tomato Paste',
+                'description' => 'Tomato Paste',
             ],
             [
-                'name'=> 'Tooth Brush',
-                'description'=> 'Tooth Brush',
+                'name' => 'Tooth Brush',
+                'description' => 'Tooth Brush',
             ],
             [
-                'name'=> 'Vegetable Oil',
-                'description'=> 'Vegetable Oil',
+                'name' => 'Vegetable Oil',
+                'description' => 'Vegetable Oil',
             ],
             [
-                'name'=> 'Washing Powder',
-                'description'=> 'Washing Powder',
+                'name' => 'Washing Powder',
+                'description' => 'Washing Powder',
             ],
         ];
 
         foreach ($categories as $cat) {
             $category = ProductCategory::create($cat);
-           if(Storage::exists('categories/'. $cat['name'] . '.jpg')){
-                // $category = ProductCategory::create($cat);
-                $category->addMedia(storage_path('app/categories/'. $cat['name'] . '.jpg'), 'local')
-                ->toMediaCollection('featured');
-           }
+            if (file_exists(public_path('assets/images/categories/' . $cat['name'] . '.jpg'))) {
+
+                $category->addMedia(public_path('assets/images/categories/' . $cat['name'] . '.jpg'))
+                    ->toMediaCollection('cover');
+            } else {
+                logger($cat['name'] . '.jpg');
+            }
         }
     }
 }
