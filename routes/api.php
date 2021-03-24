@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// php artisan serve --host="192.168.8.154"
+
 Route::namespace("API")->group(function () {
     // Unauthenticated Route
     Route::namespace("Auth")->group(function () {
@@ -23,7 +25,7 @@ Route::namespace("API")->group(function () {
     Route::middleware("auth:sanctum")->group(function () {
         Route::apiResource("delivery-schedules", "DeliveryScheduleController")->only("index");
         Route::post("delivery-schedules/confirm", "DeliveryScheduleController@confirm");
-        
+
         Route::apiResource("products", "ProductController")->only("index");
         Route::apiResource("product-categories", "ProductCategoryController")->only("index");
     });

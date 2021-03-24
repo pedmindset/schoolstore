@@ -199,4 +199,26 @@ class Product extends Model implements HasMedia, Buyable
             $query->whereProductCategoryId(request()->category_id);
         });
     }
+
+    public function scopeFilterByKeyword($query)
+    {
+        return $query->when(!empty(request()->keyword), function ($query) {
+            $query->where("name", "LIKE", "%" . request()->keyword . "%");
+        });
+    }
+
+    public function scopeFilterByType($query)
+    {
+        return $query->when(!empty(request()->type), function ($query) {
+            $type = request()->type;
+            $count = 8;
+            $query->when($type == "featured", function ($query) {
+                $query->whereFeatured('yes');
+            })->when($type == "new", function ($query) {
+                $query->latest();
+            })->when($type == "best_selling", function ($query) {
+                $query->withCount('order_products')->orderBy('order_products_count', 'desc');
+            })->limit($count);
+        });
+    }
 }

@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        JsonResource::withoutWrapping();
+        // JsonResource::withoutWrapping();
 
         if (Schema::hasTable('product_categories')) {
             $productCategories = ProductCategory::orderBy('name', 'asc')->withCount('products')->get();

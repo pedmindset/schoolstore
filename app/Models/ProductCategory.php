@@ -79,4 +79,16 @@ class ProductCategory extends Model implements HasMedia
             $model->slug = Str::slug($model->name);
         });
     }
+
+
+    public function scopeFilterByType($query)
+    {
+        return $query->when(!empty(request()->type), function ($query) {
+            $type = request()->type;
+            $count = 8;
+            $query->when($type == "featured", function ($query) {
+                $query->whereFeatured('yes');
+            })->limit($count);
+        });
+    }
 }

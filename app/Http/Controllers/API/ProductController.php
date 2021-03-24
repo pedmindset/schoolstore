@@ -14,7 +14,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $data = $this->model::filterByCategory()->paged();
+        $data = $this->model::filterByCategory()->filterByKeyword()->filterByType()->paged();
         return $this->modelResource::collection($data);
     }
 }
