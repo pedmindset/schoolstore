@@ -221,4 +221,20 @@ class Product extends Model implements HasMedia, Buyable
             })->limit($count);
         });
     }
+
+    public function scopeOrderBySort($query)
+    {
+        return $query->when(!empty(request()->sort), function ($query) {
+            $sort = request()->sort;
+            $query->when($sort == "new", function ($query) {
+                $query->latest();
+            })->when($sort == "popularity", function ($query) {
+                $query->withCount('order_products')->orderBy('order_products_count', 'desc');
+            })->when($sort == "lowest_price", function ($query) {
+                $query->orderBy("price", "asc");
+            })->when($sort == "highest_price", function ($query) {
+                $query->orderBy("price", "desc");
+            });
+        });
+    }
 }
