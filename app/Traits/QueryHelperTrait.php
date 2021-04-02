@@ -15,6 +15,11 @@ trait QueryHelperTrait
         }
     }
 
+    public static function scopeOwned($query)
+    {
+        return $query->where('user_id', auth()->id());
+    }
+
     public static function scopeActive($query)
     {
         $isActive = request()->is_active;

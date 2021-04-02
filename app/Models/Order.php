@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\QueryHelperTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -18,6 +19,7 @@ use Illuminate\Support\Str;
  */
 class Order extends Model
 {
+    use QueryHelperTrait;
 
     public static function boot()
     {

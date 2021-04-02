@@ -28,5 +28,6 @@ Route::namespace("API")->group(function () {
 
         Route::apiResource("products", "ProductController")->only("index");
         Route::apiResource("product-categories", "ProductCategoryController")->only("index");
+        Route::apiResource("orders", "OrderController")->only("index", "store");
     });
 });
