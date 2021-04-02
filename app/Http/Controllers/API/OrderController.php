@@ -18,7 +18,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        $data = $this->model::owned()->paged();
+        $data = $this->model::latest()->owned()->paged();
         return $this->modelResource::collection($data);
     }
 

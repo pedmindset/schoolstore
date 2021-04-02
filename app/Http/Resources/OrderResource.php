@@ -23,6 +23,7 @@ class OrderResource extends JsonResource
             "status" => $this->status,
             "lat" => $this->lat,
             "lng" => $this->lng,
+            "created_at" => $this->created_at->toDateTimeString(),
         ];
     }
 }
