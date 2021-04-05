@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedbiginteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->uuid('uuid')->nullable();
+            $table->string('code')->nullable();
             $table->decimal('amount', 13, 2)->nullable();
             $table->enum('status', ['pending', 'cancelled', 'assigned', 'delivered'])->default('pending');
             $table->decimal('lng', 13,  5)->nullable();

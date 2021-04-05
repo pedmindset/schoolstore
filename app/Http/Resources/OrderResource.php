@@ -16,6 +16,7 @@ class OrderResource extends JsonResource
     {
         return [
             "id" => $this->id,
+            "code" => $this->code,
             "uuid" => $this->uuid,
             "user" => new UserResource($this->user),
             "order_products" => OrderProductResource::collection($this->products),

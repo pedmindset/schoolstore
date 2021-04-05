@@ -27,6 +27,7 @@ class Order extends Model
 
         self::creating(function ($model) {
             $model->uuid = Str::uuid();
+            $model->code = strtoupper(Str::random(7));
         });
     }
 
@@ -40,7 +41,7 @@ class Order extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'uuid', 'amount', 'status', 'lng', 'lat',  'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'code', 'uuid', 'amount', 'status', 'lng', 'lat',  'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
