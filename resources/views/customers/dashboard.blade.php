@@ -20,7 +20,7 @@
                     <div class="dashboard-sidebar">
                         <div class="profile-top">
                             <div class="flex items-center justify-center">
-                                <img class="img-fluid object-contain rounded" src="{{ $profile_picture->getFullUrl() }}">
+                                <img class="img-fluid object-contain rounded" src="{{ $profile_picture->getFullUrl() ?? '' }}">
                             </div>
                             <div class="profile-detail">
                                 <h5>{{ auth()->user()->name }}</h5>
@@ -452,7 +452,7 @@
                                                             @if($profile_picture)
                                                             <tr>
                                                                 <th>Profile Picture</th>
-                                                                <td><img class=" object-contain w-12" src="{{ $profile_picture->getFullUrl() }}"></td>
+                                                                <td><img class=" object-contain w-12" src="{{ $profile_picture->getFullUrl() ?? '' }}"></td>
                                                                 <td>{{ $profile_picture->created_at->toDateString() }}</td>
                                                                 <td>view</td>
                                                             </tr>
@@ -460,9 +460,9 @@
                                                             @forelse ($attachments as $t)
                                                             <tr>
                                                                 <th>Identification</th>
-                                                                <td><a target="new" href="{{ $t->getFullUrl() }}">{{ $t->name }}</a></td>
+                                                                <td><a target="new" href="{{ $t->getFullUrl()  ?? ''}}">{{ $t->name }}</a></td>
                                                                 <td>{{ $t->created_at->toDateString()  }}</td>
-                                                                <td><a target="new" href="{{ $t->getFullUrl() }}">view</a></td>
+                                                                <td><a target="new" href="{{ $t->getFullUrl() ?? ''}}">view</a></td>
                                                             </tr>
                                                             @empty
                                                             <tr><td colspan="3" ><p class="text-center">Upload Identification Documents for verifivcation</p></td></tr>
