@@ -43,7 +43,7 @@ class SchoolTableSeeder extends Seeder
             'school_category_id' => SchoolCategory::where('name', 'Senior High School')->first()->id,
         ]);
 
-        $url = 'https://en.wikipedia.org/wiki/File:Presbyterian_boys_secondary_logo_2.png';
+        $url = 'https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Presbyterian_boys_secondary_logo_2.png/220px-Presbyterian_boys_secondary_logo_2.png';
         $presec
             ->addMediaFromUrl($url)
             ->toMediaCollection('logo');
