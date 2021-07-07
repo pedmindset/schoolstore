@@ -70,7 +70,7 @@
                             <div class="p-6 text-left opacity-100 ">
                                 <h2 class="px-2 font-black text-gray-500 ">Never</h2>
                                 <h1 class="pl-2 mb-2 text-red-600 ">Run out of Provisions</h1>
-                                <h3 class="mb-2 text-red-600 px-6 bg-white py-2 opacity-100 w-48 rounded-full shadow">Order Now!</h3>
+                                <a href="{{ url('shop/products') }}"><h3 class="mb-2 cursor-pointer text-white px-6 bg-red-500 hover:bg-red-700 hover:shadow-md shadow py-2 opacity-100 w-48 rounded-full">Order Now!</h3></a>
                             </div>
                         </div>
 

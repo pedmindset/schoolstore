@@ -180,7 +180,7 @@
                                         {{-- <h4><del>$459.00</del><span>55% off</span></h4> --}}
                                         <h3>{{ $product->price_with_currency }}</h3>
                                         <div class="product-buttons">
-                                            <button  data-product="{{ $product }}" class="btn btn-solid addtocart">add to cart</button>
+                                            <button  data-product="{{ $product }}" class="rounded-full btn btn-solid addtocart">add to cart</button>
                                             {{-- <a href="#" class="btn btn-solid">buy now</a> --}}
                                         </div>
                                         <div class="border-product">
