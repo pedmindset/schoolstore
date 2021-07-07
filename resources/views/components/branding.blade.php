@@ -1,1 +1,1 @@
-<img class="{{ $class }}" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="SchoolStore">
+<img class="{{ $class }}" src="{{ asset('assets/images/logo.png') }}" alt="SchoolStore">

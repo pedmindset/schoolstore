@@ -449,7 +449,7 @@
               var self = this;
               const checkEmail = validateEmail.validate(this.email);
               if(checkEmail === false){
-                return Vue.swal.fire({
+                return Swal.fire({
                   icon: 'error',
                   title: 'Validation',
                   text: 'Enter a valid email',
@@ -464,7 +464,7 @@
                 email: this.email
               }).then(function(response){
                   self.email = '';
-                  return Vue.swal.fire({
+                  return Swal.fire({
                     icon: 'success',
                     title: 'Received',
                     text: 'Contact Received',
@@ -476,7 +476,7 @@
               }).catch(function(error){
                 console.log(error.response);
 
-                  return Vue.swal.fire({
+                  return Swal.fire({
                     icon: error.response.data.status,
                     title: 'Try Again',
                     text: error.response.data.message,

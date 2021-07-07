@@ -1094,11 +1094,12 @@
 
             function revokeAccess()
             {
-                Swal.fire(
-                    'Revoke All Access!',
-                    'You clicked the button!',
-                    'success'
-                )
+                Swal.fire({
+                 icon: 'info',
+                 title: 'Do you want to revoke all access',
+                 confirm: true,
+                 cancel: true,
+               })
             }
 
             function copyToClipboard(text) {

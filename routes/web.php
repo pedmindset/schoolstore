@@ -5,10 +5,11 @@ use App\Models\School;
 use Illuminate\Http\Request;
 use App\Models\ThirdPartyAccess;
 use App\Models\NewsletterContact;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -170,8 +171,22 @@ Route::post('grantaccess/', function(Request $request){
 })->middleware('auth');
 
 Route::get('/grantaccess/{user}', function (Request $request) {
-    
+
 })->name('grantaccess')->middleware('signed');
+
+Route::get('revokeallaccess/', function(){
+    if (config('session.driver') === 'database') {
+        DB::connection(config('session.connection'))->table(config('session.table', 'sessions'))
+        ->where('user_id', Auth::user()->getAuthIdentifier())
+        ->where('id', '!=', request()->session()->getId())
+        ->delete();
+    }
+
+    $access = ThirdPartyAccess::where('id', auth()->user()->id)->delete();
+
+    Session::flash('success', 'Access Revoked Successfully!');
+    return redirect('shop/dashboard#access');
+});
 
 // Route::get('/shop/home', function () {
 //     return view('shop.index');

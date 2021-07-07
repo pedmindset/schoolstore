@@ -5,7 +5,7 @@
                 <div class="header-contact">
                     <ul>
                         <li>Welcome to Our store School Shop</li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 024-655-4579</li>
                     </ul>
                 </div>
             </div>

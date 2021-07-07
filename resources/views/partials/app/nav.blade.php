@@ -69,8 +69,8 @@
       <div class="hidden md:flex-1 md:flex md:items-center md:justify-between">
         <nav class="flex space-x-10">
             <div class="relative"></div>
-          
-  
+
+
             <div class="relative"></div>
         </nav>
         <div class="flex items-center md:ml-12">
@@ -83,10 +83,10 @@
         </div>
       </div>
     </div>
-  
+
     <!--
       Mobile menu, show/hide based on mobile menu state.
-  
+
       Entering: "duration-200 ease-out"
         From: "opacity-0 scale-95"
         To: "opacity-100 scale-100"
@@ -113,7 +113,7 @@
           </div>
           <div class="mt-6">
             <nav class="grid gap-6">
-              
+
             </nav>
           </div>
         </div>
