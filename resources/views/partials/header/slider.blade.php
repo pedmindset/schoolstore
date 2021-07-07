@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="slider-contain ">
-                                <div class="text-left bg-gray-50 opacity-75 flex rounded-r-lg shadow-xl">
+                                <div class="text-left bg-gray-50 bg-opacity-75 flex rounded-r-lg shadow-xl">
                                     <div class="w-4 bg-red-400"></div>
                                     <div class="p-6 text-left ">
                                     <h4 class="px-2 font-black text-gray-500 ">Welcome To</h4>
