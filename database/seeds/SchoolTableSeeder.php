@@ -26,9 +26,15 @@ class SchoolTableSeeder extends Seeder
         ]);
 
         $url = 'https://upload.wikimedia.org/wikipedia/commons/6/64/University_of_Ghana.png';
-        $legon
+
+        try { //code...
+            $legon
             ->addMediaFromUrl($url)
             ->toMediaCollection('logo');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
 
         $presec = School::create([
             'name' => 'Presbyterian Boys Secondary School',
@@ -43,9 +49,15 @@ class SchoolTableSeeder extends Seeder
             'school_category_id' => SchoolCategory::where('name', 'Senior High School')->first()->id,
         ]);
 
-        $url = 'https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Presbyterian_boys_secondary_logo_2.png/220px-Presbyterian_boys_secondary_logo_2.png';
-        $presec
-            ->addMediaFromUrl($url)
-            ->toMediaCollection('logo');
+
+
+            try { //code...
+                $url = 'https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Presbyterian_boys_secondary_logo_2.png/220px-Presbyterian_boys_secondary_logo_2.png';
+                $presec
+                    ->addMediaFromUrl($url)
+                    ->toMediaCollection('logo');
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
     }
 }
