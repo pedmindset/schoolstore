@@ -29,21 +29,21 @@
                         </ul>
                         <div class="tab-content-cls">
                             <div id="tab-4" class="tab-content active default">
-                                <div class="no-slider row">
+                                <div class="five-product no-slider  row">
                                     @foreach ($newProducts as $product)
                                     <x-product-tile :shadow="true" :product="$product"/>
                                     @endforeach
                                 </div>
                             </div>
                             <div id="tab-5" class="tab-content">
-                                <div class="no-slider row">
+                                <div class="five-product no-slider row">
                                     @foreach ($featuredProducts as $product)
                                     <x-product-tile :shadow="true"  :product="$product"/>
                                     @endforeach
                                 </div>
                             </div>
                             <div id="tab-6" class="tab-content">
-                                <div class="no-slider row">
+                                <div class="five-product no-slider row">
                                     @foreach ($bestSellingProducts as $product)
                                     <x-product-tile :shadow="true"  :product="$product"/>
                                     @endforeach

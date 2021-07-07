@@ -20,12 +20,18 @@
         </div>
     </div>
     <div class="product-detail @isset($shadow)  @endisset ">
-        <a class="trucate nowrap" href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-            <h6 class="trucate nowrap">{{ $product->name }}</h6>
+        <a class="truncate nowrap" href="{{ route('shop.product', ['slug' => $product->slug]) }}">
+            <h6 class="truncate nowrap">{{ $product->name }}</h6>
         </a>
         {{-- @if(isset($showDesc))
         <p>{{ $product->description }}</p>
         @endif --}}
-        <h4>{{ $product->price_with_currency }}</h4>
+        <div class="flex justify-between">
+        <h4 class="">{{ $product->price_with_currency }}</h4>
+        <button type="button" title="Add to cart" class="px-3 border rounded-full addtocart" data-product="{{ $product }}">
+            <i class="ti-shopping-cart"> Add to cart</i>
+        </button>
+        </div>
+
     </div>
 </div>
