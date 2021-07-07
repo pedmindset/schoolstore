@@ -32,8 +32,9 @@
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
                                 <li class="nav-item"><a data-toggle="tab" class="nav-link active"href="#dashboard">dashboard</a></li>
-                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#orders">orders</a></li>
-                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#profile">profile</a></li>
+                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#orders">Orders</a></li>
+                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#access">Grant Access</a></li>
+                                <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#profile">Profile</a></li>
                                 <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#guarantors">Guarantors</a></li>
                                 <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#verification">Verifications</a></li>
                                 <li class="nav-item">
@@ -164,109 +165,65 @@
 
                             </div>
                         </div>
-                        {{-- <div class="tab-pane fade" id="products">
+                        <div class="tab-pane fade" id="access">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card dashboard-table mt-0">
                                         <div class="card-body">
-                                            <div class="top-sec">
-                                                <h3>all products</h3>
-                                                <a href="#" class="btn btn-sm btn-solid">add product</a>
+                                            <div class="top-sec flex justify-between">
+                                                <a href="#" data-toggle="modal" data-target="#grant-access" class="px-6 py-2 text-white rounded-full shadow text-center bg-green-500 hover:bg-green-700">Grant Access</a>
+                                                <a href="#" onclick="revokeAccess()" class="px-6 py-2 text-white rounded-full shadow text-center bg-red-500 hover:bg-red-700">Revoke all access</a>
                                             </div>
                                             <table class="table-responsive-md table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">image</th>
-                                                        <th scope="col">product name</th>
-                                                        <th scope="col">category</th>
-                                                        <th scope="col">price</th>
-                                                        <th scope="col">stock</th>
-                                                        <th scope="col">sales</th>
-                                                        <th scope="col">edit/delete</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Code</th>
+                                                        <th scope="col">URL</th>
+                                                        <th scope="col">Date Created</th>
+                                                        <th scope="col">Order</th>
+                                                        <th scope="col">Expiration</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @forelse($third_party_accesses as $access)
+
                                                     <tr>
-                                                        <th scope="row"><img
-                                                                src="{{ asset('images/dashboard/product/1.jpg') }}"
-                                                                class="blur-up lazyloaded"></th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>women clothes</td>
-                                                        <td>$205</td>
-                                                        <td>1000</td>
-                                                        <td>2000</td>
-                                                        <td><i class="fa fa-pencil-square-o mr-1"
-                                                                aria-hidden="true"></i><i class="fa fa-trash-o ml-1"
-                                                                aria-hidden="true"></i></td>
+                                                        <td>{{ $access->name }}</td>
+                                                        <td>{{ $access->code }}</td>
+                                                        <td><span onclick="copyToClipboard('{{ $access->url }}')" class="rounded-full cursor-pointer border border-gray-100 px-6 py-2 lowercase">copy url</span></td>
+                                                        <td>
+                                                        @if ($access->created_at)
+                                                        {{ $access->created_at->diffForHumans() }}
+                                                        @else
+                                                        'N/A'
+                                                        @endif
+
+                                                        </td>
+                                                        <td>{{ $access->order_total ?? 'N/A'}}</td>
+                                                        <td>
+                                                            @if ($access->expired)
+                                                            {{ $access->expired->diffForHumans() }}
+                                                            @else
+                                                            'N/A'
+                                                            @endif
+                                                        </td>
                                                     </tr>
+                                                    @empty
                                                     <tr>
-                                                        <th scope="row"><img
-                                                                src="{{ asset('images/dashboard/product/9.jpg') }}"
-                                                                class="blur-up lazyloaded"></th>
-                                                        <td>belted trench coat</td>
-                                                        <td>women clothes</td>
-                                                        <td>$350</td>
-                                                        <td>800</td>
-                                                        <td>350</td>
-                                                        <td><i class="fa fa-pencil-square-o mr-1"
-                                                                aria-hidden="true"></i><i class="fa fa-trash-o ml-1"
-                                                                aria-hidden="true"></i></td>
+
+                                                       No Data
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('images/pro3/34.jpg') }}"
-                                                                class="blur-up lazyloaded"></th>
-                                                        <td>men print tee</td>
-                                                        <td>men clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o mr-1"
-                                                                aria-hidden="true"></i><i class="fa fa-trash-o ml-1"
-                                                                aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('images/pro3/1.jpg') }}"
-                                                                class="blur-up lazyloaded"></th>
-                                                        <td>woman print tee</td>
-                                                        <td>women clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o mr-1"
-                                                                aria-hidden="true"></i><i class="fa fa-trash-o ml-1"
-                                                                aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('images/pro3/27.jpg') }}"
-                                                                class="blur-up lazyloaded"></th>
-                                                        <td>men print tee</td>
-                                                        <td>men clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o mr-1"
-                                                                aria-hidden="true"></i><i class="fa fa-trash-o ml-1"
-                                                                aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('images/pro3/36.jpg') }}"
-                                                                class="blur-up lazyloaded"></th>
-                                                        <td>men print tee</td>
-                                                        <td>men clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o mr-1"
-                                                                aria-hidden="true"></i><i class="fa fa-trash-o ml-1"
-                                                                aria-hidden="true"></i></td>
-                                                    </tr>
+                                                    @endforelse
+
+
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                         <div class="tab-pane fade" id="orders">
                             <div class="row">
                                 <div class="col-12">
@@ -409,6 +366,16 @@
                                                                 </div>
                                                                 <div class="right">
                                                                     <h6>{{ auth()->user()->profile->hostel->name ?? '' }}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="details">
+                                                                <div class="left">
+                                                                    <h6>Room</h6>
+                                                                </div>
+                                                                <div class="right">
+                                                                    <h6>{{ auth()->user()->profile->room ?? '' }}</h6>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -979,6 +946,16 @@
                                 </select>
                               </div>
                               <div class='block text-sm mt-2'>
+                                <label class="block text-sm font-medium text-gray-700">Room</label>
+                                <div class="mt-1">
+                                    <input
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text" name="room" v-model="room"
+                                    />
+
+                                </div>
+                            </div>
+                              <div class='block text-sm mt-2'>
                                 <label class="block text-sm font-medium text-gray-700">Level/Class</label>
                                 <div class="mt-1">
                                     <input
@@ -1000,6 +977,58 @@
         </div>
     </div>
     <!-- modal end -->
+
+     <!-- grant acess Modal start -->
+    <div class="modal logout-modal fade" id="grant-access" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Grant Access</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="POST" action="{{ url('grantaccess') }}" id="grant-access-form">
+                    @csrf
+                <div class="modal-body">
+                        <div class='block text-sm mt-2'>
+                            <label class="block text-sm font-medium text-gray-700">Name</label>
+                            <div class="mt-1">
+                                <input
+                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                type="text" name="name"
+                                />
+
+                            </div>
+                        </div>
+                        <div class='block text-sm mt-2'>
+                            <label class="block text-sm font-medium text-gray-700">Phone</label>
+                            <div class="mt-1">
+                                <input
+                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                type="text" name="phone"
+                                />
+                            </div>
+                        </div>
+                        <div class='block text-sm mt-2'>
+                            <label class="block text-sm font-medium text-gray-700">Email</label>
+                            <div class="mt-1">
+                                <input
+                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                type="text" name="email"
+                                />
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-dark btn-custom" data-dismiss="modal">cancel</a>
+                    <button class="btn btn-solid btn-custom">Save</button>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
     <!-- Dropzone js-->
 
 
@@ -1014,6 +1043,7 @@
                         hostels: [],
                         hostel: '',
                         level: '',
+                        room: '',
                     }
                 },
 
@@ -1043,7 +1073,8 @@
                         axios.post('../user/schools', {
                             school: this.school,
                             hostel: this.hostel,
-                            level: this.level
+                            level: this.level,
+                            room: this.room
                         }).then(function(result){
                             window.location.href = window.location.pathname + "#profile"
                             window.location.reload();
@@ -1057,8 +1088,28 @@
                     this.getHostels();
                     this.hostel = {{ auth()->user()->profile->hostel_id ?? 0 }};
                     this.level = {{ auth()->user()->profile->level ?? 0 }};
+                    this.room = {{ auth()->user()->profile->room ?? 0 }};
                 }
             })
+
+            function revokeAccess()
+            {
+                Swal.fire(
+                    'Revoke All Access!',
+                    'You clicked the button!',
+                    'success'
+                )
+            }
+
+            function copyToClipboard(text) {
+                var inputc = document.body.appendChild(document.createElement("input"));
+                inputc.value = text;
+                inputc.focus();
+                inputc.select();
+                document.execCommand('copy');
+                inputc.parentNode.removeChild(inputc);
+                alert("URL Copied.");
+            }
 
             function updateGaurantor(guarantor){
                 console.log(guarantor);

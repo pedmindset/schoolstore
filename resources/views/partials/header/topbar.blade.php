@@ -13,6 +13,9 @@
                 <ul class="header-dropdown">
                     <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
                     </li>
+                    @auth
+
+
                     <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
                         {{ auth()->user()->name }}
                         <ul class="onhover-show-div">
@@ -28,6 +31,10 @@
                             @csrf
                         </form>
                     </li>
+                    @endauth
+                    @guest
+                    <li><a href="{{ route('login') }}">Login</a></li>
+                    @endguest
                 </ul>
             </div>
         </div>

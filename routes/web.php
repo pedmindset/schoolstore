@@ -3,10 +3,12 @@
 use App\Models\Hostel;
 use App\Models\School;
 use Illuminate\Http\Request;
+use App\Models\ThirdPartyAccess;
 use App\Models\NewsletterContact;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +28,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'shop'], function () {
         Route::get('/', 'ShopController@home')->name('shop.home');
-        Route::get('/categories', 'ShopController@categories')->name('shop.categories');
-        Route::get('/products', 'ShopController@products')->name('shop.products');
-        Route::get('/product/{slug}', 'ShopController@product')->name('shop.product');
+
         Route::get('/cart', 'ShopController@cart')->name('shop.cart');
         Route::get('/checkout', 'ShopController@checkout')->name('shop.checkout');
 
@@ -59,10 +59,10 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/test', function () {
     dd(Storage::exists('categories/Alcoholic Drink.jpg'));
 });
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ShopController@home')->name('shop.home')->middleware('guest');
+Route::get('shop/categories', 'ShopController@categories')->name('shop.categories');
+Route::get('shop/products', 'ShopController@products')->name('shop.products');
+Route::get('shop/product/{slug}', 'ShopController@product')->name('shop.product');
 
 Route::get('/user/schools', function(){
     $schools = School::where('school_category_id', auth()->user()->profile->school_category_id)->get(['id', 'name']);
@@ -114,7 +114,8 @@ Route::post('/user/schools', function(Request $request){
     $validateData = $request->validate([
         'school' => 'required|integer',
         'hostel' => 'required|integer',
-        'level' => 'nullable'
+        'level' => 'nullable',
+        'room' => 'nullable',
     ]);
 
     $profile = auth()->user()->profile;
@@ -131,12 +132,46 @@ Route::post('/user/schools', function(Request $request){
         $profile->level = $request->level;
     };
 
+    if($request->filled('room')){
+        $profile->room = $request->room;
+    };
+
     $profile->save();
 
     return response()->json([
         'status' => 'success'
     ]);
 });
+
+Route::post('grantaccess/', function(Request $request){
+
+    $validatedData = $request->validate([
+
+    ]);
+
+    // ['user_id', 'name', 'agent', 'last_login', 'session', 'code', 'url', 'created_at', 'updated_at'];
+
+
+    $url = URL::temporarySignedRoute(
+        'grantaccess', now()->addDays(2), ['user' => auth()->user()->id]
+    );
+
+    $access = ThirdPartyAccess::create([
+        'user_id' => auth()->user()->id,
+        'name' => $request->name,
+        'code' => substr(unique_code(), 0, 5),
+        'url' => $url,
+        'expired' =>  now()->addDays(2),
+    ]);
+
+    Session::flash('success', 'Access Granted Successfully!');
+    return redirect('shop/dashboard#access');
+
+})->middleware('auth');
+
+Route::get('/grantaccess/{user}', function (Request $request) {
+    
+})->name('grantaccess')->middleware('signed');
 
 // Route::get('/shop/home', function () {
 //     return view('shop.index');

@@ -173,11 +173,11 @@ class ProductCategoryTableSeeder extends Seeder
 
         foreach ($categories as $cat) {
             $category = ProductCategory::create($cat);
-            $realPath = '/images/categories/' . $cat['name'] . '.jpg';
+            $realPath = url("/images/categories/" . $cat['name'] . ".jpg");
             $path = public_path($realPath);
             if (file_exists($path)) {
                 // $category->addMedia($path)->toMediaCollection('cover');
-                $category->addMediaFromUrl(config("app.url") . $realPath)->toMediaCollection('cover');
+                $category->addMediaFromUrl($realPath)->toMediaCollection('cover');
             }
         }
     }

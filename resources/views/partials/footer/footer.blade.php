@@ -27,7 +27,7 @@
                     <div class="col offset-xl-1">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>my account</h4>
+                                <h4>Categories</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
@@ -43,7 +43,7 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>why we choose</h4>
+                                <h4>Account</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
@@ -51,7 +51,6 @@
                                     <li><a href="{{ url('shop/checkout') }}">Checkout</a></li>
                                     <li><a href="{{ url('shop/products') }}">Shop</a></li>
                                     <li><a href="{{ url('shop/categories') }}">Categories</a></li>
-                                    {{-- <li><a href="#">contacts</a></li> --}}
                                 </ul>
                             </div>
                         </div>
@@ -65,9 +64,8 @@
                                 <ul class="contact-list">
                                     <li><i class="fa fa-map-marker"></i>SchoolShop
                                     </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">Support@schoolshop.store</a></li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                    <li><i class="fa fa-phone"></i>Call Us: 024-655-4579</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">Support@studentprovisions.com</a></li>
                                 </ul>
                             </div>
                         </div>

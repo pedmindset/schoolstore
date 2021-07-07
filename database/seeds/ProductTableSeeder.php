@@ -241,8 +241,13 @@ class ProductTableSeeder extends Seeder
 
         foreach ($products as $i =>$product) {
             $p = Product::create($product);
-            $p->addMediaFromUrl($images[$i])
-                    ->toMediaCollection('cover');
+            try { //code...
+                $p->addMediaFromUrl($images[$i])
+                ->toMediaCollection('cover');
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+
         }
     }
 }

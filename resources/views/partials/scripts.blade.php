@@ -52,16 +52,23 @@
             var removeFromCart = $('.removeFromCart');
 
             add2Cart.on('click', function () {
-                var product = $(this).data('product');
-                axios.post('/shop/add-to-cart-api', {
-                    product_id: product.id,
-                }).then((response) => {
-                    showSuccessToast("Item successfully added to your cart");
-                    Livewire.emit('updateCart');
-                }, (error) => {
-                    console.log(error);
-                    showErrorToast(error);
-                });
+                if( @if(auth()->check()) true @else false @endif == true ){
+
+                    var product = $(this).data('product');
+                    axios.post('/shop/add-to-cart-api', {
+                        product_id: product.id,
+                    }).then((response) => {
+                        showSuccessToast("Item successfully added to your cart");
+                        Livewire.emit('updateCart');
+                    }, (error) => {
+                        console.log(error);
+                        showErrorToast(error);
+                    });
+                }else{
+                    showErrorToast('Please, Login to add Product to cart')
+                }
+
+
             });
 
             removeFromCart.on('click', function () {

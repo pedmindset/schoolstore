@@ -11,6 +11,7 @@ use App\Models\Guarantor;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\SchoolCategory;
+use App\Models\ThirdPartyAccess;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\CreateGuarantorRequest;
@@ -47,6 +48,8 @@ class CustomersController extends Controller
         $profile_picture = $profile->getFirstMedia('profile');
         $attachments = $profile->getMedia('attachments');
 
+        $third_party_accesses = ThirdPartyAccess::limit(10)->latest()->get();
+
         return view('customers.dashboard', [
             "gurantors" => $guarantors,
             "account" => $account,
@@ -55,6 +58,7 @@ class CustomersController extends Controller
             "school_categories" => $school_categories,
             "profile_picture" => $profile_picture,
             "attachments" => $attachments,
+            "third_party_accesses" => $third_party_accesses
         ]);
     }
 

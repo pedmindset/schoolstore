@@ -31,21 +31,21 @@
                             <div id="tab-4" class="tab-content active default">
                                 <div class="no-slider row">
                                     @foreach ($newProducts as $product)
-                                    <x-product-tile :product="$product"/>
+                                    <x-product-tile :shadow="true" :product="$product"/>
                                     @endforeach
                                 </div>
                             </div>
                             <div id="tab-5" class="tab-content">
                                 <div class="no-slider row">
                                     @foreach ($featuredProducts as $product)
-                                    <x-product-tile :product="$product"/>
+                                    <x-product-tile :shadow="true"  :product="$product"/>
                                     @endforeach
                                 </div>
                             </div>
                             <div id="tab-6" class="tab-content">
                                 <div class="no-slider row">
                                     @foreach ($bestSellingProducts as $product)
-                                    <x-product-tile :product="$product"/>
+                                    <x-product-tile :shadow="true"  :product="$product"/>
                                     @endforeach
                                 </div>
                             </div>
@@ -66,9 +66,9 @@
                 <div class="row">
                     <div class="col">
                         <div class="banner-contain bg-opacity-75 bg-gray-600 p-6 rounded">
-                            <h2>just</h2>
-                            <h3 class="text-white">place your orders</h3>
-                            <h4 class="text-white">even when busy</h4>
+                            <h2>Never</h2>
+                            <h3 class="text-white">Run out of Provisions</h3>
+                            <h4 class="text-white">Order Now!</h4>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="product-4 product-l no-arrow">
+                    <div class="product-5 product-l">
                         @foreach ($featuredProducts as $product)
                         <x-product-tile :product="$product"/>
                         @endforeach
@@ -252,7 +252,7 @@
 
 
    <!-- facebook chat section start -->
-   <div id="fb-root"></div>
+   {{-- <div id="fb-root"></div>
    <script>(function (d, s, id) {
            var js, fjs = d.getElementsByTagName(s)[0];
            if (d.getElementById(id)) return;
@@ -264,7 +264,7 @@
    <div class="fb-customerchat" attribution=setup_tool page_id="2123438804574660" theme_color="#0084ff"
        logged_in_greeting="Hi! Welcome to PixelStrap Themes  How can we help you?"
        logged_out_greeting="Hi! Welcome to PixelStrap Themes  How can we help you?">
-   </div>
+   </div> --}}
    <!-- facebook chat section end -->
 
 
