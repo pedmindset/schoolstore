@@ -27,7 +27,7 @@ class AddLoanStageIdToProfilesTable extends Migration
     public function down()
     {
         Schema::table('profiles', function (Blueprint $table) {
-            $table->dropColumn('loan_stage_id');
+            $table->dropForeign(['loan_stage_id']);
         });
     }
 }
