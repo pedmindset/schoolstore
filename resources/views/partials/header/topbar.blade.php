@@ -33,7 +33,7 @@
                     </li>
                     @endauth
                     @guest
-                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li class="onhover-dropdown mobile-account"><a href="{{ route('login') }}">Login</a></li>
                     @endguest
                 </ul>
             </div>
