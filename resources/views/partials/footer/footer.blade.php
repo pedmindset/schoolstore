@@ -65,7 +65,7 @@
                                     <li><i class="fa fa-map-marker"></i>SchoolShop
                                     </li>
                                     <li><i class="fa fa-phone"></i>Call Us: 024-655-4579</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">Support@studentprovisions.com</a></li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">Support@studentprovision.com</a></li>
                                 </ul>
                             </div>
                         </div>
