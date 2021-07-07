@@ -11,6 +11,7 @@
       'flatpickr-weekday',
       'flatpickr-weekdays',
       'flatpickr-calendar',
+      'form-file-input',
     ]"
   >
     <div
@@ -43,14 +44,6 @@ export default {
     viaResource: {},
     viaResourceId: {},
     viaRelationship: {},
-  },
-
-  created() {
-    console.log('created', this.resourceName)
-  },
-
-  mounted() {
-    console.log('mounted', this.resourceName)
   },
 
   methods: {

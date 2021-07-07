@@ -13,7 +13,6 @@
         "brick/math": "^0.8.14",
         "bumbummen99/shoppingcart": "^3.0",
         "cloudstudio/resource-generator": "^1.5",
-        "digitalcloud/nova-resource-notes": "^1.4",
         "ebess/advanced-nova-media-library": "^3.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^1.0",

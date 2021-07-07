@@ -52,6 +52,7 @@
         :via-many-to-many="viaManyToMany"
         :checked="selectedResources.indexOf(resource) > -1"
         :actions-are-available="actionsAreAvailable"
+        :actions-endpoint="actionsEndpoint"
         :should-show-checkboxes="shouldShowCheckboxes"
         :update-selection-status="updateSelectionStatus"
       />
@@ -107,6 +108,9 @@ export default {
     updateSelectionStatus: {
       type: Function,
     },
+    actionsEndpoint: {
+      default: null,
+    },
   },
 
   data: () => ({
@@ -121,7 +125,6 @@ export default {
      */
     deleteResource(resource) {
       this.$emit('delete', [resource])
-      Nova.$emit('metric-refresh')
     },
 
     /**
@@ -129,7 +132,6 @@ export default {
      */
     restoreResource(resource) {
       this.$emit('restore', [resource])
-      Nova.$emit('metric-refresh')
     },
 
     /**

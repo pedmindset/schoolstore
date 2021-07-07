@@ -18,6 +18,25 @@
     >
       <card class="overflow-hidden mb-8">
         <!-- Related Resource -->
+        <div
+          v-if="viaResourceField"
+          dusk="via-resource-field"
+          class="flex border-b border-40"
+        >
+          <div class="w-1/5 px-8 py-6">
+            <label
+              :for="viaResourceField.name"
+              class="inline-block text-80 pt-2 leading-tight"
+            >
+              {{ viaResourceField.name }}
+            </label>
+          </div>
+          <div class="py-6 px-8 w-1/2">
+            <span class="inline-block font-bold text-80 pt-2">
+              {{ viaResourceField.display }}
+            </span>
+          </div>
+        </div>
         <default-field
           :field="field"
           :errors="validationErrors"
@@ -105,7 +124,7 @@
             </select-control>
 
             <!-- Trashed State -->
-            <div v-if="softDeletes">
+            <div v-if="softDeletes" class="mt-3">
               <checkbox-with-label
                 :dusk="field.resourceName + '-with-trashed-checkbox'"
                 :checked="withTrashed"
@@ -127,6 +146,7 @@
             :via-resource="viaResource"
             :via-resource-id="viaResourceId"
             :via-relationship="viaRelationship"
+            :show-help-text="field.helpText != null"
           />
         </div>
       </card>
@@ -169,9 +189,25 @@ import {
   Errors,
   PreventsFormAbandonment,
 } from 'laravel-nova'
+import HandlesFormRequest from '@/mixins/HandlesFormRequest'
 
 export default {
-  mixins: [PerformsSearches, TogglesTrashed, PreventsFormAbandonment],
+  mixins: [
+    HandlesFormRequest,
+    PerformsSearches,
+    TogglesTrashed,
+    PreventsFormAbandonment,
+  ],
+
+  metaInfo() {
+    if (this.relatedResourceLabel) {
+      return {
+        title: this.__('Attach :resource', {
+          resource: this.relatedResourceLabel,
+        }),
+      }
+    }
+  },
 
   props: {
     resourceName: {
@@ -203,10 +239,10 @@ export default {
     loading: true,
     submittedViaAttachAndAttachAnother: false,
     submittedViaAttachResource: false,
+    viaResourceField: null,
     field: null,
     softDeletes: false,
     fields: [],
-    validationErrors: new Errors(),
     selectedResource: null,
     selectedResourceId: null,
   }),
@@ -244,7 +280,12 @@ export default {
 
       Nova.request()
         .get(
-          '/nova-api/' + this.resourceName + '/field/' + this.viaRelationship
+          '/nova-api/' + this.resourceName + '/field/' + this.viaRelationship,
+          {
+            params: {
+              relatable: true,
+            },
+          }
         )
         .then(({ data }) => {
           this.field = data
@@ -265,12 +306,15 @@ export default {
         .get(
           '/nova-api/' +
             this.resourceName +
+            '/' +
+            this.resourceId +
             '/creation-pivot-fields/' +
             this.relatedResourceName,
           {
             params: {
               editing: true,
               editMode: 'attach',
+              viaRelationship: this.viaRelationship,
             },
           }
         )
@@ -303,6 +347,7 @@ export default {
           }
         )
         .then(response => {
+          this.viaResourceField = response.data.viaResource
           this.availableResources = response.data.resources
           this.withTrashed = response.data.withTrashed
           this.softDeletes = response.data.softDeletes
@@ -343,14 +388,14 @@ export default {
         window.scrollTo(0, 0)
 
         this.submittedViaAttachResource = false
-        if (this.resourceInformation.preventFormAbandonment) {
+        if (
+          this.resourceInformation &&
+          this.resourceInformation.preventFormAbandonment
+        ) {
           this.canLeave = false
         }
 
-        if (error.response.status == 422) {
-          this.validationErrors = new Errors(error.response.data.errors)
-          Nova.error(this.__('There was a problem submitting the form.'))
-        }
+        this.handleOnCreateResponseError(error)
       }
     },
 
@@ -370,10 +415,7 @@ export default {
       } catch (error) {
         this.submittedViaAttachAndAttachAnother = false
 
-        if (error.response.status == 422) {
-          this.validationErrors = new Errors(error.response.data.errors)
-          Nova.error(this.__('There was a problem submitting the form.'))
-        }
+        this.handleOnCreateResponseError(error)
       }
     },
 
@@ -399,6 +441,7 @@ export default {
     selectResourceFromSelectControl(e) {
       this.selectedResourceId = e.target.value
       this.selectInitialResource()
+
       if (this.field) {
         Nova.$emit(this.field.attribute + '-change', this.selectedResourceId)
       }
@@ -430,7 +473,10 @@ export default {
      * Prevent accidental abandonment only if form was changed.
      */
     onUpdateFormStatus() {
-      if (this.resourceInformation.preventFormAbandonment) {
+      if (
+        this.resourceInformation &&
+        this.resourceInformation.preventFormAbandonment
+      ) {
         this.updateFormStatus()
       }
     },

@@ -55,6 +55,8 @@ class Code extends Field
         if ($this->json) {
             return json_encode($value, $this->jsonOptions ?? JSON_PRETTY_PRINT);
         }
+
+        return $value;
     }
 
     /**

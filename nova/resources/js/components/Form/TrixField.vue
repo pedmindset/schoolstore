@@ -52,6 +52,8 @@ export default {
      */
     handleChange(value) {
       this.value = value
+
+      this.$emit('field-changed')
     },
 
     fill(formData) {
@@ -95,6 +97,12 @@ export default {
             href: url,
           })
         })
+        .catch(error => {
+          this.$toasted.show(
+            __('An error occured while uploading your file.'),
+            { type: 'error' }
+          )
+        })
     },
 
     /**
@@ -123,7 +131,7 @@ export default {
           .delete(
             `/nova-api/${this.resourceName}/trix-attachment/${this.field.attribute}/${this.draftId}`
           )
-          .then(response => console.log(response))
+          .then(response => {})
           .catch(error => {})
       }
     },

@@ -25,13 +25,21 @@ class AssociatableController extends Controller
             $request, $associatedResource = $field->resourceClass
         );
 
+        $limit = $associatedResource::usesScout()
+                    ? $associatedResource::$scoutSearchResults
+                    : $associatedResource::$relatableSearchResults;
+
         return [
-            'resources' => $field->buildAssociatableQuery($request, $withTrashed)->get()
+            'resources' => $field->buildAssociatableQuery($request, $withTrashed)
+                        ->take($limit)
+                        ->get()
                         ->mapInto($field->resourceClass)
                         ->filter->authorizedToAdd($request, $request->model())
                         ->map(function ($resource) use ($request, $field) {
                             return $field->formatAssociatableResource($request, $resource);
-                        })->sortBy('display')->values(),
+                        })->when(optional($field)->shouldReorderAssociatableValues($request) ?? true, function ($collection) {
+                            return $collection->sortBy('display');
+                        })->values(),
             'softDeletes' => $associatedResource::softDeletes(),
             'withTrashed' => $withTrashed,
         ];

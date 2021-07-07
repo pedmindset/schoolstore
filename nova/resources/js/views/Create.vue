@@ -8,6 +8,7 @@
     :via-resource-id="viaResourceId"
     :via-relationship="viaRelationship"
     :update-form-status="updateFormStatus"
+    :should-override-meta="mode == 'form' ? true : false"
   />
 </template>
 

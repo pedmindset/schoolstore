@@ -14,7 +14,12 @@
         slot="field"
         :value="resourceType"
         @change="refreshResourcesForTypeChange"
-        class="block w-full form-control form-input form-input-bordered form-select mb-3"
+        class="
+          block
+          w-full
+          form-control form-input form-input-bordered form-select
+          mb-3
+        "
       >
         <option value="" selected :disabled="!field.nullable">
           {{ __('Choose Type') }}
@@ -126,6 +131,7 @@
             v-if="canShowNewRelationModal"
             @click="openRelationModal"
             class="ml-1"
+            :dusk="`${field.attribute}-inline-create`"
           />
         </div>
 
@@ -196,19 +202,16 @@ export default {
       this.initializingWithExistingResource = true
       this.resourceType = this.field.morphToType
       this.selectedResourceId = this.field.morphToId
-    }
-
-    if (this.creatingViaRelatedResource) {
+    } else if (this.creatingViaRelatedResource) {
       this.initializingWithExistingResource = true
       this.resourceType = this.viaResource
       this.selectedResourceId = this.viaResourceId
     }
 
-    if (this.shouldSelectInitialResource && !this.isSearchable) {
-      this.resourceType = this.field.defaultResource
-      this.getAvailableResources().then(() => this.selectInitialResource())
-    } else if (this.shouldSelectInitialResource && this.isSearchable) {
-      this.resourceType = this.field.defaultResource
+    if (this.shouldSelectInitialResource) {
+      if (!this.resourceType && this.field.defaultResource) {
+        this.resourceType = this.field.defaultResource
+      }
       this.getAvailableResources().then(() => this.selectInitialResource())
     }
 
@@ -226,7 +229,10 @@ export default {
     selectResourceFromSelectControl(e) {
       this.selectedResourceId = e.target.value
       this.selectInitialResource()
-      Nova.$emit(this.field.attribute + '-change', this.selectedResourceId)
+
+      if (this.field) {
+        Nova.$emit(this.field.attribute + '-change', this.selectedResourceId)
+      }
     },
 
     /**

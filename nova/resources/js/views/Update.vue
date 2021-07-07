@@ -16,6 +16,7 @@
       <form-panel
         v-for="panel in panelsWithFields"
         @update-last-retrieved-at-timestamp="updateLastRetrievedAtTimestamp"
+        @field-changed="onUpdateFormStatus"
         @file-upload-started="handleFileUploadStarted"
         @file-upload-finished="handleFileUploadFinished"
         :panel="panel"
@@ -66,14 +67,27 @@ import {
   InteractsWithResourceInformation,
   PreventsFormAbandonment,
 } from 'laravel-nova'
+import HandlesFormRequest from '@/mixins/HandlesFormRequest'
 import HandlesUploads from '@/mixins/HandlesUploads'
 
 export default {
   mixins: [
     InteractsWithResourceInformation,
+    HandlesFormRequest,
     HandlesUploads,
     PreventsFormAbandonment,
   ],
+
+  metaInfo() {
+    if (this.resourceInformation && this.title) {
+      return {
+        title: this.__('Update :resource: :title', {
+          resource: this.resourceInformation.singularLabel,
+          title: this.title,
+        }),
+      }
+    }
+  },
 
   props: mapProps([
     'resourceName',
@@ -88,9 +102,9 @@ export default {
     loading: true,
     submittedViaUpdateResourceAndContinueEditing: false,
     submittedViaUpdateResource: false,
+    title: null,
     fields: [],
     panels: [],
-    validationErrors: new Errors(),
     lastRetrievedAt: null,
   }),
 
@@ -111,6 +125,21 @@ export default {
     this.updateLastRetrievedAtTimestamp()
   },
 
+  watch: {
+    $route(to, from) {
+      if (
+        from.params.resourceName === to.params.resourceName &&
+        from.params.resourceId !== to.params.resourceId
+      ) {
+        this.getFields()
+        this.validationErrors = new Errors()
+        this.submittedViaUpdateResource = false
+        this.submittedViaUpdateResourceAndContinueEditing = false
+        this.isWorking = false
+      }
+    },
+  },
+
   methods: {
     /**
      * Get the available fields for the resource.
@@ -122,7 +151,7 @@ export default {
       this.fields = []
 
       const {
-        data: { panels, fields },
+        data: { title, panels, fields },
       } = await Nova.request()
         .get(
           `/nova-api/${this.resourceName}/${this.resourceId}/update-fields`,
@@ -143,6 +172,7 @@ export default {
           }
         })
 
+      this.title = title
       this.panels = panels
       this.fields = fields
       this.loading = false
@@ -174,7 +204,7 @@ export default {
       if (this.$refs.form.reportValidity()) {
         try {
           const {
-            data: { redirect },
+            data: { redirect, id },
           } = await this.updateRequest()
 
           Nova.success(
@@ -186,14 +216,27 @@ export default {
           await this.updateLastRetrievedAtTimestamp()
 
           if (this.submittedViaUpdateResource) {
-            this.$router.push({ path: redirect })
+            this.$router.push({ path: redirect }, () => {
+              window.scrollTo(0, 0)
+            })
           } else {
-            // Reset the form by refetching the fields
-            this.getFields()
-            this.validationErrors = new Errors()
-            this.submittedViaUpdateResource = false
-            this.submittedViaUpdateResourceAndContinueEditing = false
-            this.isWorking = false
+            if (id != this.resourceId) {
+              this.$router.push({
+                name: 'edit',
+                params: {
+                  resourceId: id,
+                  resourceName: this.resourceName,
+                },
+              })
+            } else {
+              // Reset the form by refetching the fields
+              this.getFields()
+
+              this.validationErrors = new Errors()
+              this.submittedViaUpdateResource = false
+              this.submittedViaUpdateResourceAndContinueEditing = false
+              this.isWorking = false
+            }
 
             return
           }
@@ -207,18 +250,7 @@ export default {
             this.canLeave = false
           }
 
-          if (error.response.status == 422) {
-            this.validationErrors = new Errors(error.response.data.errors)
-            Nova.error(this.__('There was a problem submitting the form.'))
-          }
-
-          if (error.response.status == 409) {
-            Nova.error(
-              this.__(
-                'Another user has updated this resource since this page was loaded. Please refresh the page and try again.'
-              )
-            )
-          }
+          this.handleOnUpdateResponseError(error)
         }
       }
 
