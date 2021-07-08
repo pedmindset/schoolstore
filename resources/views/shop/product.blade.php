@@ -167,7 +167,7 @@
                                             <div class="slider-nav">
                                                 @foreach ($product->pictures as $picture)
                                                 <div>
-                                                    <img src="{{ asset('images/pro3/1.jpg') }}" alt="" class="img-fluid blur-up lazyload">
+                                                    <img src="{{ $picture->getFullUrl() }}" alt="" class="img-fluid blur-up lazyload">
                                                 </div>
                                                 @endforeach
                                             </div>
