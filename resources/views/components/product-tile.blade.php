@@ -1,4 +1,4 @@
-<div class="product-box hover:mt-2 hover:shadow-2xl pb-2  px-2 @isset($shadow) shadow-md rounded-md @endisset">
+<div class="product-box hover:mt-2 hover:shadow-2xl pb-2  @isset($shadow) shadow-md rounded-md @endisset">
     <div class="img-wrapper">
         <div class="front">
             <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
@@ -19,7 +19,7 @@
             </a>
         </div>
     </div>
-    <div class="product-detail @isset($shadow)  @endisset ">
+    <div class="product-detail @isset($shadow)  @endisset  px-2">
         <a class="truncate nowrap" href="{{ route('shop.product', ['slug' => $product->slug]) }}">
             <h6 class="truncate nowrap">{{ $product->name }}</h6>
         </a>
