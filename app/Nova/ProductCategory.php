@@ -79,8 +79,6 @@ class ProductCategory extends Resource
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
             ->rules('required')
-            ->croppingConfigs(['minHeight' => 310, 'minWidth' => 672])
-            ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
             ->hideFromIndex(),
 
             ID::make( __('Id'),  'id')
