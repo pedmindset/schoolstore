@@ -72,42 +72,42 @@ class ProductCategory extends Resource
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required'), 
+            ,
 
             Images::make('Cover', 'cover') // second parameter is the media collection name
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required') 
+            ->rules('required')
             ->croppingConfigs(['minHeight' => 310, 'minWidth' => 672])
             ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
             ->hideFromIndex(),
 
-            ID::make( __('Id'),  'id')        
+            ID::make( __('Id'),  'id')
             ->rules('required')
             ->sortable(),
-            
+
             Text::make( __('Name'),  'name')
             ->rules('required')
             ->sortable(),
-            
+
             Textarea::make( __('Description'),  'description')
             ->sortable(),
-            
+
             Select::make( __('Featured'),  'featured')
             ->sortable()
             ->options([
                 'yes' => 'yes',
                 'no' => 'no',
             ]),
-            
+
             Select::make( __('Promo'),  'promo')
             ->sortable()
             ->options([
                 'yes' => 'yes',
                 'no' => 'no',
-            ]),  
-            
+            ]),
+
             HasMany::make('Products')
         ];
     }
