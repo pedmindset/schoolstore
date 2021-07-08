@@ -33,7 +33,7 @@ class Order extends Model
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -59,12 +59,20 @@ class Order extends Model
         return $this->hasMany(OrderProduct::class, 'order_id');
     }
 
+     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function product()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
     /**
      * Get all of the customers dsicount
      */
     public function discounts()
     {
-        return $this->morphMany('App\Model\Discount', 'discountable');
+        return $this->morphMany('App\Models\Discount', 'discountable');
     }
 
     public function getAmountWithCurrencyAttribute()

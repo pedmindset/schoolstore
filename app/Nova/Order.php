@@ -5,6 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Currency;
@@ -79,7 +80,7 @@ class Order extends Resource
                 ->searchable()
                 ->sortable(),
 
-                Currency::make( __('Amount'),  'amount')
+                Number::make( __('Amount'),  'amount')
                 ->sortable()->onlyOnIndex(),
 
                 Select::make( __('Status'),  'status')
@@ -104,8 +105,11 @@ class Order extends Resource
 
                 MorphMany::make('Discounts'),
 
-                HasMany::make('Products', 'Products', 'App\Nova\Product'),
+                // BelongsToManyField::make('Product', 'Product', 'App\Nova\Product'),
 
+                BelongsToMany::make('Product'),
+
+                HasMany::make('Products')
             ];
     }
 
