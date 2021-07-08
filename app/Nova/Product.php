@@ -83,8 +83,6 @@ class Product extends Resource
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->croppingConfigs(['minHeight' => 310, 'minWidth' => 672])
-            ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
             ->hideFromIndex(),
 
             Images::make('Pictures', 'pictures') // second parameter is the media collection name
