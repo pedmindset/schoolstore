@@ -11,7 +11,7 @@ class ShopController extends Controller
 {
     public function home()
     {
-        $featuredProducts = Product::whereFeatured('yes')->limit(5)->get();
+        $featuredProducts = Product::whereFeatured('yes')->inRandomOrder()->limit(5)->get();
         $newProducts = Product::latest()->limit(10)->get();
         $bestSellingProducts = Product::withCount('order_products')->orderBy('order_products_count', 'desc')->limit(10)->get();
         return view('shop.home', compact('featuredProducts', 'newProducts', 'bestSellingProducts'));
@@ -24,7 +24,7 @@ class ShopController extends Controller
 
     public function products(Request $request)
     {
-        $featuredProducts = Product::whereFeatured('yes')->limit(6)->get();
+        $featuredProducts = Product::whereFeatured('yes')->inRandomOrder()->limit(6)->get();
         $category = ProductCategory::whereSlug($request->category)->first();
         $products = Product::when(!empty($request->category), function ($query) use ($category) {
             $query->where('product_category_id', $category->id);
@@ -39,7 +39,7 @@ class ShopController extends Controller
             abort(404);
         }
 
-        $featuredProducts = Product::whereFeatured('yes')->limit(6)->get();
+        $featuredProducts = Product::whereFeatured('yes')->inRandomOrder()->limit(6)->get();
 
         $relatedProducts = Product::whereProductCategoryId($product->product_category_id)
             ->where('id', '!=', $product->id)
