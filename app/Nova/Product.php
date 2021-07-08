@@ -110,7 +110,8 @@ class Product extends Resource
             ->sortable(),
 
             Number::make( __('Price'),  'price')
-            ->sortable(),
+            ->sortable()
+            ->step(0.01),
 
             Number::make( __('Quantity'),  'quantity')
             ->sortable(),
