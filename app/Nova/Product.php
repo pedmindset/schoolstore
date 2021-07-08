@@ -98,11 +98,9 @@ class Product extends Resource
             ->sortable(),
 
             BelongsTo::make('Product Category', 'productcategory')
-            ->searchable()
             ->sortable(),
 
             BelongsTo::make('Brand')
-            ->searchable()
             ->sortable()
             ->nullable(),
 
