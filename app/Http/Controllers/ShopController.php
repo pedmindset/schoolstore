@@ -12,8 +12,8 @@ class ShopController extends Controller
     public function home()
     {
         $featuredProducts = Product::whereFeatured('yes')->limit(5)->get();
-        $newProducts = Product::latest()->limit(8)->get();
-        $bestSellingProducts = Product::withCount('order_products')->orderBy('order_products_count', 'desc')->limit(8)->get();
+        $newProducts = Product::latest()->limit(10)->get();
+        $bestSellingProducts = Product::withCount('order_products')->orderBy('order_products_count', 'desc')->limit(10)->get();
         return view('shop.home', compact('featuredProducts', 'newProducts', 'bestSellingProducts'));
     }
 
