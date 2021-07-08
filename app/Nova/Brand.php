@@ -71,13 +71,12 @@ class Brand extends Resource
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required'),
+            ,
 
             Images::make('Cover', 'cover') // second parameter is the media collection name
             ->conversionOnDetailView('thumb') // conversion used on the model's view
             ->conversionOnIndexView('thumb') // conversion used to display the image on the model's index page
             ->conversionOnForm('thumb') // conversion used to display the image on the model's form
-            ->rules('required')
             ->croppingConfigs(['minHeight' => 310, 'minWidth' => 672])
             ->singleImageRules('dimensions:min_width=672', 'dimensions:min_height=310')
             ->hideFromIndex(),
