@@ -67,9 +67,9 @@ class Product extends Model implements HasMedia, Buyable
             ->width(100)
             ->height(100)->performOnCollections('cover');
 
-        $this->addMediaConversion('cover')
-            ->width(672)
-            ->height(310)
+        $this->addMediaConversion('thumb')
+            ->width(100)
+            ->height(100)
             ->performOnCollections('cover');
     }
 
