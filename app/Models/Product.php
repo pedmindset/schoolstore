@@ -113,11 +113,11 @@ class Product extends Model implements HasMedia, Buyable
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function orders()
-    {
-        return $this->belongsToMany('App\Models\Order');
-    }
+    //  */
+    // public function orders()
+    // {
+    //     return $this->belongsToMany('App\Models\Order');
+    // }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
