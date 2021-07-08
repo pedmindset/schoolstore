@@ -109,7 +109,7 @@ class Product extends Resource
             ->rules('required')
             ->sortable(),
 
-            Currency::make( __('Price'),  'price')
+            Number::make( __('Price'),  'price')
             ->sortable(),
 
             Number::make( __('Quantity'),  'quantity')
@@ -135,7 +135,7 @@ class Product extends Resource
 
             // BelongsToManyField::make('Orders', 'Orders', 'App\Nova\Order'),
 
-            HasMany::make('Orders'),
+            HasMany::make('Orders', 'order_products', 'App\Nova\Order'),
 
             // BelongsToManyField::make('Collections', 'Collections', 'App\Nova\Collection'),
 
