@@ -28,7 +28,7 @@
         @endif --}}
         <div class="flex justify-between">
         <h4 class="">{{ $product->price_with_currency }}</h4>
-        <button type="button" title="Add to cart" class="px-3 border rounded-full addtocart text-xs" data-product="{{ $product }}">
+        <button type="button" title="Add to cart" class="px-2 border rounded-full addtocart text-xs" data-product="{{ $product }}">
             <i class="ti-shopping-cart"> Add to cart</i>
         </button>
         </div>
