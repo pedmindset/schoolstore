@@ -146,7 +146,7 @@
                                                                 <option value="{{ $category->slug }}" @if(request()->category == $category->slug) selected @endif>{{ $category->name }}</option>
                                                                 @endforeach
                                                             </select>
-                                                            
+
                                                             {{-- <input type="hidden" class="btn btn-danger btn-sm" value="Filter"> --}}
                                                         </div>
                                                         {{-- <div class="product-page-filter">
@@ -207,12 +207,12 @@
             submitForm();
         });
 
-        var mySlider = new rSlider({
-            target: '#slider',
-            values: [2008, 2009, 2010, 2011, ...],
-            range: true // range slider
+        // var mySlider = new rSlider({
+        //     target: '#slider',
+        //     values: [2008, 2009, 2010, 2011],
+        //     range: true // range slider
 
-        });
+        // });
 
         function submitForm(){
             $('#product_search').submit();
