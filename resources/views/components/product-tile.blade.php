@@ -2,12 +2,12 @@
     <div class="img-wrapper">
         <div class="front">
             <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                <img src="{{ $product->cover_photo }}" class=" object-contain img-fluid blur-up lazyload bg-img" alt="">
+                <img src="{{ $product->cover_photo }}" class=" object-contain blur-up lazyload " alt="">
             </a>
         </div>
         <div class="back">
             <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                <img src="{{ $product->cover_photo }}" class="object-contain img-fluid blur-up lazyload bg-img" alt="">
+                <img src="{{ $product->cover_photo }}" class="object-contain blur-up lazyload " alt="">
             </a>
         </div>
         <div class="cart-info cart-wrap">
