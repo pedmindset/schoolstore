@@ -163,7 +163,7 @@
                                         <div class="product-wrapper-grid">
                                             <div class="row margin-res">
                                                 @foreach ($products as $product)
-                                                <div class="col-xl-3 col-6 col-grid-box">
+                                                <div class="col-lg-2 col-6 col-grid-box">
                                                     <x-product-tile :product="$product"/>
                                                 </div>
                                                 @endforeach
