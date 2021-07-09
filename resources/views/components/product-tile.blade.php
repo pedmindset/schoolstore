@@ -26,9 +26,9 @@
         {{-- @if(isset($showDesc))
         <p>{{ $product->description }}</p>
         @endif --}}
-        <div class="flex justify-between">
-        <h4 class="">{{ $product->price_with_currency }}</h4>
-        <button type="button" title="Add to cart" class="px-1 border rounded-full addtocart text-xs" data-product="{{ $product }}">
+        <div class="flex flex-wrap-reverse justify-between">
+        <h4 class="text-sm my-1">{{ $product->price_with_currency }}</h4>
+        <button type="button" title="Add to cart" class="px-1 my-1 overflow-hidden border rounded-full addtocart text-xs" data-product="{{ $product }}">
             <i class="ti-shopping-cart"> Add to cart</i>
         </button>
         </div>
