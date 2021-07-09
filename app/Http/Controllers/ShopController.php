@@ -42,7 +42,7 @@ class ShopController extends Controller
         $featuredProducts = Product::whereFeatured('yes')->inRandomOrder()->limit(6)->get();
 
         $relatedProducts = Product::whereProductCategoryId($product->product_category_id)
-            ->where('id', '!=', $product->id)
+            ->where('id', '!=', $product->id)->inRandomOrder()
             ->limit(6)->get();
 
             // return $product;

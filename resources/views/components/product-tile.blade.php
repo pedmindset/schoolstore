@@ -2,12 +2,12 @@
     <div class="img-wrapper">
         <div class="front">
             <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                <img src="{{ $product->cover_photo }}" class="img-fluid blur-up lazyload bg-img" alt="">
+                <img src="{{ $product->cover_photo }}" class=" object-contain img-fluid blur-up lazyload bg-img" alt="">
             </a>
         </div>
         <div class="back">
             <a href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                <img src="{{ $product->cover_photo }}" class=" img-fluid blur-up lazyload bg-img" alt="">
+                <img src="{{ $product->cover_photo }}" class="object-contain img-fluid blur-up lazyload bg-img" alt="">
             </a>
         </div>
         <div class="cart-info cart-wrap">
@@ -28,7 +28,7 @@
         @endif --}}
         <div class="flex justify-between">
         <h4 class="">{{ $product->price_with_currency }}</h4>
-        <button type="button" title="Add to cart" class="px-3 border rounded-full addtocart" data-product="{{ $product }}">
+        <button type="button" title="Add to cart" class="px-3 border rounded-full addtocart text-xs" data-product="{{ $product }}">
             <i class="ti-shopping-cart"> Add to cart</i>
         </button>
         </div>
