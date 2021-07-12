@@ -12,137 +12,8 @@
 
 @section('content')
 
-    <!-- Tab product -->
-    <div class="title1 section-t-space p-5">
-        <h4>exclusive products</h4>
-        <h2 class="title-inner1">special products</h2>
-    </div>
-    <section class="section-b-space p-t-0 ratio_asos">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="theme-tab">
-                        <ul class="tabs tab-title">
-                            <li class="current"><a href="tab-4">New Products</a></li>
-                            <li class=""><a href="tab-5">Featured Products</a></li>
-                            <li class=""><a href="tab-6">Best Sellers</a></li>
-                        </ul>
-                        <div class="tab-content-cls">
-                            <div id="tab-4" class="tab-content active default">
-                                <div class="five-product no-slider  row">
-                                    @foreach ($newProducts as $product)
-                                    <x-product-tile :shadow="true" :product="$product"/>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <div id="tab-5" class="tab-content">
-                                <div class="five-product no-slider row">
-                                    @foreach ($featuredProducts as $product)
-                                    <x-product-tile :shadow="true"  :product="$product"/>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <div id="tab-6" class="tab-content">
-                                <div class="five-product no-slider row">
-                                    @foreach ($bestSellingProducts as $product)
-                                    <x-product-tile :shadow="true"  :product="$product"/>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Tab product end -->
-
-    <div class="bg-white">
-        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div class="bg-indigo-700 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
-            <div class="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
-            <div class="lg:self-center">
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-                <span class="block">Ready to dive in?</span>
-                <span class="block">Start your free trial today.</span>
-                </h2>
-                <p class="mt-4 text-lg leading-6 text-indigo-200">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec.</p>
-                <a href="#" class="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-indigo-600 hover:bg-indigo-50">Sign up for free</a>
-            </div>
-            </div>
-            <div class="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
-            <img class="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20" src="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg" alt="App screenshot">
-            </div>
-        </div>
-        </div>
-    </div>
-
-
-    <!-- Parallax banner -->
-    <section class="p-0">
-        <div class="full-banner parallax text-center p-left">
-            <img src="{{ asset('assets/images/banner3.jpg') }}" alt="" class="bg-img blur-up lazyload">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="text-left bg-gray-50 bg-opacity-75 flex rounded-r-lg shadow-xl max-w-4xl">
-                            <div class="w-4 bg-red-400"></div>
-                            <div class="p-6 text-left opacity-100 ">
-                                <h2 class="px-2 font-black text-gray-500 ">Never</h2>
-                                <h1 class="pl-2 mb-2 text-red-600 ">Run out of Provisions</h1>
-                                <a href="{{ url('shop/products') }}"><h3 class="mb-2 cursor-pointer text-white px-6 bg-red-500 hover:bg-red-700 hover:shadow-md shadow py-2 opacity-100 w-48 rounded-full">Order Now!</h3></a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Parallax banner end -->
-     <!-- Paragraph-->
-     <div class="title1 section-t-space">
-        <h4>special offer</h4>
-        <h2 class="title-inner1 mb-0">featured products</h2>
-    </div>
-    <!-- Paragraph end -->
-    <!-- Product slider -->
-    <section class="section-b-space pt-0 ratio_asos">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="product-5 product-l">
-                        @foreach ($featuredProducts as $product)
-                        <x-product-tile :product="$product"/>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Product slider end -->
-
-      {{-- <!-- about section start-->
-      <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="title3">
-                        <h2 class="title-inner3">School Shop</h2>
-                        <div class="line"></div>
-                    </div>
-                    <div class="about-text">
-                        <p>
-                            Get your needed food items delivered to your school at the right time without paying a dime upfront.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- about section end--> --}}
     <!-- service layout 3 -->
-    {{-- <section class=" tools-service section-b-space">
+    <section class="tools-service section-b-space">
         <div class="container">
             <div class="service p-0 ">
                 <div class="row">
@@ -261,7 +132,209 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
+    <!-- Tab product -->
+    {{-- <div class="title1 section-t-space p-5">
+        <h4>exclusive products</h4>
+        <h2 class="title-inner1">special products</h2>
+    </div> --}}
+    <section class="section-b-space p-t-0 ratio_asos">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="theme-tab">
+                        <ul class="tabs tab-title">
+                            <li class="current"><a href="tab-4">New Products</a></li>
+                            <li class=""><a href="tab-5">Featured Products</a></li>
+                            <li class=""><a href="tab-6">Best Sellers</a></li>
+                        </ul>
+                        <div class="tab-content-cls">
+                            <div id="tab-4" class="tab-content active default">
+                                <div class="five-product no-slider  row">
+                                    @foreach ($newProducts as $product)
+                                    <x-product-tile :shadow="true" :product="$product"/>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div id="tab-5" class="tab-content">
+                                <div class="five-product no-slider row">
+                                    @foreach ($featuredProducts as $product)
+                                    <x-product-tile :shadow="true"  :product="$product"/>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div id="tab-6" class="tab-content">
+                                <div class="five-product no-slider row">
+                                    @foreach ($bestSellingProducts as $product)
+                                    <x-product-tile :shadow="true"  :product="$product"/>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tab product end -->
+
+    <div class="bg-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div class="bg-indigo-700 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
+            <div class="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
+            <div class="lg:self-center">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                <span class="block">Ready to dive in?</span>
+                <span class="block">Start your free trial today.</span>
+                </h2>
+                <p class="mt-4 text-lg leading-6 text-indigo-200">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec.</p>
+                <a href="#" class="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-indigo-600 hover:bg-indigo-50">Sign up for free</a>
+            </div>
+            </div>
+            <div class="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
+            <img class="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20" src="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg" alt="App screenshot">
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+     <!-- Paragraph-->
+     <div class="title1 section-t-space">
+        <h4>special offer</h4>
+        <h2 class="title-inner1 mb-0">featured products</h2>
+    </div>
+    <!-- Paragraph end -->
+    <!-- Product slider -->
+    <section class="section-b-space pt-0 ratio_asos">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="product-5 product-l ">
+                        @foreach ($featuredProducts as $product)
+                        <x-product-tile :product="$product"/>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Parallax banner -->
+      <section class="p-0">
+        <div class="full-banner parallax text-center p-left">
+            <img src="{{ asset('assets/images/banner3.jpg') }}" alt="" class="bg-img blur-up lazyload">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="text-left bg-gray-50 bg-opacity-75 flex rounded-r-lg shadow-xl max-w-4xl">
+                            <div class="w-4 bg-red-400"></div>
+                            <div class="p-6 text-left opacity-100 ">
+                                <h2 class="px-2 font-black text-gray-500 ">Never</h2>
+                                <h1 class="pl-2 mb-2 text-red-600 ">Run out of Provisions</h1>
+                                <a href="{{ url('shop/products') }}"><h3 class="mb-2 cursor-pointer text-white px-6 bg-red-500 hover:bg-red-700 hover:shadow-md shadow py-2 opacity-100 w-48 rounded-full">Order Now!</h3></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+    <!-- This example requires Tailwind CSS v2.0+ -->
+  <div class="relative bg-white pt-16 pb-32 overflow-hidden">
+    <div class="relative">
+      <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
+        <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
+          <div>
+            <div>
+              <span class="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
+                <!-- Heroicon name: outline/inbox -->
+                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                </svg>
+              </span>
+            </div>
+            <div class="mt-6">
+              <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
+                Stay on top of customer support
+              </h2>
+              <p class="mt-4 text-lg text-gray-500">
+                Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
+              </p>
+              <div class="mt-6">
+                <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                  Get started
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 border-t border-gray-200 pt-6">
+            <blockquote>
+              <div>
+                <p class="text-base text-gray-500">
+                  &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed diam. Sit orci risus aenean curabitur donec aliquet. Mi venenatis in euismod ut.&rdquo;
+                </p>
+              </div>
+              <footer class="mt-3">
+                <div class="flex items-center space-x-3">
+                  <div class="flex-shrink-0">
+                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+                  </div>
+                  <div class="text-base font-medium text-gray-700">
+                    Marcia Hill, Digital Marketing Manager
+                  </div>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+        <div class="mt-12 sm:mt-16 lg:mt-0">
+          <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
+            <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="https://tailwindui.com/img/component-images/inbox-app-screenshot-1.jpg" alt="Inbox user interface">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-24">
+      <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
+        <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
+          <div>
+            <div>
+              <span class="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
+                <!-- Heroicon name: outline/sparkles -->
+                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+              </span>
+            </div>
+            <div class="mt-6">
+              <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
+                Better understand your customers
+              </h2>
+              <p class="mt-4 text-lg text-gray-500">
+                Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
+              </p>
+              <div class="mt-6">
+                <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                  Get started
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
+          <div class="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
+            <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="https://tailwindui.com/img/component-images/inbox-app-screenshot-2.jpg" alt="Customer profile user interface">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 
 

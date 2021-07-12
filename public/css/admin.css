@@ -401,13 +401,11 @@ del {
 /*Lazy load */
 
 .blur-up {
-  -webkit-filter: blur(5px);
   filter: blur(5px);
-  transition: filter 400ms, -webkit-filter 400ms;
+  transition: filter 400ms;
 }
 
 .blur-up.lazyloaded {
-  -webkit-filter: blur(0);
   filter: blur(0);
 }
 
@@ -799,8 +797,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
 }
 
 .logo-block img {
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
+  filter: grayscale(100%);
   opacity: 0.5;
   transition: 0.5s ease;
   margin: 0 auto;
@@ -811,8 +808,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
 }
 
 .logo-block img:hover {
-  -webkit-filter: grayscale(0);
-          filter: grayscale(0);
+  filter: grayscale(0);
   opacity: 1;
   transition: 0.5s ease;
 }
@@ -909,8 +905,7 @@ header.header-gym .onhover-div {
 }
 
 header.header-gym .onhover-div > div img {
-  -webkit-filter: brightness(54);
-          filter: brightness(54);
+  filter: brightness(54);
 }
 
 header.header-gym .top-header {
@@ -983,8 +978,7 @@ header.header-black .onhover-div {
 }
 
 header.header-black .onhover-div > div img {
-  -webkit-filter: brightness(54);
-          filter: brightness(54);
+  filter: brightness(54);
 }
 
 header.header-5 {
@@ -1074,13 +1068,11 @@ header.header-7 .onhover-div {
 }
 
 header.header-7 .onhover-div img {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
+  filter: brightness(100);
 }
 
 header.header-7 .onhover-div .show-div img {
-  -webkit-filter: unset;
-          filter: unset;
+  filter: unset;
 }
 
 header.header-7 .onhover-div:hover .show-div {
@@ -1535,8 +1527,7 @@ header.header-christmas .onhover-div {
 }
 
 header.header-christmas .onhover-div > div img {
-  -webkit-filter: brightness(54);
-          filter: brightness(54);
+  filter: brightness(54);
 }
 
 header.header-christmas .top-header {
@@ -2139,13 +2130,11 @@ header.marketplace .top-header .header-dropdown li a i {
 }
 
 .main-menu .menu-right .icon-nav.white-icon .onhover-div img {
-  -webkit-filter: brightness(5);
-          filter: brightness(5);
+  filter: brightness(5);
 }
 
 .main-menu .menu-right .icon-nav.white-icon .onhover-div .show-div img {
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .nav-cat li {
@@ -3320,8 +3309,7 @@ header.marketplace .top-header .header-dropdown li a i {
 }
 
 .category-block:hover .category-image img {
-  -webkit-filter: brightness(0) invert(1);
-          filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
   transition: all 0.5s ease;
 }
 
@@ -6398,8 +6386,7 @@ header.marketplace .top-header .header-dropdown li a i {
 }
 
 .game-back .onhover-div img {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
+  filter: brightness(100);
 }
 
 .game-back .main-menu.border-section {
@@ -12654,7 +12641,6 @@ footer.footer-christmas .social-white i:hover {
 }
 
 .dashboard-section .dashboard-sidebar {
-  position: -webkit-sticky;
   position: sticky;
   top: 30px;
   z-index: 1;
@@ -14073,8 +14059,7 @@ footer.footer-christmas .social-white i:hover {
 }
 
 .setting-box .buy_btn a img {
-  -webkit-filter: grayscale(100);
-          filter: grayscale(100);
+  filter: grayscale(100);
 }
 
 .setting-box .overlay {
@@ -16407,13 +16392,11 @@ body.dark {
 }
 
 .dark header.left-header .main-menu .menu-right .header-dropdown > li img {
-  -webkit-filter: invert(100);
-          filter: invert(100);
+  filter: invert(100);
 }
 
 .dark header.left-header .onhover-div > div img {
-  -webkit-filter: invert(100);
-          filter: invert(100);
+  filter: invert(100);
 }
 
 .dark header.left-header .sidenav nav {
@@ -16498,8 +16481,7 @@ body.dark {
 }
 
 .dark .onhover-div > div img {
-  -webkit-filter: brightness(100);
-          filter: brightness(100);
+  filter: brightness(100);
 }
 
 .dark .onhover-div .show-div {
@@ -17391,13 +17373,11 @@ body.dark {
 }
 
 .dark .logo-block img {
-  -webkit-filter: invert(100);
-          filter: invert(100);
+  filter: invert(100);
 }
 
 .dark .logo-block img:hover {
-  -webkit-filter: invert(100);
-          filter: invert(100);
+  filter: invert(100);
 }
 
 .dark .bg-white {
@@ -17925,8 +17905,7 @@ body.dark {
 }
 
 .dark .theme-modal.exit-modal .stop {
-  -webkit-filter: invert(100);
-          filter: invert(100);
+  filter: invert(100);
 }
 
 .dark #quick-view .modal-dialog .modal-content .modal-body {
@@ -17961,8 +17940,7 @@ body.dark {
 }
 
 .dark .effect-cls:before, .dark .effect-cls:after {
-  -webkit-filter: invert(100);
-          filter: invert(100);
+  filter: invert(100);
 }
 
 .dark .game-product .product-box .cart-info a i {
@@ -19307,8 +19285,7 @@ body.dark {
   }
 
   .header-5 .top-header .header-dropdown .mobile-wishlist img, .header-5 .top-header .header-dropdown .mobile-account img {
-    -webkit-filter: brightness(5);
-            filter: brightness(5);
+    filter: brightness(5);
   }
 
   .header-5 .main-menu .brand-logo {
@@ -24453,10 +24430,6 @@ table tbody .border-bottom-warning td {
 }
 
 .chat-box .people-list .search .form-control:-ms-input-placeholder {
-  color: #aaaaaa;
-}
-
-.chat-box .people-list .search .form-control::-ms-input-placeholder {
   color: #aaaaaa;
 }
 

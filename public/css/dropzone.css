@@ -37,8 +37,7 @@
 .dropzone .dz-message {
   opacity: 1;
   -ms-filter: none;
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .dropzone .dz-preview {
@@ -178,8 +177,7 @@
   display: block;
   opacity: 1;
   -ms-filter: none;
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .dropzone .dz-preview.dz-file-preview [data-dz-thumbnail] {
@@ -190,8 +188,7 @@
   display: block;
   opacity: 1;
   -ms-filter: none;
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .dropzone .dz-preview.dz-error .dz-progress .dz-upload {
@@ -202,8 +199,7 @@
   display: block;
   opacity: 1;
   -ms-filter: none;
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .dropzone .dz-preview.dz-success .dz-progress {
@@ -221,8 +217,7 @@
 .dropzone .dz-default.dz-message {
   opacity: 1;
   -ms-filter: none;
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
   transition: opacity 0.3s ease-in-out;
   background-image: image-url("dropzone-spritemap.png");
   background-repeat: no-repeat;
@@ -402,8 +397,7 @@
   display: block;
   opacity: 1;
   -ms-filter: none;
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .dropzone-previews .dz-preview.dz-file-preview [data-dz-thumbnail] {
@@ -414,8 +408,7 @@
   display: block;
   opacity: 1;
   -ms-filter: none;
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .dropzone-previews .dz-preview.dz-error .dz-progress .dz-upload {
@@ -426,8 +419,7 @@
   display: block;
   opacity: 1;
   -ms-filter: none;
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 
 .dropzone-previews .dz-preview.dz-success .dz-progress {
