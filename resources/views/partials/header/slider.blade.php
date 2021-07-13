@@ -2,7 +2,7 @@
     <div class="slide-1 home-slider">
         <div>
             <div class="home text-center">
-                <img src="{{ asset('assets/images/banner.jpg') }}" alt="" class="bg-img blur-up fixed lazyload">
+                <img src="{{ asset('assets/images/bannerNew.jpg') }}" alt="" class="bg-img blur-up fixed lazyload">
                 <div class="container">
                     <div class="row">
                         <div class="col">
