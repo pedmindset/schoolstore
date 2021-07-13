@@ -26,7 +26,7 @@
                             </svg>
                             <div class="media-body">
                                 <h4>free shipping</h4>
-                                <p>free shipping world wide</p>
+                                <p>free delivery to all schools in Ghana</p>
                             </div>
                         </div>
                     </div>
