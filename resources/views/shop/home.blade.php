@@ -219,27 +219,47 @@
         </div>
     </section>
 
-      <!-- Parallax banner -->
-      <section class="p-0">
-        <div class="full-banner parallax text-center p-left">
-            <img src="{{ asset('assets/images/banner3.jpg') }}" alt="" class="bg-img blur-up lazyload">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="text-left bg-gray-50 bg-opacity-75 flex rounded-r-lg shadow-xl max-w-4xl">
-                            <div class="w-4 bg-red-400"></div>
-                            <div class="p-6 text-left opacity-100 ">
-                                <h2 class="px-2 font-black text-gray-500 ">Never</h2>
-                                <h1 class="pl-2 mb-2 text-red-600 ">Run out of Provisions</h1>
-                                <a href="{{ url('shop/products') }}"><h3 class="mb-2 cursor-pointer text-white px-6 bg-red-500 hover:bg-red-700 hover:shadow-md shadow py-2 opacity-100 w-48 rounded-full">Order Now!</h3></a>
-                            </div>
+    <div class="relative py-16 bg-white">
+        <div class="hidden absolute top-0 inset-x-0 h-1/2 bg-gray-50 lg:block" aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto bg-red-600 lg:bg-transparent lg:px-8">
+            <div class="lg:grid lg:grid-cols-12">
+                <div class="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-4 lg:py-16 lg:bg-transparent">
+                    <div class="absolute inset-x-0 h-1/2 bg-gray-50 lg:hidden" aria-hidden="true"></div>
+                    <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
+                        <div class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
+                            <img class="object-cover object-center " src="{{ asset('images/categories/indomie-instant-noodles-chicken-flavour-hungry-man-size.png')}}" alt="">
                         </div>
+                    </div>
+                </div>
 
+                <div class="relative bg-red-600 lg:col-start-3 lg:row-start-1 lg:col-span-10 lg:rounded-3xl lg:grid lg:grid-cols-10 lg:items-center">
+                    <div class="hidden absolute inset-0 overflow-hidden rounded-3xl lg:block" aria-hidden="true">
+                        <svg class="absolute bottom-full left-full transform translate-y-1/3 -translate-x-2/3 xl:bottom-auto xl:top-0 xl:translate-y-0" width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
+                            <defs>
+                                <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <rect x="0" y="0" width="4" height="4" class="text-red-500" fill="currentColor" />
+                                </pattern>
+                            </defs>
+                            <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
+                        </svg>
+                        <svg class="absolute top-full transform -translate-y-1/3 -translate-x-1/3 xl:-translate-y-1/2" width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
+                            <defs>
+                                <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                    <rect x="0" y="0" width="4" height="4" class="text-red-500" fill="currentColor" />
+                                </pattern>
+                            </defs>
+                            <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
+                        </svg>
+                    </div>
+                    <div class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
+                        <h2 class="text-3xl font-extrabold text-white" id="join-heading">Our Favorate instant Noodles</h2>
+                        <p class="text-lg text-white">Shop varieties of our favorite instant noodles</p>
+                        <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-red-700 hover:bg-gray-50 sm:inline-block sm:w-auto" href="{{ url('shop/products?category=noodles') }}">Shop Now!</a>
                     </div>
                 </div>
             </div>
         </div>
-      </section>
+    </div>
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="relative bg-white pt-16 pb-32 overflow-hidden">
         <div class="relative">
@@ -330,6 +350,31 @@
         </div>
         </div>
     </div>
+
+
+
+     <!-- Parallax banner -->
+     <section class="p-0">
+        <div class="full-banner parallax text-center p-left">
+            <img src="{{ asset('assets/images/banner3.jpg') }}" alt="" class="bg-img blur-up lazyload">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="text-left bg-gray-50 bg-opacity-75 flex rounded-r-lg shadow-xl max-w-4xl">
+                            <div class="w-4 bg-red-400"></div>
+                            <div class="p-6 text-left opacity-100 ">
+                                <h2 class="px-2 font-black text-gray-500 ">Never</h2>
+                                <h1 class="pl-2 mb-2 text-red-600 ">Run out of Provisions</h1>
+                                <a href="{{ url('shop/products') }}"><h3 class="mb-2 cursor-pointer text-white px-6 bg-red-500 hover:bg-red-700 hover:shadow-md shadow py-2 opacity-100 w-48 rounded-full">Order Now!</h3></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
 
     {{-- <!-- instagram section -->
     @include('partials.footer.instagram')
