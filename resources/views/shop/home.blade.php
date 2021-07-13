@@ -124,8 +124,8 @@
                                 </g>
                             </svg>
                             <div class="media-body">
-                                <h4>online payment</h4>
-                                <p>new online special festival offer</p>
+                                <h4>Pay with Credit</h4>
+                                <p>Request Credit or Grant Third Party Access</p>
                             </div>
                         </div>
                     </div>
