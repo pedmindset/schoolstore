@@ -1,8 +1,8 @@
 <div class="product-box hover:mt-2 hover:shadow-2xl pb-2 flex flex-col justify-between @isset($shadow) shadow-md rounded-md @endisset">
     <div class="img-wrapper ">
-        <div class="front max-h-56">
+        <div class="front max-h-60">
             <a class="flex items-center justify-center" href="{{ route('shop.product', ['slug' => $product->slug]) }}">
-                <img src="{{ $product->cover_photo }}" class="max-h-56 object-contain  " alt="">
+                <img src="{{ $product->cover_photo }}" class="max-h-60 object-contain  " alt="">
             </a>
         </div>
         {{-- <div class="back max-h-56">
