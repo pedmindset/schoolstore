@@ -179,26 +179,24 @@
     <!-- Tab product end -->
 
     <div class="bg-white">
-        <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div class="bg-indigo-700 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
-            <div class="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
-            <div class="lg:self-center">
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-                <span class="block">Ready to dive in?</span>
-                <span class="block">Start your free trial today.</span>
-                </h2>
-                <p class="mt-4 text-lg leading-6 text-indigo-200">Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla nec.</p>
-                <a href="#" class="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-indigo-600 hover:bg-indigo-50">Sign up for free</a>
+        <div class="max-w-8xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+            <div class="bg-red-700 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
+                <div class="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
+                    <div class="lg:self-center">
+                        <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                        <span class="block">Get everything you need</span>
+                        <span class="block">For the long nights.</span>
+                        </h2>
+                        <p class="mt-4 text-lg leading-6 text-red-200">24 x 7 Service delivery</p>
+                        <a href="{{ url('shop/categories') }}" class="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-red-600 hover:bg-red-50">Start Shopping</a>
+                    </div>
+                </div>
+                <div class="mt-0 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1 ">
+                    <img class="rounded-md object-contain object-center mt-0" src="{{ asset('images/categories/NESTLE_Nescafe_Classic_2g.png') }}" alt="App screenshot">
+                </div>
             </div>
-            </div>
-            <div class="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
-            <img class="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20" src="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg" alt="App screenshot">
-            </div>
-        </div>
         </div>
     </div>
-
-
 
      <!-- Paragraph-->
      <div class="title1 section-t-space">
@@ -243,100 +241,95 @@
         </div>
       </section>
     <!-- This example requires Tailwind CSS v2.0+ -->
-  <div class="relative bg-white pt-16 pb-32 overflow-hidden">
-    <div class="relative">
-      <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-        <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
-          <div>
+    <div class="relative bg-white pt-16 pb-32 overflow-hidden">
+        <div class="relative">
+        <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
+            <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
             <div>
-              <span class="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
-                <!-- Heroicon name: outline/inbox -->
-                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                </svg>
-              </span>
-            </div>
-            <div class="mt-6">
-              <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                Stay on top of customer support
-              </h2>
-              <p class="mt-4 text-lg text-gray-500">
-                Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
-              </p>
-              <div class="mt-6">
-                <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                  Get started
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="mt-8 border-t border-gray-200 pt-6">
-            <blockquote>
-              <div>
-                <p class="text-base text-gray-500">
-                  &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed diam. Sit orci risus aenean curabitur donec aliquet. Mi venenatis in euismod ut.&rdquo;
-                </p>
-              </div>
-              <footer class="mt-3">
-                <div class="flex items-center space-x-3">
-                  <div class="flex-shrink-0">
-                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
-                  </div>
-                  <div class="text-base font-medium text-gray-700">
-                    Marcia Hill, Digital Marketing Manager
-                  </div>
+                <div>
+                    <span class="h-12 w-12 rounded-md flex items-center justify-center bg-red-600">
+                        <!-- Heroicon name: outline/inbox -->
+                        <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                        </svg>
+                    </span>
                 </div>
-              </footer>
-            </blockquote>
-          </div>
+                    <div class="mt-6">
+                    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
+                       Download Mobile App and Start Shopping
+                    </h2>
+                    <p class="mt-4 text-lg text-gray-500">
+                        Our easy to use mobile app is here to make your shopping experience even more pleasant. Track your orders, request for credit and manage your cart.
+                    </p>
+                    <div class="mt-6">
+                        <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700">
+                       Comming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-200 pt-6">
+                <blockquote>
+                <div>
+                    <p class="text-base text-gray-500">
+                        Download will be available on Google Play Store and Apple Store
+                    </p>
+                </div>
+                {{-- <footer class="mt-3">
+                    <div class="flex items-center space-x-3">
+                    <div class="flex-shrink-0">
+                        <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+                    </div>
+                    <div class="text-base font-medium text-gray-700">
+                        Marcia Hill, Digital Marketing Manager
+                    </div>
+                    </div>
+                </footer> --}}
+                </blockquote>
+            </div>
+            </div>
+            <div class="mt-12 sm:mt-16 lg:mt-0">
+            <div class="flex justify-center items-center pl-4 sm:pl-6 lg:px-0 lg:m-0 lg:relative lg:h-full">
+                <img class="w-5/12  rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="{{ asset('images/student_shop_mobile_1.jpeg') }}" alt="Inbox user interface">
+            </div>
+            </div>
         </div>
-        <div class="mt-12 sm:mt-16 lg:mt-0">
-          <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-            <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="https://tailwindui.com/img/component-images/inbox-app-screenshot-1.jpg" alt="Inbox user interface">
-          </div>
         </div>
-      </div>
-    </div>
-    <div class="mt-24">
-      <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-        <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
-          <div>
+        <div class="mt-24">
+        <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
+            <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
             <div>
-              <span class="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
-                <!-- Heroicon name: outline/sparkles -->
-                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
-              </span>
+                <div>
+                <span class="h-12 w-12 rounded-md flex items-center justify-center bg-red-600">
+                    <!-- Heroicon name: outline/sparkles -->
+                    <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                </span>
+                </div>
+                <div class="mt-6">
+                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
+                    Request For Credit with a click of a button
+                </h2>
+                <p class="mt-4 text-lg text-gray-500">
+                    Account Verification in simple steps. <br>1. Register with a valid phone number and verify your identity as a student. <br>2. Add a valid Mobile Money number. <br>3. Add and verify your guarantors details and Mobile Money number. <br>4. Add your School, Hostel and room number or Dormitory to start receiving your orders at your door step.
+                </p>
+                <div class="mt-6">
+                    <a href="{{ url('register') }}" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700">
+                    Get Started
+                    </a>
+                </div>
+                </div>
             </div>
-            <div class="mt-6">
-              <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                Better understand your customers
-              </h2>
-              <p class="mt-4 text-lg text-gray-500">
-                Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
-              </p>
-              <div class="mt-6">
-                <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                  Get started
-                </a>
-              </div>
             </div>
-          </div>
+            <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
+                <div class="flex justify-center items-center pr-4 sm:pr-6 lg:px-0 lg:m-0 lg:relative lg:h-full">
+                    <img class="w-5/12 rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="{{ asset('images/student_shop_mobile_2.jpeg') }}" alt="Customer profile user interface">
+                </div>
+            </div>
         </div>
-        <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
-          <div class="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-            <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="https://tailwindui.com/img/component-images/inbox-app-screenshot-2.jpg" alt="Customer profile user interface">
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-
-
-
-
-
 
     {{-- <!-- instagram section -->
     @include('partials.footer.instagram')
