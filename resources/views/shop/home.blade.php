@@ -363,9 +363,9 @@
                         <div class="text-left bg-gray-50 bg-opacity-75 flex rounded-r-lg shadow-xl max-w-4xl">
                             <div class="w-4 bg-red-400"></div>
                             <div class="p-6 text-left opacity-100 ">
-                                <h2 class="px-2 font-black text-gray-500 ">Never</h2>
-                                <h1 class="pl-2 mb-2 text-red-600 ">Run out of Provisions</h1>
-                                <a href="{{ url('shop/products') }}"><h3 class="mb-2 cursor-pointer text-white px-6 bg-red-500 hover:bg-red-700 hover:shadow-md shadow py-2 opacity-100 w-48 rounded-full">Order Now!</h3></a>
+                                <h2 class="px-2 font-black text-gray-700 text-lg md:text-2xl ">Never</h2>
+                                <h1 class="pl-2 mb-2 text-red-600 text-lg md:text-4xl">Run out of Provisions</h1>
+                                <a href="{{ url('shop/products') }}"><h3 class="mb-2 text-lg md:text-2xl cursor-pointer text-white px-6 bg-red-500 hover:bg-red-700 hover:shadow-md shadow py-2 opacity-100 w-48 rounded-full">Order Now!</h3></a>
                             </div>
                         </div>
 
