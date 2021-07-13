@@ -15,7 +15,7 @@
             @foreach ($productCategories as $category)
             <div class="mb-5">
                 <div class="collection-block">
-                    <div class="rounded-md shadow-md hover:shadow-2xl cursor-pointer ">
+                    <div class="rounded-md shadow-2xl hover:shadow-md cursor-pointer ">
                         <img src="{{  $category->getfirstMediaUrl('cover') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                     </div>
                     <div class="collection-content">
