@@ -28,7 +28,7 @@ class ShopController extends Controller
         $category = ProductCategory::whereSlug($request->category)->first();
         $products = Product::when(!empty($request->category), function ($query) use ($category) {
             $query->where('product_category_id', $category->id);
-        })->inRandomOrder()->paginate(20);
+        })->inRandomOrder()->paginate(24);
         return view('shop.products', compact('products', 'category', 'featuredProducts'));
     }
 
