@@ -7,7 +7,7 @@
                         <div class="col-lg-6">
                             <div class="header-contact">
                                 <ul>
-                                    <li>Welcome to Our School Shop</li>
+                                    <li>Welcome to Our Student Shop</li>
                                     <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
                                 </ul>
                             </div>

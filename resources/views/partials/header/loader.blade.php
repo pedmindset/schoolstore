@@ -6,15 +6,14 @@
                 <div class="col-lg-6">
                     <div class="header-contact">
                         <ul>
-                            <li>Welcome to Our store School Shop</li>
+                            <li>Welcome to Our store Student Shop</li>
                             <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 text-right">
                     <ul class="header-dropdown">
-                        <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                        </li>
+                        <li class="mobile-wishlist"><a href="{{ url('shop/products') }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Shop</a>
                         <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
                             My Account
                         </li>

@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row partition-collection">
             @foreach ($productCategories as $category)
-            <div class="col-lg-3 col-md-6 mb-5">
+            <div class="col-lg-3 col-md-6  mb-5">
                 <div class="collection-block">
                     <div>
                         <img src="{{ $category->getFirstMediaUrl('cover') ?? asset('images/collection/1.jpg') }}" class="img-fluid blur-up lazyload bg-img"alt="">
