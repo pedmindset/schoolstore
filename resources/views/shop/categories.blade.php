@@ -11,9 +11,9 @@
 <!--section start-->
 <section class="collection section-b-space ratio_square ">
     <div class="container">
-        <div class="row partition-collection">
+        <div class="grid grid-cols-2 sm:grid-cols-3  lg:grid-cols-4 gap-4 ">
             @foreach ($productCategories as $category)
-            <div class="col-lg-3 col-md-6  mb-5">
+            <div class="mb-5">
                 <div class="collection-block">
                     <div class="rounded-md shadow-md hover:shadow-2xl cursor-pointer ">
                         <img src="{{  $category->getfirstMediaUrl('cover') }}" class="img-fluid blur-up lazyload bg-img" alt="">
