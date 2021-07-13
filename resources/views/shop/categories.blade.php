@@ -15,8 +15,8 @@
             @foreach ($productCategories as $category)
             <div class="col-lg-3 col-md-6  mb-5">
                 <div class="collection-block">
-                    <div>
-                        <img src="{{ $category->getFirstMediaUrl('cover') ?? asset('images/collection/1.jpg') }}" class="img-fluid rounded shadow blur-up lazyload bg-img"alt="">
+                    <div class="rounded-md shadow-md hover:shadow-2xl cursor-pointer ">
+                        <img src="{{  $category->getfirstMediaUrl('cover') }}" class="img-fluid blur-up lazyload bg-img" alt="">
                     </div>
                     <div class="collection-content">
                         <h4>({{ $category->products_count }} products)</h4>
