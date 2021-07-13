@@ -1,4 +1,4 @@
-<div class="product-box hover:mt-2 hover:shadow-2xl pb-2  @isset($shadow) shadow-md rounded-md @endisset">
+<div class="product-box hover:mt-2 hover:shadow-2xl pb-2 flex flex-col justify-between @isset($shadow) shadow-md rounded-md @endisset">
     <div class="img-wrapper ">
         <div class="front max-h-56">
             <a class="flex items-center justify-center" href="{{ route('shop.product', ['slug' => $product->slug]) }}">
