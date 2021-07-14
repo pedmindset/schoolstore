@@ -19,7 +19,7 @@
             </a>
         </div>
     </div>
-    <div class="product-detail @isset($shadow)  @endisset  px-2">
+    <div class="product-detail @isset($shadow)  @endisset px-2">
         <a class="truncate nowrap" href="{{ route('shop.product', ['slug' => $product->slug]) }}">
             <h6 class="truncate nowrap">{{ $product->name }}</h6>
         </a>
@@ -27,10 +27,10 @@
         <p>{{ $product->description }}</p>
         @endif --}}
         <div class="flex flex-wrap-reverse justify-between">
-        <h4 class="text-sm my-1">{{ $product->price_with_currency }}</h4>
-        <button type="button" title="Add to cart" class="px-1 my-1 overflow-hidden border rounded-full addtocart text-xs" data-product="{{ $product }}">
-            <i class="ti-shopping-cart"> Add to cart</i>
-        </button>
+            <h4 class="text-sm my-1">{{ $product->price_with_currency }}</h4>
+            <button type="button" title="Add to cart" class="px-1 my-1 overflow-hidden border rounded-full addtocart text-xs" data-product="{{ $product }}">
+                <i class="ti-shopping-cart"> Add to cart</i>
+            </button>
         </div>
 
     </div>
